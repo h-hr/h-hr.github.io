@@ -1,0 +1,1 @@
+function Js(text){return JSON.stringify(text)}

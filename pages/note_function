@@ -1,0 +1,15 @@
+
+
+function slice_html(input,value){
+result=[]
+bound=parseInt(input.length/value)+1
+
+for (let index = 0; index < bound; index++) {
+result.push(input.slice(0,value))
+input=input.slice(value)  
+}
+
+return result
+
+}
+

@@ -1,0 +1,20 @@
+cl=['red','Orange','Yellow','Green','Blue','Indigo ','Violet']
+
+cle=cl.length
+cle_=1
+for (let index = 0; index < cle; index++) {
+    
+cle_=cle_+cle
+
+cle=cle-1
+}
+
+
+for (let index = 0; index < bound; index++) {
+    
+
+
+
+
+
+}

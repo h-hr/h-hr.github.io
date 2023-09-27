@@ -1,0 +1,27 @@
+url='https://script.google.com/macros/s/AKfycbyVxmN9QKExh6xWcUn1ZhQNv4GIXY-aeIteIYZULbI6S3cDO4DXPmlIkHH4CRssVO8e/exec'
+function git_user(name,req,bath,con,data){
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+
+var raw = data;
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch(url+"?"+"s="+req+"&bath="+bath+"&tobase64="+con+"&name="+name, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+}
+//git_user('test',1,'new-folder/note.txt',1,'abc')
+//username ('test')
+//command 1=creat 2=edit 3=delete
+//path('folder-name/file-name')
+//1=convert to base64 0=no convert
+//text ('abc')

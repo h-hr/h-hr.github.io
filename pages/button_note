@@ -1,0 +1,16 @@
+//$0.querySelector('text').style.fontSize
+//$0.querySelector('text').getBoundingClientRect().height
+//$0.querySelector('text').getBoundingClientRect().width
+
+<button class="svg-clipped" style="width: 392.188px; height: 223px; top: 183px; left: 410px; transform: rotate(0deg); font-size: 20px; scale: 1;" id="mydiv" onclick="action(this);" select="true"><style>
+            .svg-clipped {
+                -webkit-clip-path: url(#svgPath);
+                clip-path: url(#svgPath);
+            }
+        </style><svg height="0" width="0">
+            <defs>
+                <clipPath id="svgPath">
+                    <text font-style="italico" style="; font-size: 200px;" lengthAdjust="spacing" y="160" x="0" font-weight="700">السلام</text>
+                </clipPath>
+            </defs>
+        </svg></button>

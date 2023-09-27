@@ -1,0 +1,20 @@
+cl=['red','Orange','Yellow','Green','Blue','Indigo ','Violet']
+
+cle=cl.length
+
+const elm=document.querySelector('[select=true]').style
+
+cn=1
+
+for (let index = 0; index < cle; index++) {
+    
+old_c=cl[index]
+
+elm.setPropertyValue('--tsc',cl[index])
+
+
+
+elm.getPropertyValue('--tsc')
+
+cn=cn+1
+}

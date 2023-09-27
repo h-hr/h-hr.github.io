@@ -1,0 +1,16 @@
+function test() {
+  const cl = ['red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo ', 'Violet']
+  const cle = cl.length
+  let selectedElement = document.querySelector('[select=true]')
+  let ci = 0
+  
+  for (let index = 0; index < cle; index++) {
+    selectedElement.style.setProperty('--tsc', cl[index])
+    const newElement = selectedElement.cloneNode(true)
+    newElement.style.setProperty('--tsc', cl[(index + 1) % cle])
+    selectedElement.insertAdjacentElement('afterend', newElement)
+    selectedElement.setAttribute('select', 'false')
+    selectedElement = newElement
+    ci++
+  }
+}

@@ -1,0 +1,2 @@
+function checker_code(){Strong_Worker('',sliced_2.indexOf(''),`if(result==-1){console.log(String(eval(sliced_2.join('n+')+'n')))}else{checker_code()}`)}
+checker_code()
