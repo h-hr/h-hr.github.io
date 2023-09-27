@@ -1,0 +1,36 @@
+function cut_letters(text){
+text=text.replaceAll('ا','ا').replaceAll('ﺍ','ا').replaceAll('ﺎ','ا');
+text=text.replaceAll('ب','ب').replaceAll('ﺏ','ب').replaceAll('ﺐ','ب').replaceAll('ﺒ','ب').replaceAll('ﺑ','ب');
+text=text.replaceAll('ت','ت').replaceAll('ﺕ','ت').replaceAll('ﺖ','ت').replaceAll('ﺘ','ت').replaceAll('ﺗ','ت');
+text=text.replaceAll('ث','ث').replaceAll('ﺙ','ث').replaceAll('ﺚ','ث').replaceAll('ﺜ','ث').replaceAll('ﺛ','ث');
+text=text.replaceAll('ج','ج').replaceAll('ﺝ','ج').replaceAll('ﺞ','ج').replaceAll('ﺠ','ج').replaceAll('ﺟ','ج');
+text=text.replaceAll('ح','ح').replaceAll('ﺡ','ح').replaceAll('ﺢ','ح').replaceAll('ﺤ','ح').replaceAll('ﺣ','ح');
+text=text.replaceAll('خ','خ').replaceAll('ﺥ','خ').replaceAll('ﺦ','خ').replaceAll('ﺨ','خ').replaceAll('ﺧ','خ');
+text=text.replaceAll('د','د').replaceAll('ﺩ','د').replaceAll('ﺪ','د');
+text=text.replaceAll('ذ','ذ').replaceAll('ﺫ','ذ').replaceAll('ﺬ','ذ');
+text=text.replaceAll('ر','ر').replaceAll('ﺭ','ر').replaceAll('ﺮ','ر');
+text=text.replaceAll('ز','ز').replaceAll('ﺯ','ز').replaceAll('ﺰ','ز');
+text=text.replaceAll('س','س').replaceAll('ﺱ','س').replaceAll('ﺲ','س').replaceAll('ﺴ','س').replaceAll('ﺳ','س');
+text=text.replaceAll('ش','ش').replaceAll('ﺵ','ش').replaceAll('ﺶ','ش').replaceAll('ﺸ','ش').replaceAll('ﺷ','ش');
+text=text.replaceAll('ص','ص').replaceAll('ﺹ','ص').replaceAll('ﺺ','ص').replaceAll('ﺼ','ص').replaceAll('ﺻ','ص');
+text=text.replaceAll('ض','ض').replaceAll('ﺽ','ض').replaceAll('ﺾ','ض').replaceAll('ﻀ','ض').replaceAll('ﺿ','ض');
+text=text.replaceAll('ط','ط').replaceAll('ﻁ','ط').replaceAll('ﻂ','ط').replaceAll('ﻄ','ط').replaceAll('ﻃ','ط');
+text=text.replaceAll('ظ','ظ').replaceAll('ﻅ','ظ').replaceAll('ﻆ','ظ').replaceAll('ﻈ','ظ').replaceAll('ﻇ','ظ');
+text=text.replaceAll('ع','ع').replaceAll('ﻉ','ع').replaceAll('ﻊ','ع').replaceAll('ﻌ','ع').replaceAll('ﻋ','ع');
+text=text.replaceAll('غ','غ').replaceAll('ﻍ','غ').replaceAll('ﻎ','غ').replaceAll('ﻐ','غ').replaceAll('ﻏ','غ');
+text=text.replaceAll('ف','ف').replaceAll('ﻑ','ف').replaceAll('ﻒ','ف').replaceAll('ﻔ','ف').replaceAll('ﻓ','ف');
+text=text.replaceAll('ق','ق').replaceAll('ﻕ','ق').replaceAll('ﻖ','ق').replaceAll('ﻘ','ق').replaceAll('ﻗ','ق');
+text=text.replaceAll('ك','ك').replaceAll('ﻙ','ك').replaceAll('ﻚ','ك').replaceAll('ﻜ','ك').replaceAll('ﻛ','ك');
+text=text.replaceAll('ل','ل').replaceAll('ﻝ','ل').replaceAll('ﻞ','ل').replaceAll('ﻠ','ل').replaceAll('ﻟ','ل');
+text=text.replaceAll('م','م').replaceAll('ﻡ','م').replaceAll('ﻢ','م').replaceAll('ﻤ','م').replaceAll('ﻣ','م');
+text=text.replaceAll('ن','ن').replaceAll('ﻥ','ن').replaceAll('ﻦ','ن').replaceAll('ﻨ','ن').replaceAll('ﻧ','ن');
+text=text.replaceAll('ه','ه').replaceAll('ﻩ','ه').replaceAll('ﻪ','ه').replaceAll('ﻬ','ه').replaceAll('ﻫ','ه');
+text=text.replaceAll('و','و').replaceAll('ﻭ','و').replaceAll('ﻮ','و');
+text=text.replaceAll('ي','ي').replaceAll('ﻱ','ي').replaceAll('ﻲ','ي').replaceAll('ﻴ','ي').replaceAll('ﻳ','ي');
+text=text.replaceAll('آ','آ').replaceAll('ﺁ','آ').replaceAll('ﺂ','آ');
+text=text.replaceAll('ة','ة').replaceAll('ﺓ','ة').replaceAll('ﺔ','ة');
+text=text.replaceAll('ى','ى').replaceAll('ﻯ','ى').replaceAll('ﻰ','ى');
+text=text.replaceAll('ﺄ','أ');
+text=text.replaceAll('ﺌ','ئ').replaceAll('ﺌ','ئ');
+  return text
+}

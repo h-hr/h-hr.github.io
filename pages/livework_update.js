@@ -1,0 +1,1 @@
+aavascript:ds=[];bound=Worksheet.elements[0].parent.data.originalJSON.length;for (let index = 0; index < bound; index++){ds.push(index+':'+Worksheet.elements[0].parent.data.originalJSON[index][0])+'********';}document.body.innerHTML=ds.join('      ');
