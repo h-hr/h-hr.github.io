@@ -1,0 +1,122 @@
+<html><head></head><body onload="loadjson()" onclick="send()">
+<script>
+function select() {
+var texxt, Count, i;
+
+
+texxt = '';
+Count = 0;
+i = 0;
+
+Count = i;
+while (Count == window.location.href.length) {
+
+
+
+Count = (typeof Count === 'number' ? Count : 0) + 1;
+  texxt = texxt + window.location.href[count];
+}
+
+
+var i;
+i= 0;
+while (!(window.location.href[i] == "#")) {i= i+ 1;
+
+
+iol=i
+
+
+
+}
+var texxt, Count, i;
+
+i = (i+1)
+texxt = '';
+Count = 0;
+
+
+Count = i;
+while (Count == window.location.href.length) {
+
+
+
+Count = (typeof Count === 'number' ? Count : 0) + 1;
+  texxt = texxt + window.location.href[count];
+}
+
+
+var i;
+while (!(window.location.href[i] == "#")) {i= i+ 1;
+
+
+
+
+
+
+}
+
+
+
+
+
+                                       
+y=window.location.href.slice(iol+1,i)
+y=decodeURIComponent(y)
+window.location.href=window.location.href.slice(0,iol)
++window.location.href.slice(i)}
+</script><script>
+function loadjson() {
+select()
+id=y
+select()
+key=y
+
+ 
+
+id=parseInt(id)+1
+id5='https://sheets.googleapis.com/v4/spreadsheets/1wxFeq4630DmBmv6vBRwkp_utfWyHmT9tf9a6k2s8WEs/values/Sheet1!'+
+id+':'+id+'?key='+key
+
+
+
+
+
+
+ var xhttp = new XMLHttpRequest(); var id2,ip1,ip2,ip3,ip4
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      id2 =
+      JSON.parse(this.responseText);
+	  setTimeout(remove, 1000);
+	  ip2=id2.values[0].join("")
+
+ip1='<style id="image"> body { background-image:url("'
+
+ip3='"); background-repeat: no-repeat; background-size: 100% 100%; } html { height: 100% } </style>'
+ip4=ip1+ip2+ip3
+document.body.innerHTML=document.body.innerHTML+ip4
+	 iage=document.querySelectorAll('[id^="image"]')[0].innerHTML.slice(30,-86)
+num=location.href.slice(iol+1)
+parent.toimag(id,num,iage)
+  
+	  
+    }
+  };
+  xhttp.open("GET", id5, true);
+  xhttp.send();
+
+}
+</script><script>
+function send() { var a
+  a=document.querySelectorAll('[id^="image"]')[0].innerHTML.slice(30,-86)
+parent.teest(a);
+ parent.getid(id-1);
+}
+</script><script>
+function remove() { if (document.querySelectorAll('[id^="image"]')[0]==undefined
+) {alert(123)}
+
+}
+</script>
+
+</body></html>

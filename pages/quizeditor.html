@@ -1,0 +1,84 @@
+<html><head><script type="text/javascript" src="quizeditor.js"></script><script>
+ url='https://script.google.com/macros/s/AKfycbxUdEDqhUD_7sh6cnqSkrSnoqYyCCq-Mjo1C0CdXPE9T5v_m0FRdoyadVfyZr8_BUglcw/exec'
+function git_user(name,req,bath,con,password){
+if(req > 3){
+fetch(url+'?nam='+name+'&ss='+req+'&password='+bath+'&bath='+con+'&toname='+password, { method: 'GET', redirect: 'follow' })
+  .then(response => response.text())
+  .then(result => add_images(result))
+  .catch(error => console.log('error', error));
+  }else{
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+data=document.querySelectorAll('img')[0].src.split(';base64,')[1]
+var raw = data;
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+if(req!=2){bath=bath+'.'+document.querySelectorAll('input')[0].files[0].name.split('.').slice(-1)}
+document.querySelectorAll('[id=converter]')[0].outerHTML=document.querySelectorAll('[id=converter]')[0].outerHTML
+fetch(url+"?"+"s="+req+"&bath="+bath+"&tobase64="+con+"&name="+name+"&password="+password, requestOptions)
+  .then(response => response.text())
+  .then(result => add_images(result))
+  .catch(error => console.log('error', error));
+}
+}
+//git_user('username',4,'password')
+//git_user('username',1,'filename',0,'password')
+//git_user('username',3,'password')
+//command 1=creat 2=edit 3=delete
+//path('folder-name/file-name')
+//1=convert to base64 0=no convert
+function creat_account(username,password){git_user(username,4,password)}
+function delete_account(username,password){git_user(username,5,password)}
+function creat_file(username,password,bath){git_user(username,1,bath,0,password)}
+function delete_file(username,password,bath){git_user(username,6,password,bath)}
+function edit_file(username,password,bath){git_user(username,2,bath,0,password)}
+function rename_file(username,password,bath,toname){git_user(username,7,password,bath,toname)}
+function get_baths(username,password){git_user(username,8,password)}
+function login(username,password){git_user(username,9,password)}
+ 
+ function add_images(baths){
+ 
+  imsrc=baths.split(',');
+
+for (let index = 0; index < imsrc.length; index++) {
+    
+src='https://raw.githubusercontent.com/hussainalhabeb1000/account/main/'+localStorage.username+'/content/'+imsrc[index]
+
+document.querySelectorAll('alc')[0].innerHTML+='<img onclick="hidde();teest(this.src);getid(this.src);" ' +'id2="immage"'+ 'src="' +src+'"  width="200" height="200" >'
+
+}
+  
+ }
+ 
+ </script><style id="image">body { background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII="); background-repeat: no-repeat; background-size: 100% 100%; } html { height: 100% }</style><style> body { background-color: black; } </style><style>iframe.hide{ opacity: 0.00001;}.f-size1 { font-size: 30px; }</style></head><body onload="pushlist(),loadimages2()" style="zoom: 1;"><all><question>
+
+
+<div align="center"><span class="f-size17 ap1" id="pp4"><div style="direction: rtl;" id="asd" contenteditable="true" class="f-size17 ap1" onkeyup="linksaved()"></div></span></div><div align="center"><button onclick="n()" class="f-size17 ap1" id="n">&lt;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="loadimages()" class="f-size17 ap1">🖼️</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="p()" class="f-size17 ap1" id="p">&gt;</button>
+
+
+<div align="center"><span class="f-size17 ap1" id="pp4" style=""><div style="direction: rtl;" class="f-size17 ap1" id="asd" contenteditable="true" onkeyup="linksaved()"></div></span></div><div align="center"><span class="f-size17 ap1" id="pp4" style=""><div style="direction: rtl;" class="f-size17 ap1" id="asd" contenteditable="true" onkeyup="linksaved()"></div></span></div><span class="f-size17 ap1" id="pp4"><div style="direction: rtl;" class="f-size17 ap1" id="asd" contenteditable="true" onkeyup="linksaved()"></div></span><span class="f-size17 ap1" id="pp4"><div style="direction: rtl;" class="f-size17 ap1" id="asd" contenteditable="true" onkeyup="linksaved()"></div></span><div style="direction: rtl;"><input type="checkbox" class="f-size17 ap1" id="dsa" onclick="cbchecked(4)"></div><div style="direction: rtl;"><input type="checkbox" class="f-size17 ap1" id="dsa" onclick="cbchecked(3)"></div><div style="direction: rtl;"><input type="checkbox" class="f-size17 ap1" id="dsa" onclick="cbchecked(2)"></div><div style="direction: rtl;"><input type="checkbox" class="f-size17 ap1" id="dsa" onclick="cbchecked(1)"></div> 
+<style>button.sco{
+ margin-left: 150px;
+  margin-right: auto;opacity: 0;}
+
+ .f-size17 { font-size: 40px; }
+.ap1{background:#eee;opacity: 0.6;}input[type=checkbox] {
+    transform: scale(1);width: 30px; 
+
+        height: 30px;
+}  [contentEditable=true]:empty:not(:focus):before{
+        content:attr(data-text)
+    }
+</style></div><img id2="imbox" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=" width="200" height="200" style="display: none;">
+
+</question><all></all></all><div id="divv" align="center"><button onclick="dte()" class="f-size17 ap1" id="bhide" style="display: none;">🗑️</button><button onclick="upclick()" class="f-size17 ap1" id="bhide" style="display: none;">🆙</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="f-size17 ap1" id="a1b">1</label><text class="f-size17 ap1" id="a1b">/</text><label class="f-size17 ap1" id="a2b">1</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="bbhide" onclick="deletequestion()" class="f-size1 ap1" style="">🗑️</button><button onclick="loadimages()" class="f-size17 ap1" id="bhide" style="display: none;">🖼️</button><div><meta name="viewport" content="width=device-width, initial-scale=1.0"></div></div><div align="center" id="myInput2" style=""><input type="text" id="myInput"><button onclick="myFunctioncopy()">Copy text</button></div>
+
+<alc></alc>
+
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="data:," class="hide"></iframe>
+
+</body></html>

@@ -1,0 +1,126 @@
+<html><head>
+    <title>SVG Scratch Pen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #drawing {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <svg id="drawing"></svg>
+    <button id="resetButton">Reset Drawing</button>
+
+    <script>
+        const svg = document.getElementById('drawing');
+        const resetButton = document.getElementById('resetButton');
+        const svgWidth = svg.clientWidth;
+        const svgHeight = svg.clientHeight;
+        let currentX = svgWidth / 2;
+        let currentY = svgHeight / 2;
+
+        let minX = currentX;
+        let minY = currentY;
+        let maxX = currentX;
+        let maxY = currentY;
+
+        function movePen(x, y) {
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            const newPath = `M ${currentX},${currentY} L ${x},${y}`;
+            path.setAttribute('d', newPath);
+            path.setAttribute('stroke', 'black');
+            path.setAttribute('stroke-width', '3');
+            path.setAttribute('fill', 'none');
+            svg.appendChild(path);
+
+            currentX = x;
+            currentY = y;
+
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x);
+            maxY = Math.max(maxY, y);
+
+            svg.setAttribute('viewBox', `${minX - 10} ${minY - 10} ${maxX - minX + 20} ${maxY - minY + 20}`);
+        }
+
+        function moveUp(distance) {
+            movePen(currentX, currentY - distance);
+        }
+
+        function moveDown(distance) {
+            movePen(currentX, currentY + distance);
+        }
+
+        function moveRight(distance) {
+            movePen(currentX + distance, currentY);
+        }
+
+        function moveLeft(distance) {
+            movePen(currentX - distance, currentY);
+        }
+                function moveDiagonalUpRight(distance) {
+            movePen(currentX + distance, currentY - distance);
+        }
+
+        function moveDiagonalUpLeft(distance) {
+            movePen(currentX - distance, currentY - distance);
+        }
+
+        function moveDiagonalDownRight(distance) {
+            movePen(currentX + distance, currentY + distance);
+        }
+
+        function moveDiagonalDownLeft(distance) {
+            movePen(currentX - distance, currentY + distance);
+        }
+        function resetDrawing() {
+            while (svg.firstChild) {
+                svg.removeChild(svg.firstChild);
+            }
+            currentX = svgWidth / 2;
+            currentY = svgHeight / 2;
+            minX = currentX;
+            minY = currentY;
+            maxX = currentX;
+            maxY = currentY;
+            svg.removeAttribute('viewBox');
+        }
+
+        resetButton.addEventListener('click', resetDrawing);
+
+function draw(numbe,namba) {
+if(typeof namba=='undefined'){namba=6}
+if(typeof numbe=='undefined'){numbe=123628225065072n};
+numbe=BigInt(numbe);
+function gn(num,bound) { for (let index = 0; index < bound; index++) { num=num/BigInt(String(num).length) } return num }
+dd=';'+String(BigInt(gn(numbe, namba))).split('') .map((element, index, array) => (index % 2 === 0 && index + 1 < array.length) ? element + array[index + 1] : element) .join(';')+'):';
+dd=dd.replace(';','moveUp(')
+
+while (dd.includes(';')) {
+    dd = dd.replace(';', '):moveRight(');
+    dd = dd.replace(';', '):moveDown(');
+    dd = dd.replace(';', '):moveLeft(');
+    dd = dd.replace(';', '):moveUp(');
+
+    //dd = dd.replace(';', '):moveDiagonalUpRight(');
+    //dd = dd.replace(';', '):moveDiagonalUpLeft(');
+    //dd = dd.replace(';', '):moveDiagonalDownRight(');
+    //dd = dd.replace(';', '):moveDiagonalDownLeft(');
+}
+
+dd=dd.replaceAll(':',';')
+eval(dd)}
+    </script>
+
+
+</body></html>

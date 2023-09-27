@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Record HTML Element as WebM</title>
+  </head>
+  <body>
+    <video id="video" width="320" height="240" controls>
+      <source src="movie.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+    <button onclick="startRecording()">Start Recording</button>
+    <button onclick="stopRecording()">Stop Recording</button>
+    <script>
+      let mediaElement = null;
+      let stream = null;
+      let recorder = null;
+      let chunks = [];
+
+      function startRecording() {
+        mediaElement = document.getElementById('media');
+        if (mediaElement.tagName !== 'VIDEO' && mediaElement.tagName !== 'AUDIO') {
+          console.error('The media element must be a video or audio element.');
+          return;
+        }
+        stream = mediaElement.captureStream();
+        chunks = [];
+        recorder = new MediaRecorder(stream, {
+          mimeType: 'video/webm'
+        });
+        recorder.ondataavailable = function(e) {
+          chunks.push(e.data);
+        };
+        recorder.onstop = function(e) {
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          const url = URL.createObjectURL(blob);
+          video.src = url;
+        };
+        recorder.start();
+      }
+
+      function stopRecording() {
+        if (recorder === null) {
+          console.error('The recorder has not been initialized.');
+          return;
+        }
+        recorder.stop();
+      }
+    </script>
+  </body>
+</html>

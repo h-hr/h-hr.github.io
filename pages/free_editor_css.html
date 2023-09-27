@@ -1,0 +1,277 @@
+
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <script type="text/javascript" src="free_editor.js"></script>
+    <link rel="stylesheet" href="free_editor.css">
+  </head>
+  <body style="background-color: rgb(26, 25, 23);">
+
+ <div class="elements">
+
+<div id="mydiv" style="top: 163px; left: 235px; font-size: 40px;" onclick="action(this)" select="false"><div style="font-size:3em"><div>
+  <style>
+.image {
+  perspective: 3000px;
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  transform-style: preserve-3d;
+}
+.img {
+  transform: rotateX(70deg) rotateZ(-60deg) translate3d(-120px, 0px, 70px);
+  box-shadow: -80px 60px 15px 5px rgba(0,0,0,0.4);
+  transition: all .4s;
+  transform-style: preserve-3d;
+}
+.image:hover img {
+  transform: rotateX(0deg) rotateZ(0deg) translate3d(0px, 0px, 0px);
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+}
+</style><div class="image">
+    <img src="http://pixelcurse.com/wp-content/uploads/2011/02/minimalist_landscape_8.jpg" class="img" alt="" style="height: 1em; width: auto;">
+  </div>
+</div></div></div><div id="mydiv" style="top: 387px; left: 1011px; font-size: 28px; transform: rotate(0deg);" onclick="action(this)" select="false"><div style="font-size:3em"><all style="height: 1em; width: 5;">
+
+<bodye translate="no">
+<div class="assembly sdiv" s.cdpn.io="" s3-us-west-2.amazonaws.com="" https:="">
+  <div class="panel sdiv" style="--i: 0; --k: 0.25; --p: 0; --dx: 0; --dz: -0.2"></div>
+  <div class="panel sdiv" style="--i: 1; --k: 0.5; --p: 0.25; --dx: -0.1; --dz: 0"></div>
+  <div class="panel sdiv" style="--i: 2; --k: 0.25; --p: 0.75; --dx: 0; --dz: 0"></div>
+</div>
+</bodye>
+<style>bodyee { margin: 0; height: 100vh; perspective: 125vmin; -webkit-filter: drop-shadow(-1vmin 1vmin 1vmin #000); } .sdiv { position: absolute; transform-style: preserve-3d; } .assembly { top: 50%; left: calc(50% - .5*var(--dx)*85vmin); transform: rotatey(35deg); } .panel { --mid: calc((var(--p) + var(--k)*0.25)*85vmin); transform: translate3d(calc(var(--dx)*85vmin), 0, calc(var(--dz)*85vmin)); } .panel:before, .panel:after { position: absolute; margin: -32.5vmin -42.5vmin; width: 85vmin; height: 65vmin; background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2017/bg_sq_halloween_0.jpg") 50%/cover; content: ""; } .panel:before { transform-origin: var(--mid); transform: rotatey(-90deg); -webkit-clip-path: inset(0 calc(100% - var(--mid)) 0 calc(var(--p)*100%)); clip-path: inset(0 calc(100% - var(--mid)) 0 calc(var(--p)*100%)); filter: brightness(0.4); } .panel:after { -webkit-clip-path: inset(0 calc(100% - (var(--p) + var(--k))*85vmin) 0 var(--mid)); clip-path: inset(0 calc(100% - (var(--p) + var(--k))*85vmin) 0 var(--mid)); } </style>
+
+</all></div></div><div id="mydiv" style="top: 54px; left: 357px; font-size: 48px; transform: rotate(0deg);" onclick="action(this)" select="false"><div style="font-size:3em"><all translate="no">
+  <style>
+.gallery {
+  --g: 8px;   /* the gap */
+  --s: 400px; /* the size */
+  
+  display: grid;
+  border-radius: 50%;
+}
+.gallery > img {
+  grid-area: 1/1;
+  width: 400px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: translate(var(--_x,0),var(--_y,0));
+  cursor: pointer;
+  z-index: 0;
+  transition: .3s, z-index 0s .3s;
+}
+.gallery img:hover {
+  --_i: 1;
+  z-index: 1;
+  transition: transform .2s, clip-path .3s .2s, z-index 0s;
+}
+.gallery:hover img {
+  transform: translate(0,0);
+}
+.gallery > img:nth-child(1) {
+  clip-path: polygon(50% 50%,calc(50%*var(--_i,0)) calc(120%*var(--_i,0)),0 calc(100%*var(--_i,0)),0 0,100% 0,100% calc(100%*var(--_i,0)),calc(100% - 50%*var(--_i,0)) calc(120%*var(--_i,0)));
+  --_y: calc(-1*var(--g))
+}
+.gallery > img:nth-child(2) {
+  clip-path: polygon(50% 50%,calc(100% - 120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100% - 100%*var(--_i,0)) 0,100% 0,100% 100%,calc(100% - 100%*var(--_i,0)) 100%,calc(100% - 120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
+  --_x: var(--g)
+}
+.gallery > img:nth-child(3) {
+  clip-path: polygon(50% 50%,calc(100% - 50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)),100% calc(100% - 120%*var(--_i,0)),100% 100%,0 100%,0 calc(100% - 100%*var(--_i,0)),calc(50%*var(--_i,0)) calc(100% - 120%*var(--_i,0)));
+  --_y: var(--g)
+}
+.gallery > img:nth-child(4) {
+  clip-path: polygon(50% 50%,calc(120%*var(--_i,0)) calc(50%*var(--_i,0)),calc(100%*var(--_i,0)) 0,0 0,0 100%,calc(100%*var(--_i,0)) 100%,calc(120%*var(--_i,0)) calc(100% - 50%*var(--_i,0)));
+  --_x: calc(-1*var(--g))
+}
+
+
+</style><div class="gallery">
+  <img src="https://picsum.photos/id/174/400/400" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/188/400/400" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/211/400/400" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/28/400/400" style="height: 1em; width: auto;">
+</div>
+
+</all></div></div><div id="mydiv" style="top: 201px; left: 228px; font-size: 32px;" onclick="action(this)" select="false"><div style="font-size:3em"><div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" style="height: 1em; width: auto;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" style="height: 1em; width: auto;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" style="height: 1em; width: auto;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" style="height: 1em; width: auto;">
+  </div><style>
+
+.container {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin-top: 150px;
+  background: rgba(0, 0, 0, 0);
+  transform: rotate(-30deg) skew(25deg) scale(0.8);
+  transition: 0.5s;
+}
+.container img {
+  position: absolute;
+  width: 100%;
+  transition: 0.5s;
+}
+.container:hover img:nth-child(4) {
+  transform: translate(160px, -160px);
+  opacity: 1;
+}
+.container:hover img:nth-child(3) {
+  transform: translate(120px, -120px);
+  opacity: 0.8;
+}
+.container:hover img:nth-child(2) {
+  transform: translate(80px, -80px);
+  opacity: 0.6;
+}
+.container:hover img:nth-child(1) {
+  transform: translate(40px, -40px);
+  opacity: 0.4;
+}
+</style></div></div><div id="mydiv" style="top: -136px; left: 752px; font-size: 40px;" onclick="action(this)" select="false"><div style="font-size:3em"><all translate="no">
+  <style>
+.image-wrapper {
+  width: auto;
+  height: auto;
+  position: relative;
+  margin: 30vh auto;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+}
+
+.image-1 {
+  -webkit-clip-path: polygon(0 0, 0 32%, 28% 0);
+          clip-path: polygon(0 0, 0 32%, 28% 0);
+  transform: translate(-10px, -10px);
+  transition: transform 300ms ease;
+  transform-origin: top;
+}
+.image-wrapper:hover .image-1 {
+  transform: translate(0, 0);
+}
+
+.image-2 {
+  -webkit-clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+          clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+  transform: translate(-30px, 5px);
+  transition: transform 300ms ease;
+}
+.image-wrapper:hover .image-2 {
+  transform: translate(0, 0);
+}
+
+.image-3 {
+  -webkit-clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+          clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+  transform: translate(-15px, -10px);
+  transition: transform 300ms ease;
+}
+.image-wrapper:hover .image-3 {
+  transform: translate(0, 0);
+}
+
+.image-4 {
+  -webkit-clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+          clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+  transform: translate(-32px, 5px);
+  transition: transform 300ms ease;
+  transform-origin: top;
+}
+.image-wrapper:hover .image-4 {
+  transform: translate(0, 0);
+}
+</style><div class="image-wrapper">
+  <img class="image-1" src="https://picsum.photos/id/1025/600/400" style="height: 1em; width: auto;">
+  <img class="image-2" src="https://picsum.photos/id/1025/600/400" style="height: 1em; width: auto;">
+  <img class="image-3" src="https://picsum.photos/id/1025/600/400" style="height: 1em; width: auto;">
+  <img class="image-4" src="https://picsum.photos/id/1025/600/400" style="height: 1em; width: auto;">
+</div>
+</all></div></div><div id="mydiv" style="top: 262px; left: 420px; font-size: 64px;" onclick="action(this)" select="true"><div style="font-size:3em"><all translate="no">
+  <img src="https://picsum.photos/id/1051/250/250" class="fscquare " style="height: 1em; width: auto;"><style>
+.fscquare {
+  --_g: 10% /45% 45% no-repeat linear-gradient(#000 0 0);
+  --m:
+    left   var(--_i,0%) top    var(--_g),
+    bottom var(--_i,0%) left   var(--_g),
+    top    var(--_i,0%) right  var(--_g),
+    right  var(--_i,0%) bottom var(--_g);
+  -webkit-mask: var(--m);
+          mask: var(--m);
+  filter: grayscale();
+  transition: .3s linear;
+  cursor: pointer;
+}
+img:hover {
+  --_i: 10%;
+  filter: grayscale(0);
+}
+</style>
+
+</all></div></div><div id="mydiv" style="top: 47px; left: 539px; font-size: 76px;" onclick="action(this)" select="false"><all translate="no">
+  <style>
+.gallery2 {
+  display: grid;
+  gap: 10px; 
+  grid-template-columns: auto 0 auto;
+  place-items: center;display: grid;
+  place-content: center;
+}
+.gallery2 > img {
+  width: 200px; /* control the size */
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: .35s;
+  filter: grayscale();
+  cursor: pointer;
+}
+.gallery2 > img:hover {
+  filter: grayscale(0%);
+}
+
+.gallery2 > img:nth-child(1) {
+  clip-path: polygon(0 0,50% 0,100% 100%,0 100%);
+}
+.gallery2 > img:nth-child(2) {
+  clip-path: polygon(0 0,100% 0,50% 100%);
+}
+.gallery2 > img:nth-child(3) {
+  clip-path: polygon(50% 0,100% 0,100% 100%,0 100%);
+}
+.gallery2 > img:nth-child(4) {
+  clip-path: polygon(0 0,100% 0,50% 100%,0 100%);
+}
+.gallery2 > img:nth-child(5) {
+  clip-path: polygon(50% 0,100% 100%,0% 100%);
+}
+.gallery2 > img:nth-child(6) {
+  clip-path: polygon(0 0,100% 0,100% 100%,50% 100%);
+}
+</style><div class="gallery2 cen">
+  <img src="https://picsum.photos/id/1040/300/300" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/1054/300/300" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/101/300/300" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/1065/300/300" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/1067/300/300" style="height: 1em; width: auto;">
+  <img src="https://picsum.photos/id/188/300/300" style="height: 1em; width: auto;">
+</div>
+</all></div>
+</div><div class="ui"><div class="ui1" style="top: 21px; left: 2px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div><button class="uleft" onclick="uleft(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)">↖</button><button onclick="up(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)" class="up">↑</button><button class="uright" onclick="uright(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)">↗</button></div><div><button onclick="left(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)" class="left">←</button><button onclick="smalltalk .prompt('', '', '') .then((value) => { move=value;localStorage.move=move;this.innerText=move }) .catch(() => { console.log('cancel'); });" class="move">100</button><button onclick="right(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)" class="right">→</button></div><div><button class="dleft" onclick="dleft(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)">↙</button><button onclick="down(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)" class="down">↓</button><button class="dright" onclick="dright(document.querySelectorAll('[select=true]')[0],localStorage.move);react();act(this.innerHTML)">↘</button></div></div></div>
+<div class="ui2" style="top: 100px; left: 1px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div><button onclick="document.querySelectorAll('[select=true]')[0].style.transform='rotate(0deg)'" class="dturn">⎯</button></div><div><button onclick="tleft(document.querySelectorAll('[select=true]')[0],localStorage.turn);react();act(this.innerHTML)" class="lturn">↺</button><button onclick="smalltalk .prompt('', '', '') .then((value) => { turn=value;turn=turn%360;localStorage.turn=turn;this.innerText=turn }) .catch(() => { console.log('cancel'); });" class="turn">90</button><button onclick="tright(document.querySelectorAll('[select=true]')[0],localStorage.turn);react();act(this.innerHTML)" class="rturn">↻</button></div><div><button onclick="document.querySelectorAll('[select=true]')[0].style.transform='rotate('+prompt()%360+'deg)'">∟</button></div></div></div>
+<div class="ui3" style="top: 176px; left: 4px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div><button onclick="document.querySelectorAll('[select=true]')[0].style.fontSize=16" class="dsize">⎯</button></div><div><button onclick="nsize(document.querySelectorAll('[select=true]')[0],localStorage.fsize);react();act(this.innerHTML)" class="nsize">-</button><button onclick="smalltalk .prompt('', '', '') .then((value) => { fsize=value;localStorage.fsize=fsize;this.innerText=fsize }) .catch(() => { console.log('cancel'); });" class="size">4</button><button onclick="psize(document.querySelectorAll('[select=true]')[0],localStorage.fsize);react();act(this.innerHTML)" class="psize">+</button></div><div><button onclick="document.querySelectorAll('[select=true]')[0].style.fontSize=prompt()">s</button></div></div></div>
+<div class="ui4" style="top: 261px; left: 1px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div style="transform: rotate(0deg);"><button onclick="for (let index = 0; index < 72; index++) { setTimeout(function () { document.getElementsByClassName('rturn')[0].click()},(index*62.5));}" style="width:30px">1</button><button onclick="run_action(document.querySelector(`[select='true']`),'m10;t10;f4;i62.5;72r↻;')" style="width:30px">2</button><button onclick="smalltalk .prompt('', '', '') .then((value) => { const sele=document.querySelectorAll('[select=true]')[0];seli=sele.getAttribute('action').split(';');selen=seli.length;seli[selen-1]=value+'r'+seli[selen-1];sele.setAttribute('action',seli.join(';')) }) .catch(() => { console.log('cancel'); });" style="width:30px">r</button><button onclick="if(this.innerText==';'){localStorage.join=true;this.innerText='&quot;'}else if(this.innerText=='&quot;'){localStorage.join=false;this.innerText=';';if(document.querySelectorAll('[select=true]')[0].getAttribute('action').slice(-1)!=';'){act('')}}" style="width:30px">;</button></div><div><button onclick="document.querySelectorAll('[select=true]')[0].removeAttribute('action');setstorage()">⏏️</button><button onclick="run_action(document.querySelectorAll('[select=true]')[0],document.querySelectorAll('[select=true]')[0].getAttribute('action'))">▶️</button><button class="record" onclick="if(this.innerText=='⏺︎'){localStorage.record=true;this.innerText='⏹︎'}else if(this.innerText=='⏹︎'){localStorage.record=false;this.innerText='⏺︎'}">⏺︎</button></div><div><button onclick="localStorage.timeout=(parseFloat(localStorage.timeout)-100) document.getElementsByClassName('timeout')[0].innerText='⏲️'+localStorage.timeout">⏪</button><button class="timeout" onclick="smalltalk .prompt('', '', '') .then((value) => { lt=value;localStorage.timeout=lt;this.innerText='⏲️'+lt }) .catch(() => { console.log('cancel'); });">⏲️112.5</button><button onclick="localStorage.timeout=(parseFloat(localStorage.timeout)+100) document.getElementsByClassName('timeout')[0].innerText='⏲️'+localStorage.timeout">⏩</button></div></div></div>
+<div class="ui5" style="top: 337px; left: 1px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div><button onclick="if(this.innerText=='T'){this.innerText='🆗';localStorage.action='edit'}else if(this.innerText=='🆗'){this.innerText='T';localStorage.action='elem'}" class="dsize" style="width:30px">T</button></div><div><button onclick="layer_down(0)" class="nsize" style="height:24px">⤓</button><button onclick="if(this.innerText=='🔓'){this.innerText='🔒';localStorage.draggable='false';make_all_undraggagle() }else if(this.innerText=='🔒'){this.innerText='🔓';localStorage.draggable='true';make_all_draggagle() }">🔓</button><button onclick="layer_up(0)" class="psize" style="height:24px">⤒</button></div><div><button onclick="if(this.innerText=='🗑️'){this.innerText='🆗';localStorage.action='delete'}else if(this.innerText=='🆗'){this.innerText='🗑️';localStorage.action='elem'}">🗑️</button></div></div></div>
+<div class="ui6" style="top: 336px; left: 75px; font-size: 28px; zoom: 1.5;" id="mydiv"><div><div><button onclick="const cs1=document.querySelectorAll('[select=true]')[0].querySelector('img,video'); if(cs1!=null){ if(cs1.style.borderRadius==''){ cs1.style.borderRadius='50%'}else{ border=parseInt(cs1.style.borderRadius.slice(0,-1)); if(border!=0){ cs1.style.borderRadius=(border-5)+'%' } } }">▢</button><button onclick="document.querySelectorAll('[select=true]')[0].querySelector('img,video').style.borderRadius='';document.querySelectorAll('[select=true]')[0].setAttribute('class','')" class="dsize" style="width:40px">⎯</button><button onclick="const cs1=document.querySelectorAll('[select=true]')[0].querySelector('img,video'); if(cs1!=null){ if(cs1.style.borderRadius==''){ cs1.style.borderRadius='50%'}else{ border=parseInt(cs1.style.borderRadius.slice(0,-1)); if(border!=50){ cs1.style.borderRadius=(border+5)+'%' } } }">◯</button></div><div></div><div><button onclick="nps('p')" class="prev" style="height:30px">&lt;</button><button onclick="button_class(this.querySelector('div').classList[1])"><div class="shape sh25"></div></button><button onclick="nps('n')" class="nex" style="height:30px">&gt;</button></div><div><button onclick=" " style="width:30px">🎞️</button><button onclick="smalltalk .prompt('', '', '') .then((value) => {add_img(value)}) .catch(() => { console.log('cancel'); });" style="width:40px">🖼️</button><button onclick="smalltalk .prompt('', '', '') .then((value) => {add_text(value)}) .catch(() => { console.log('cancel'); });" style="height:24px;width:30px">T</button></div></div></div>
+<div><button id="mydiv" style="top: 360px; left: 164px;" onclick="smalltalk .prompt('', '', '') .then((value) => { for (let index = 0; index < document.querySelectorAll('img').length; index++) { document.querySelectorAll('img')[index].src=value } }) .catch(() => { console.log('cancel'); });">❓</button><button id="mydiv" style="top: 378px; left: 198px;" onclick="smalltalk .prompt('', '', '') .then((value) => { const sele=document.querySelectorAll('[select=true]')[0];
+sele.setAttribute('action',String(sele.getAttribute('action')+0).slice(0,-1)+'l'+encodeURIComponent(value)+';'); }) .catch(() => { console.log('cancel'); });">eval</button><button id="mydiv" style="top: 309px; left: 132px;" onclick="for (let index = 0; index < document.querySelectorAll('img').length; index++) { document.querySelectorAll('img')[index].src='fractal.webp' }">🌀</button><button id="mydiv" style="top: 335px; left: 115px;" onclick="for (let index = 0; index < document.querySelectorAll('img').length; index++) { document.querySelectorAll('img')[index].src='water.webp' }">💧</button><button id="mydiv" style="top: 336px; left: 147px;" onclick="for (let index = 0; index < document.querySelectorAll('img').length; index++) { document.querySelectorAll('img')[index].src='fire.webp' }">🔥</button><button id="mydiv" style="top: 365px; left: 99px;" onclick="run_action(document.getElementsByClassName('sh46')[0],document.getElementsByClassName('sh46')[0].getAttribute('action'));run_action(document.getElementsByClassName('sh47')[0],document.getElementsByClassName('sh47')[0].getAttribute('action')) ">Run_All</button></div></div>
+
+</body></html>

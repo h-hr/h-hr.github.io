@@ -1,0 +1,105 @@
+<html><head></head><body onload="myFunction()">
+
+
+<script>
+function myFunction() {
+
+document.querySelectorAll('[id="score"]')[0].innerText=window.location.hash.slice(1)
+  window.location.hash=''
+///
+  keys=[]
+keys.push('AIzaSyBexfyuvjQmYr0FJ8fp8ewZiwnPxd1anMk')
+keys.push('AIzaSyBiTCOON4nBshU4hpLCyxHeOMoWYDZhPRk')
+keys.push('AIzaSyDg3IEpiE_ZqgzsH_GTpABzcI1lXsyY7oc')
+keys.push('AIzaSyCjlE2pYeULb_PXUNG4KGHiwmze_mDEN-c')
+keys.push('AIzaSyA_RPERShFBltHPnSubdugTWUVI4ujY-WI')
+keys.push('AIzaSyCeheZwZox_Ji7o5v7yPi2x-T3qR-nTDiE')
+keys.push('AIzaSyDhEEYKoXeIGyqGHFqR_D3OCX1mGz6YkgU')
+keys.push('AIzaSyC4m2Tr6kQRYkUEXodCe8I-EZr-gcVVeoQ')
+keys.push('AIzaSyDvyMCqPiHA-lnQeNcuVo3-1WIMRqoMOi0')
+keys.push('AIzaSyBNHqDJ2K88tVT4Coa-36MKz1ikXe_6P5s')
+keys.push('AIzaSyDE2IxTmCMFDDglR_aL1TDLu_oUfjIU5Bw')
+keys.push('AIzaSyCAiT4vf3uRYKMdCIY0WjooZJ0iraPLHSY')
+keys.push('AIzaSyCTziALRXtHSash0iIkgv8wkYiNgjEcmbg')
+keys.push('AIzaSyBZXcTkUgd-fjNTJvKarl6rXFEneukBEPA')
+keys.push('AIzaSyB3DSjoWeLzAB0X20a30lt-c7ukNNDHmAQ')
+keys.push('AIzaSyB-saMGbj5Nok1h6fR7h4OikOxggB0U4pk')
+keys.push('AIzaSyCndZEo3hh5NuLoGsfkrDZ3KiHak_m40lw')
+
+
+
+
+
+
+var xhttp = new XMLHttpRequest(); var id2,ip1,ip2,ip3,ip4
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      id2 =
+      JSON.parse(this.responseText);
+idlen=parseInt(id2.values[0][0].slice(3)-1)
+
+///////
+
+id=Math.floor(Math.random() * idlen)
+key=keys[Math.floor(Math.random() * 17)]
+
+ 
+
+id=parseInt(id)+1
+id5='https://sheets.googleapis.com/v4/spreadsheets/1wxFeq4630DmBmv6vBRwkp_utfWyHmT9tf9a6k2s8WEs/values/Sheet1!'+
+id+':'+id+'?key='+key
+
+
+
+
+
+
+ var xhttp = new XMLHttpRequest(); var id2,ip1,ip2,ip3,ip4
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      id2 =
+      JSON.parse(this.responseText);
+	  ip2=id2.values[0].join("")
+
+ip1='<style id="image"> body { background-image:url("'
+
+ip3='"); background-repeat: no-repeat; background-size: 100% 100%; } html { height: 100% } </style>'
+ip4=ip1+ip2+ip3
+document.body.innerHTML=document.body.innerHTML+ip4
+	 iage=document.querySelectorAll('[id^="image"]')[0].innerHTML.slice(30,-86)
+num=location.href.slice(iol+1)
+parent.toimag(id,num,iage)
+  
+	  
+    }
+  };
+  xhttp.open("GET", id5, true);
+  xhttp.send();
+
+////////
+    }
+  };
+  xhttp.open("GET", "https://sheets.googleapis.com/v4/spreadsheets/1wxFeq4630DmBmv6vBRwkp_utfWyHmT9tf9a6k2s8WEs/values/Sheet1!GS1?key="+keys[Math.floor(Math.random() *17)], true);
+  xhttp.send();
+  ///
+}
+</script><script>
+function restart() {
+  parent.window.location.reload(false);
+
+}
+</script>
+
+
+
+<div align="center"><button class="f-size17 ap1 sco" id="pp1" a1="" style=""></button></div><div align="center"><button class="f-size17 ap1 sco" id="pp2" style="">0</button></div><div align="center"><button class="f-size17 ap1" id="end"  style="">النهاية</button></div><div align="center"><button class="f-size17 ap1 sco" id="pp2" style="">0</button><div align="center"><button class="f-size17 ap1 sco" id="pp2" style="">0</button></div><div align="center"><button onclick="restart()" class="f-size17 ap1 " id="refresh" style="">↻</button></div><div align="center"><button class="f-size17 ap1 sco" id="pp2" style="">0</button></div><div align="center"><button class="f-size17 ap1 sco" id="pp2" style="">0</button></div></div><div align="center"><button class="f-size17 ap1" id="score"  style=""></button></div><style>.f-size17 { font-size: 40px; }.ap1{background:#eee;opacity: 0.6;}button.sco{
+ margin-left: 150px;
+  margin-right: auto;opacity: 0;}
+</style>
+	
+<style>
+body {
+  background-color: black;
+}
+</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></body></html>

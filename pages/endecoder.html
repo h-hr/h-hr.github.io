@@ -1,0 +1,158 @@
+<html><head>
+<script type="text/javascript" src="endecoder.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>char=[];
+listint=[];
+for (var count = 0; count < BigInt(char.length); count++) {
+char.push('ابتثجحخدذرزسشصضطظعغفقكلمنهوي'[count])};
+function refill(long){
+for (var count = 0; count < long; count++) {listint.push('')};
+}
+
+
+function decode(key,value){
+char=key.split('')
+return getword(value)
+}
+
+
+function getletters(data){
+
+let chars = data.split("")
+
+let uniqueChars = [];
+chars.forEach((c) => {
+    if (!uniqueChars.includes(c)) {
+        uniqueChars.push(c);
+    }
+});
+
+char=uniqueChars
+document.querySelectorAll('textarea')[0].value=char.join('')+','+getnumber(data)
+
+}
+
+
+function check(repeat){
+
+const lint=BigInt(listint[repeat])
+const lint2=listint[repeat]
+
+if(lint>BigInt(char.length)){
+
+if(lint%BigInt(char.length)==0)
+{listint[repeat+1]=BigInt(lint/BigInt(char.length))-1n}
+else{listint[repeat+1]=BigInt(lint/BigInt(char.length))};
+
+if(lint%BigInt(char.length)==0)
+{listint[repeat]=BigInt(char.length)}
+else{listint[repeat]=lint%BigInt(char.length)};
+
+};
+
+};
+
+
+
+
+
+
+
+
+
+function clearr(){
+for (var count = 0; count < listint.length; count++);
+listint[count]='';
+};
+
+
+
+function getword(num2){
+clearr();
+if(String(num2).length.length>listint.length){refill(String(num2).length)}
+listint[0]=BigInt(num2);
+
+for (var count = 0; count < listint.length; count++) {check(count)};
+
+
+for (var count2 = 0; count2 < listint.length; count2++){
+if(listint[count2]==0){listint[count2]=''}else{listint[count2]=char[listint[count2]-1n]};
+
+
+};
+worde=listint.join('');
+return worde;
+
+};
+
+function getnumber(word){
+clearr();
+if(word.length>listint.length){refill(word.length)}
+
+
+
+for (var count = 0; count < listint.length; count++){
+listint[count]=BigInt(char.indexOf(word[count])+1)};
+worde=word;
+myvar=-1;
+for (var count = 0; count < word.length; count++){myvar++;
+listint[count]=BigInt(listint[count])*(BigInt(char.length)**BigInt(count));
+
+
+};
+
+
+
+
+myvar=-1;
+num=0n;
+for (var count = 0; count < listint.length; count++){
+myvar++;
+num=num+listint[myvar];   
+};
+
+return num;
+};
+
+    </script><script>function count_length(){
+document.querySelectorAll('label')[0].innerHTML=' length '+document.querySelectorAll('textarea')[0].value.length+' bytes '+(encodeURI(document.querySelectorAll('textarea')[0].value).split(/%..|./).length - 1);
+document.querySelectorAll('label')[1].innerHTML=' length '+document.querySelectorAll('textarea')[1].value.length+' bytes '+(' '+encodeURI(document.querySelectorAll('textarea')[1].value).split(/%..|./).length - 1)
+}</script></head><body onload="document.querySelectorAll('textarea')[0].value=decodeURIComponent(location.hash.slice(1));"><div>
+							  <textarea style="width:90%;height:171px" onchange="location.hash=document.querySelectorAll('textarea')[0].value;"></textarea><br>  
+							  
+							  <button onclick="getletters(document.querySelectorAll('textarea')[0].value);location.hash=document.querySelectorAll('textarea')[0].value;ds=document.querySelectorAll('textarea')[0].value.split(',');
+;ds2=document.querySelectorAll('textarea')[0].value.slice(0,-ds[ds.length-1].length).slice(0,-1);ds3=ds[ds.length-1];count_length()
+">encode</button>
+							  <button onclick="eval(document.querySelectorAll('script')[1].innerText);ds=document.querySelectorAll('textarea')[0].value.split(',');
+;ds2=document.querySelectorAll('textarea')[0].value.slice(0,-ds[ds.length-1].length).slice(0,-1);ds3=ds[ds.length-1];document.querySelectorAll('textarea')[0].value=decode(ds2,ds3);location.hash=document.querySelectorAll('textarea')[0].value;location.hash=document.querySelectorAll('textarea')[0].value;count_length()
+">decode</button><label></label>
+							  
+							  
+							    
+
+							       
+							  
+
+							</div><div>
+							  <textarea style="width:90%;height:171px" onchange="location.hash=document.querySelectorAll('textarea')[0].value;"></textarea><br>  
+							  
+							  <button onclick="document.querySelectorAll('textarea')[1].value=char.join('')+','
+getword2(ds3)">encode</button>
+							  <button onclick="eval(document.querySelectorAll('script')[0].innerText);ds=document.querySelectorAll('textarea')[0].value.split(',');
+;ds2=document.querySelectorAll('textarea')[1].value.slice(0,-ds[ds.length-1].length).slice(0,-1);ds3=ds[ds.length-1];eval(document.querySelectorAll('script')[0].innerText);ds=document.querySelectorAll('textarea')[1].value.split(',');
+;ds2=document.querySelectorAll('textarea')[1].value.slice(0,-ds[ds.length-1].length).slice(0,-1);ds3=ds[ds.length-1];document.querySelectorAll('textarea')[1].value=document.querySelectorAll('textarea')[1].value.slice(0,-ds3.length);
+getnumber2(ds3);count_length()
+
+">decode</button><label></label>
+							  
+							  
+							    
+
+							       
+							  
+
+							</div>
+
+
+
+</body></html>

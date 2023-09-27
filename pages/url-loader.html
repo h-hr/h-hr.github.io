@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<script>function load(htmll) {
+document.body.onload='';
+
+  const myWindow = window.open("", "_self");
+	
+        g='\x3Cscript type="text/javascript" src="html.js">\x3C/script>'
+
+	htmll=htmll+g
+
+  myWindow.document.write(htmll);
+document.querySelectorAll('html')[0].innerHTML=htmll
+
+//myWindow.eval(`for (var count = 0; count < document.querySelectorAll('script').length; count++) {eval(document.querySelectorAll('script')[count].innerHTML)}`)//
+   
+   for (var count = 0; count < document.querySelectorAll('script').length; count++) {myWindow.eval(document.querySelectorAll('script')[count].innerHTML)}
+
+  if(count==document.querySelectorAll('script').length){
+  
+	  if(typeof deldel=='undefined'){document.querySelectorAll('script')[document.querySelectorAll('script').length-1].remove()} else{setTimeout(deldel, 0000)}
+	  
+  }
+		function patchs(elem){
+
+bound=document.querySelectorAll(elem).length
+
+for (let index = 0; index < bound; index++) {
+   
+if(typeof document.querySelectorAll(elem)[index].href!='undefined'){patch_href(elem,index)}
+else if(typeof document.querySelectorAll(elem)[index].src!='undefined'){patch_src(elem,index)}
+   
+}
+
+
+}
+
+
+function patch_href(element,num){
+if(document.querySelectorAll(element)[num].outerHTML.includes(document.querySelectorAll(element)[num].href)==false){
+
+origin_leng=window.location.origin.length
+p1='https://'
+p2=decodeURIComponent(window.location.hash.slice(1))
+p3=document.querySelectorAll(element)[num].href.slice(origin_leng)
+p4=p1+p2+p3
+document.querySelectorAll(element)[num].href=p4
+
+}
+
+}
+
+
+function patch_src(element,num){
+if(document.querySelectorAll(element)[num].outerHTML.includes(document.querySelectorAll(element)[num].src)==false){
+
+origin_leng=window.location.origin.length
+p1='https://'
+p2=decodeURIComponent(window.location.hash.slice(1))
+p3=document.querySelectorAll(element)[num].src.slice(origin_leng)
+p4=p1+p2+p3
+document.querySelectorAll(element)[num].src=p4
+
+}
+
+}
+patchs('script')
+patchs('css')
+patchs('img')
+patchs('link')
+patchs('iframe')
+
+}
+function load_url(url){var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://script.google.com/macros/s/AKfycby39I9blZQj-sJKUFXbR8y8y61nNIH7_ZGkDymgrbPu9IAFHhVt2FSRiFXcS3Kb8m18/exec?url="+url, requestOptions)
+  .then(response => response.text())
+  .then(result => load(result))
+  .catch(error => console.log('error', error));
+  
+  
+  }
+  load_url(decodeURIComponent(window.location.hash.slice(1)))
+	
+	
+
+	
+	</script>
+
+
+</body>
+</html>

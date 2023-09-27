@@ -1,0 +1,36 @@
+
+<script>
+function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}}function appscript(code){
+url='https://script.google.com/macros/s/AKfycbyEzrfkG0sbMABXPzOYYTyL97_A9KzCrSNg1fBKB1VUpl_t5wrWiE92TWf93gBuI8I_kA/exec?code='
+url=url+encodeURIComponent(code)
+return xhr(url)
+};
+
+url2=window.location.hash.slice(1)
+html=appscript('fetch("'+url2+'")')
+inject='<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><base href="'+url2+'"'+'>'
+html=html.replace('<head>','<head>'+inject)
+html=html.replace('<body','<body style="display: ;"')
+//0document.querySelector('html').innerHTML=html
+
+script=`ds=[];for (let index = 0; index < contenidoaguardar.length; index++) { 
+ ds.push(index+': '+contenidoaguardar[index][0]+'&#0010;') }
+document.querySelectorAll('html')[0].innerHTML='<pre>'+ds.join('')+'</pre>'+'<meta name="viewport" content="width=device-width, initial- =1.0">'`;
+ 
+ 
+slis="\x3Cscript>"+"window.addEventListener('load', (event) => {"+script+"});"+"\x3C/script>"
+
+html=html+slis 
+ 
+template=html
+var blob = new Blob([template], {type: "text/html"});
+var blob_url = URL.createObjectURL(blob);
+window.location.href=blob_url
+</script>
+

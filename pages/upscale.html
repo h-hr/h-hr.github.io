@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GFPGAN Image Enhancement</title>
+</head>
+<body>
+  <h1>GFPGAN Image Enhancement</h1>
+  <input type="file" id="inputImage" accept="image/*">
+  <br>
+  <button onclick="enhanceImage()">Enhance Image</button>
+  <br>
+  <img id="outputImage" style="display: none;">
+  
+  <script>
+    const apiToken = 'ee012fcd1ff25bd6bfe2b14e5122d11bf6523ef5';
+
+    // Function to enhance an image using the Replicate API
+    async function enhanceImageWithAPI(imageData) {
+      const apiUrl = 'https://api.replicate.com/v1/predictions';
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${apiToken}`
+        },
+        body: JSON.stringify({
+          version: '9283608cc6b7be6b65a8e44983db012355fde4132009bf99d976b2f0896856a3',
+          input: {
+            img: imageData
+          }
+        })
+      };
+
+      // Send the API request
+      const response = await fetch(apiUrl, requestOptions);
+      const prediction = await response.json();
+
+      return prediction;
+    }
+
+    // Function to poll the API and check the prediction status
+    async function checkPredictionStatus(predictionId) {
+      const apiUrl = `https://api.replicate.com/v1/predictions/${predictionId}`;
+
+      const requestOptions = {
+        headers: {
+          'Authorization': `Token ${apiToken}`
+        }
+      };
+
+      while (true) {
+        const response = await fetch(apiUrl, requestOptions);
+        const prediction = await response.json();
+
+        if (prediction.status === 'succeeded') {
+          return prediction.output;
+        } else if (prediction.status === 'failed') {
+          throw new Error('Prediction failed.');
+        }
+
+        // Wait for 1 second before checking again
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    }
+
+    // Example usage
+    async function enhanceImage() {
+      const inputImage = document.getElementById('inputImage');
+      const file = inputImage.files[0];
+
+      if (!file) {
+        alert('Please select an image file.');
+        return;
+      }
+
+      // Read the selected image file
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const imageData = reader.result;
+
+        try {
+          // Call the API to enhance the image
+          const prediction = await enhanceImageWithAPI(imageData);
+
+          // Check the prediction status and get the output when completed
+          const output = await checkPredictionStatus(prediction.id);
+
+          // Display the enhanced image
+          const outputImage = document.getElementById('outputImage');
+          outputImage.src = output;
+          outputImage.style.display = 'block';
+        } catch (error) {
+          console.error('Failed to enhance image:', error);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<script>
+url3=location.hash.slice(1)
+url3=url3.slice(8).replace('/pages','/pages/main').replace('.github.io','')
+console.log(url3)
+url2='raw.githubusercontent.com/'+url3
+console.log(url2)
+function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}}function appscript(code){
+url='https://script.google.com/macros/s/AKfycbyEzrfkG0sbMABXPzOYYTyL97_A9KzCrSNg1fBKB1VUpl_t5wrWiE92TWf93gBuI8I_kA/exec?code='
+url=url+encodeURIComponent(code)
+console.log(url)
+return xhr(url)
+}
+html=appscript('fetch('+'"'+url2+'"'+')')
+  function html_to_blob(template){
+var blob = new Blob([template], {type: "text/html"});
+var blob_url = URL.createObjectURL(blob);
+return blob_url
+}
+location.replace(html_to_blob(html))
+</script>

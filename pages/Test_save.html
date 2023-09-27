@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Save Image</title>
+</head>
+<body>
+    <button onclick="saveImage()">Save Image</button>
+    <script>
+        function saveImage() {
+            const url = "https://images.unsplash.com/photo-1593642531955-b62e17bdaa9c";
+            const path = "D:\\OpenAi\\image.jpg";
+
+            window.resolveLocalFileSystemURL(path, entry => {
+                entry.createWriter(writer => {
+                    fetch(url)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            writer.write(blob);
+                            console.log("File saved successfully!");
+                        });
+                });
+            });
+        }
+    </script>
+</body>
+</html>

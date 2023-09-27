@@ -1,0 +1,52 @@
+<html><head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="cut_letters.js"></script>
+<script>function selectContentEditable() {
+  const contentEditableElement = document.getElementById('myContentEditable');
+  const range = document.createRange();
+  range.selectNodeContents(contentEditableElement);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+}function setCursorAtEnd() {
+    const contentEditableElement = document.getElementById('myContentEditable');
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNodeContents(contentEditableElement);
+    range.collapse(false); // Collapse the range to the end
+    selection.removeAllRanges();
+    selection.addRange(range);
+    contentEditableElement.focus();
+  }
+function make_it_colored(thiso) {
+  return thiso.innerText.split('').reverse().join('')
+    .replace(/(أ|ه|ط|م|ف|ش|ذ|ا|ة|إ|ئ|ء|ؤ)/g, '<span style="color: red">$1</span>')
+    .replace(/(ب|و|ي|ن|ص|ت|ض|ى)/g, '<span style="color: brown">$1</span>')
+    .replace(/(ج|ز|ك|س|ق|ث|ظ)/g, '<span style="color: lightblue">$1</span>')
+    .replace(/(د|ح|ل|ع|ر|خ|غ)/g, '<span style="color: blue">$1</span>').replaceAll(' ','<span>&nbsp;</span>')
+}
+</script>
+</head><body style="zoom: 4;"><div contenteditable="true" onkeyup="this.innerHTML=make_it_colored(this).split('</span>').join('</span>*').split('*').reverse().join('');selectContentEditable();setCursorAtEnd();    
+
+abgd='أبجدهوزحطيكلمنسعفصقرشتثخذضظغ'.split('');
+
+nmgd=['1 ', '2 ', '3 ', '4 ', '5 ', '6 ', '7 ', '8 ', '9 ', '10 ', '20 ', '30 ', '40 ', '50 ', '60 ', '70 ', '80 ', '90 ', '100 ', '200 ', '300 ', '400 ', '500 ', '600 ', '700 ', '800 ', '900 ', '1000'];
+
+function replaceWithArray(text, originalArray, replacementArray) {
+  const pattern = new RegExp(originalArray.map(elem => elem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&amp;')).join('|'), 'g');
+
+  const replacedText = text.replace(pattern, match => {
+    const index = originalArray.indexOf(match);
+    if (index !== -1 &amp;&amp; index < replacementArray.length) {
+      return replacementArray[index];
+    } else {
+      return match;
+    }
+  });
+
+  return replacedText;
+}document.querySelector('#nmgd').innerHTML=replaceWithArray(this.innerHTML.replaceAll('ا','أ').replaceAll('ء','أ').replaceAll('ئ','أ').replaceAll('ؤ','أ').replaceAll('ى','ي').replaceAll('آ','ب').replaceAll('ة','ه').replaceAll('إ','أ'),abgd,nmgd);document.querySelector('#result').innerHTML=String(eval(document.querySelector('#nmgd').innerText.split(' ').join('+'))).replace('undefined','');" id="myContentEditable" dir="rtl"></div><div dir="rtl" contenteditable="true" id="nmgd"></div><div dir="rtl" contenteditable="true" id="result"></div>
+
+
+
+</body></html>

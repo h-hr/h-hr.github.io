@@ -1,0 +1,91 @@
+<html><head><style>.modal {display: none; position: fixed; padding-top: 100px; left: 0;top: 0;width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.9); }.modal-content {margin: auto;display: block;width: 80%;max-width: 700px;}#caption {margin: auto;display: block;width: 80%;max-width: 700px;text-align: center;color: #ccc;padding: 10px 0;height: 150px;}.modal-content, #caption {animation-name: zoom;animation-duration: 0.6s;}@keyframes zoom {from {transform:scale(0)}to {transform:scale(1)}}.close {position: absolute;top: 15px;right: 35px;color: #f1f1f1;font-size: 40px;font-weight: bold;transition: 0.3s;}.close:hover,.close:focus {color: #bbb;text-decoration: none;cursor: pointer;}@media only screen and (max-width: 700px){.modal-content {width: 100%;}}</style></head><body><alcc><meta name="viewport" content="width=device-width, initial-scale=1.0"><div align="center"><span style=" zoom: 1.5; z-index: 9; text-align: center;"><button style="width:20px;height:20px" onclick="const ds=this.nextElementSibling; if(ds.innerHTML=='1024'){ds.innerHTML='512'}else if(ds.innerHTML=='512'){ds.innerHTML='256'}localStorage.Photos_size=ds.innerHTML">-</button><span style="color: white;" id="Photos_size">256</span><button style="width:20px;height:20px" onclick="const ds=this.previousElementSibling; if(ds.innerHTML=='256'){ds.innerHTML='512'}else if(ds.innerHTML=='512'){ds.innerHTML='1024'}localStorage.Photos_size=ds.innerHTML">+</button></span><span style="display: inline-block; border: 1px solid white;  width: 100px; background-color: black; color: white;zoom: 1.1;" contenteditable="true" onchange="alert()" id="describe"><br></span><span style=" zoom: 1.5; z-index: 9; text-align: center;"><button style="width:20px;height:20px" onclick="const ncc=this.nextElementSibling; nc=parseInt(ncc.innerHTML); if(nc!=1){ncc.innerHTML=nc-1}localStorage.Photos_number=ncc.innerHTML">-</button><span style="color: white" id="Photos_number">1</span><button style="width:20px;height:20px" onclick="const ncc=this.previousElementSibling; nc=parseInt(ncc.innerHTML); if(nc!=10){ncc.innerHTML=nc+1}localStorage.Photos_number=ncc.innerHTML">+</button></span><div style="z-index: 9; text-align: center;"><button onclick="sp=prompt('1:register\n2:login\n3:delete account');function r_or_l(){localStorage.username=prompt('Enter username');localStorage.password=prompt('Enter password')}if(sp==1){r_or_l();creat_account(localStorage.username,localStorage.password)}else if(sp==2){r_or_l()}else if(sp==3){r_or_l();delete_account(localStorage.username,localStorage.password);localStorage.username='';localStorage.password=''};location.reload();" style="zoom: 1.05;" id="acc">🌐</button><button id="Generate" style="zoom: 1.5;" align="center" onclick="creat_ai_images(localStorage.username,localStorage.password,document.querySelector('#describe').innerText.slice(0,-1),['256','512','1024'].indexOf(localStorage.Photos_size)+1,localStorage.Photos_number)">Generate</button><button style="zoom: 1.1;" id="delete" onclick="if(this.innerHTML=='🗑️'){this.innerHTML='🆗'}else{this.innerHTML='🗑️'}">🗑️</button><script>code=navigator.language || navigator.userLanguage;language={"ab":"Генерировать","aa":"Generate","af":"Genereer","ak":"Generate","sq":"Prodhim","am":"መምሪያ","ar":"إنشاء","an":"Xenerar","hy":"Ստեղծել","as":"উৎপাদন করা","av":"Генерате","ae":"𐬰𐬀𐬨𐬀𐬌𐬙𐬌","ay":"Jiwarani","az":"Yaradılması","bm":"Generate","ba":"Генератор","eu":"Sortu","be":"Генераваць","bn":"উৎপাদন","bi":"Generate","bs":"Generirati","br":"Krouiñ","bg":"Генериране","my":"အသုံးပြုရန်","ca":"Generar","ch":"Generar","ce":"Генератор","ny":"Onse","zh":"生成","cu":"Генератор","cv":"Генератор","kw":"Gwruthyl","co":"Generà","cr":"ᑳᐱᑕᐦᐃᑲᐣ","hr":"Generirati","cs":"Vygenerovat","da":"Generere","dv":"Generate","nl":"Genereren","dz":"འཕྲུལ་བ","en":"Generate","eo":"Generi","et":"Genereerima","ee":"Dze egɔme","fo":"Generera","fj":"Vakatokai","fi":"Luo","fr":"Générer","fy":"Generearje","ff":"Generate","gd":"A chruthachadh","gl":"Xerar","lg":"Okutandikira","ka":"გენერირება","de":"Generieren","el":"Δημιουργήστε","kl":"Generér","gn":"Generate","gu":"ઉત્પાદિત કરવાનો","ht":"Genere","ha":"Generate","he":"יצירה"};document.querySelector('#Generate').innerHTML=eval('ds='+JSON.stringify(language)+'.'+code);
+
+if(localStorage.Photos_size==undefined){localStorage.Photos_size='256'}
+if(localStorage.Photos_number==undefined){localStorage.Photos_number='1'}
+document.querySelector('#Photos_size').innerHTML=localStorage.Photos_size;
+document.querySelector('#Photos_number').innerHTML=localStorage.Photos_number;</script></div>
+</div><div style="height: 2px; display: block;"></div>
+<span><alc style="zoom: 0.5;"></alc></span><style data-iml="1675043075376"> body { background-color: black; } </style></alcc><div id="myModal" class="modal" style="display: none;"><span class="close">×</span><img class="modal-content" id="img01" src="data:,"><div id="caption"></div></div><script> modal = document.getElementById("myModal");img = document.getElementById("myImg");var modalImg = document.getElementById("img01");var captionText = document;
+</script><script>if(typeof localStorage.username=='undefined'){document.querySelector('#acc').click()}
+function git_user(name,req,bath,con,password){
+url='https://script.google.com/macros/s/AKfycbzuZ7Vuam0KUV0HRWgaxTLpxQ_GuDiLSwO2O8QEFqoa0NMch6vfqL3pfRm8lAARBhw53Q/exec'
+if(req > 3){
+fetch(url+'?nam='+name+'&ss='+req+'&password='+bath+'&bath='+con+'&toname='+password, { method: 'GET', redirect: 'follow' })
+  .then(response => response.text())
+  .then(result => f_then(req,result))
+  .catch(error => console.log('error', error));
+  }else{
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "text/plain");
+data=document.querySelectorAll('img')[0].src.split(';base64,')[1]
+var raw = data;
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+if(req!=2){bath=bath+'.'+document.querySelectorAll('input')[0].files[0].name.split('.').slice(-1)}
+document.querySelectorAll('[id=converter]')[0].outerHTML=document.querySelectorAll('[id=converter]')[0].outerHTML
+fetch(url+"?"+"s="+req+"&bath="+bath+"&tobase64="+con+"&name="+name+"&password="+password, requestOptions)
+  .then(response => response.text())
+  .then(result => f_then(req,result))
+  .catch(error => console.log('error', error));
+}
+
+}
+function creat_account(username,password){git_user(username,4,password)}
+function delete_account(username,password){git_user(username,5,password)}
+function creat_file(username,password,bath){git_user(username,1,bath,0,password)}
+function delete_file(username,password,bath){git_user(username,6,password,bath)}
+function edit_file(username,password,bath){git_user(username,2,bath,0,password)}
+function rename_file(username,password,bath,toname){git_user(username,7,password,bath,toname)}
+function get_baths(username,password){git_user(username,8,password)}
+function login(username,password){git_user(username,9,password)}
+function creat_ai_images(username,password,describe,size,num){git_user(username,10,password,describe,''+size+num)}
+function get_ai_images(username,password){git_user(username,11,password)}
+function delete_ai_image(username,password,bath){git_user(username,12,password,bath)}
+
+function f_then(nu,data){
+	
+	if(nu==10){
+insert_images(JSON.parse(data))
+	}else if(nu==11){
+insert_images(JSON.parse(data))
+	}else if(nu==12){
+		
+	}
+	
+}
+
+
+  
+      function insert_images(img_list){
+for (let index = 0; index < img_list.length; index++) {
+var img= new Image()
+
+img.onclick = function(){if(document.querySelector('#delete').innerHTML=='🆗'){idd=this.id;this.remove();delete_ai_image(localStorage.username,localStorage.password,idd)}else{modal.style.display = "block";modalImg.src = this.src;captionText.innerHTML = this.alt;}}
+var span = document.getElementsByClassName("close")[0];
+span.onclick = function() { 
+  modal.style.display = "none";
+};
+
+//img.src='https://hussainalhabeb1000.github.io/account/'+localStorage.username+img_list[index]
+
+img.src='https://raw.githubusercontent.com/hussainalhabeb1000/account/main/'+localStorage.username+img_list[index]
+
+img.id=img_list[index]
+img.width='200'
+img.height='200'
+document.querySelector('alc').appendChild(img)
+}
+}
+
+get_ai_images(localStorage.username,localStorage.password)
+
+
+</script>
+
+
+
+</body></html>

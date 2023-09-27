@@ -1,0 +1,11 @@
+<html><head></head><body><div>0</div><script>function html_to_blob(template){
+var blob = new Blob([template], {type: "text/html"});
+var blob_url = URL.createObjectURL(blob);
+return blob_url
+}
+
+document.querySelector('div').innerHTML
+=String(BigInt(document.querySelector('div').innerHTML
+)+1n)
+
+window.location.href=html_to_blob(document.querySelectorAll('html')[0].innerHTML)</script></body></html>
