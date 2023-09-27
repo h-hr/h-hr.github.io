@@ -1,0 +1,244 @@
+<html><head><title>Example Domain</title> <meta charset="utf-8"> <meta http-equiv="Content-type" content="text/html; charset=utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <style type="text/css"> body { background-color: #f0f0f2; margin: 0; padding: 0; font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }  </style> </head>
+
+<body dir="rtl" style="font-size: 40px;" onload="set_value();set_onload();set_input()">
+<center>
+  
+  <button onclick="next();set_input()">&lt;</button><button onclick="center_button();set_input()" id="b">10/1</button><button onclick="before();set_input()">&gt;</button>
+  
+</center>
+  
+  <center><textarea style="height: 33px; width: 100%;"></textarea><textarea style="height: 33px; width: 100%;"></textarea><textarea style="height: 33px; width: 100%;"></textarea></center>
+  <center><button onclick="render_html()">عرض</button></center>
+<textarea id="�" style="width: 100%; height: 100%;border: none; outline: none;font-size:40px;" onkeyup="set_lhash();set_onload();set_input()"></textarea>
+<script>  
+  
+  function getnumber(text, letters) {
+  var char = letters.split('');
+  var baseValue = BigInt(char.length);
+  var num = BigInt(0);
+  for (var i = 0; i < text.length; i++) {
+    var charIndex = char.indexOf(text[i]);
+    if (charIndex !== -1) {
+      num = num * baseValue + BigInt(charIndex + 1);
+    }
+  }
+  return num;
+}
+  
+function getword(num, letters) {
+  var char = letters.split('');
+  var baseValue = BigInt(char.length);
+  var result = '';
+  while (num > 0n) {
+    var remainder = (num - 1n) % baseValue;
+    var charIndex = Number(remainder);
+    result = char[charIndex] + result;
+    num = (num - 1n) / baseValue;
+  }
+  return result;
+}
+
+
+
+function new_base(input, index, z) {
+    function factorial(n) {
+        return n <= 1n ? 1n : n * factorial(n - 1n);
+    }
+
+    function new_base_retrieve_index(input, value) {
+        const inputLength = BigInt(input.length);
+        const maxIndex = factorial(inputLength);
+
+        let index = 0n;
+        let remainingChars = input.split('');
+
+        for (let i = inputLength - 1n; i >= 0n; i--) {
+            const char = value[inputLength - 1n - i];
+            const charIndex = remainingChars.indexOf(char);
+
+            if (charIndex === -1) {
+                throw new Error('Invalid value');
+            }
+
+            index += BigInt(charIndex) * factorial(i);
+            remainingChars.splice(charIndex, 1);
+        }
+
+        index += 1n; // Adjust index to start from 1 externally
+
+        if (index > maxIndex) {
+            throw new Error('Value out of range');
+        }
+
+        return index;
+    }
+
+    const inputLength = BigInt(input.length);
+    const maxIndex = factorial(inputLength);
+
+    if (index === 'i') {
+        return new_base_retrieve_index(input, z);
+    } else if (index === 'l') {
+        return maxIndex;
+    } else {
+        if (isNaN(index)) {
+            throw new Error('Invalid index');
+        }
+
+        index = BigInt(index);
+
+        if (index < 1n || index > maxIndex) {
+            throw new Error('Index out of range');
+        }
+
+        index -= 1n; // Adjust index to start from 0 internally
+
+        let remainingChars = input.split('');
+        let combination = '';
+
+        for (let i = inputLength - 1n; i > 0n; i--) {
+            const charIndex = Number(index / factorial(i));
+            combination += remainingChars[charIndex];
+            remainingChars.splice(charIndex, 1);
+            index %= factorial(i);
+        }
+
+        combination += remainingChars[0];
+        return combination;
+    }
+}
+
+
+
+
+
+
+function set_lhash(bb){
+
+ const d=document.querySelector('[id="�"]')
+;
+bb=bb||[...new Set(d.value)].join('');
+location.hash=`#${getnumber(d.value,bb)}#${bb.replaceAll('\n','%0A')}`;
+}
+
+function set_value(){
+
+ const d=document.querySelector('[id="�"]')
+;
+
+    const lh=location.hash;
+num=lh.split('#')[1];
+str=decodeURIComponent(lh.slice(num.length+2));
+d.value=getword(BigInt(num),str)
+}
+
+
+function center_button(n){
+
+bb=[...new Set(document.querySelector('[id="�"]')
+.value)].join('');
+n=n||prompt('enter num');
+set_lhash(new_base(bb,n));
+document.querySelector('#b').innerHTML=`${new_base(bb,'l')}/${n}`
+
+}
+
+function set_onload() {
+    
+const d=document.querySelector('[id="�"]')
+;
+
+
+bb=[...new Set(d.value)].join('');
+
+bn=String(new_base(bb,'i',decodeURIComponent(location.hash.slice(location.hash.split('#')[1].length+2))));
+
+
+center_button(bn);
+
+}
+
+  
+function next(){
+
+el=document.querySelector('#b').innerHTML.split('/');
+
+if(!(BigInt(el[1])>=BigInt(el[0]))){
+
+center_button(String(BigInt(el[1])+1n))
+
+}
+
+}
+
+
+function before(){
+
+el=document.querySelector('#b').innerHTML.split('/');
+
+if(el[1]!='1'){
+
+center_button(String(BigInt(el[1])-1n))
+
+}
+
+}
+
+function set_input(){
+try {
+    
+const lh=location.hash;
+document.querySelectorAll('textarea')[1].value=decodeURIComponent(lh);
+document.querySelectorAll('textarea')[0].value=decodeURIComponent(lh.slice(lh.split('#')[1].length+2));
+document.querySelectorAll('textarea')[2].value=decodeURIComponent(lh.split('#')[1]);
+
+} catch (error) {}
+}
+
+
+function render_html(){
+const el=document.querySelector('textarea#�');
+if(el!=null){
+
+el.outerHTML=el.outerHTML.replace('<textarea','<div').replace('</textarea>','</div>').replace('><',`>${el.value.replaceAll('\n','<br>')}<`)
+
+
+}else{
+const eL=document.querySelector('div#�')
+tvalue=eL.innerHTML.replaceAll('<br>','\n');
+
+eL.innerHTML=''
+eL.outerHTML=`${eL.outerHTML.replace('<div','<textarea').slice(0,-4)}textarea>`
+
+
+document.querySelector('textarea#�').value=tvalue;
+}
+
+
+}
+
+function ol(link){
+
+window.open(`https://h-hr.github.io/#${document.querySelector('button#b').innerHTML.split('/')[1]}#${link.replaceAll('\n','%0A')}` , '_blank')
+
+}
+
+
+function changed_to_button(){
+
+
+ ele=document.querySelector('textarea#�').value;
+while (ele.includes('�')) {
+ele=ele.replace('�'+ele.match(/�([^�]+)�/g).map(match => match.slice(1, -1))[0]+'�',`<button onclick="ol('${ele.match(/�([^�]+)�/g).map(match => match.slice(1, -1))[0]}')">b</button>`)
+}
+
+document.querySelector('textarea#�').value=ele
+
+}
+
+  
+</script>
+
+
+
+</body></html>
