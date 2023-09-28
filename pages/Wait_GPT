@@ -56,7 +56,7 @@ bound=el.length-1
 
 result=[];
 
-result.push('write only the index of the answer \n'+getSelectedParentElement().innerText);
+result.push('write just only the index of the answer \n'+getSelectedParentElement().innerText);
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+el[index+1].innerText);
@@ -166,9 +166,17 @@ console.log(cm);
 
 getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
 
-function tcode(){getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('div')[parseInt(cm)+3].click()}
+function tcode(){
 
-setTimeout(tcode, 1000);
+ getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('span')[parseInt(cm)+1].parentElement.click()
+
+
+
+
+
+}
+
+setTimeout(tcode, 10000);
 
 
 } catch (error) {
