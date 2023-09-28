@@ -50,7 +50,7 @@ escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escap
 
 const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
 
-bound=el.length-1
+bound=el.length
 
 result=[];
 
