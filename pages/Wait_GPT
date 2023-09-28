@@ -67,4 +67,32 @@ return result.join('\n')
 
 //$0.innerText
 
-get_multi_select()
+
+
+
+
+
+//
+
+function get_select(){
+
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').querySelector('span').querySelector('div').childNodes;
+
+result=[];
+
+result.push(getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+
+bound=el.length;
+  
+for (let index = 0; index < bound; index++) {
+result.push(el[index].querySelector('span').innerText)
+}
+
+return result.join('\n')
+
+}
+try {
+    get_multi_select()
+} catch (error) {
+    get_select()
+}
