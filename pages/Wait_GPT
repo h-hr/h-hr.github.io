@@ -82,10 +82,10 @@ result=[];
 
 result.push(getSelectedParentElement().querySelector('div').querySelector('div').innerText);
 
-bound=el.length;
+bound=el.length-1;
   
 for (let index = 0; index < bound; index++) {
-result.push(el[index].querySelector('span').innerText)
+result.push(el[index+1].innerText)
 }
 
 return result.join('\n')
