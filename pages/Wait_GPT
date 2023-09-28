@@ -44,7 +44,7 @@ function getSelectedParentElement() {
 //document.body.innerHTML = escapeHTMLPolicy.createHTML("<h1>your_html</h1>");
 //getSelectedParentElement().innerHTML=escapeHTMLPolicy.createHTML("your_html");
 
-function get_multi_select(){
+function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
@@ -91,8 +91,31 @@ result.push(el[index].querySelector('span').innerText)
 return result.join('\n')
 
 }
-try {
-    get_multi_select()
-} catch (error) {
-    get_select()
+
+
+function get_multi_select(){
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span');
+
+result=[];
+
+result.push(getSelectedParentElement().innerText);
+
+bound=el.length;
+   
+for (let index = 0; index < bound; index++) {
+result.push(el[index].innerText)
 }
+
+return result.join('\n')
+}
+
+try {
+    get_select_menu()
+} catch (error) {
+ try {
+    get_select()
+} catch (error) {
+ get_multi_select()   
+}   
+}
+
