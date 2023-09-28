@@ -41,4 +41,6 @@ function getSelectedParentElement() {
 //<textarea style="height: 132px; width: 196px;">${chat_GPT(prompt())}</textarea>
 
 
-getSelectedParentElement().getAttribute('class')
+//document.body.innerHTML = escapeHTMLPolicy.createHTML("<h1>your_html</h1>");
+escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+getSelectedParentElement().innerHTML=escapeHTMLPolicy.createHTML("your_html");
