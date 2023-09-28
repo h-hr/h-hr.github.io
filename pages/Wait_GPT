@@ -79,12 +79,12 @@ const el=getSelectedParentElement().parentElement.parentElement.parentElement.ch
 
 result=[];
 
-result.push(getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+result.push('write the index of the answer only\n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
 
 bound=el.length-1;
   
 for (let index = 0; index < bound; index++) {
-result.push(el[index+1].innerText)
+result.push(index+':'+el[index+1].innerText)
 }
 
 return result.join('\n')
@@ -106,12 +106,12 @@ const el=bela.querySelector('div').querySelectorAll('span');
 
 result=[];
 
-result.push(getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+result.push('write the index of the answer only\n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
 
 bound=el.length-3;
   
 for (let index = 0; index < bound; index++) {
-result.push(el[index+3].innerText)
+result.push(index+':'+el[index+3].innerText)
 }
 
 return result.join('\n')
@@ -136,15 +136,29 @@ return result.join('\n')
 }
 
 try {
-    get_select()
+    method=get_select();
+
+cm=cm=chat_GPT(method);
+
+console.log(cm);
+
+getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span')[parseInt(cm)+1].click();
+
 } catch (error) {
     try {
-    get_select_one()
+    method=get_select_one();
+
+cm=chat_GPT(method);
+
+console.log(cm);
+
+getSelectedParentElement().parentElement.parentElement.parentElement.querySelector('div').querySelectorAll('span')[parseInt(cm)+3].click();
+
 } catch (error) {
  try {
-    get_select_menu()
+    methode=get_select_menu()
 } catch (error) {
- get_multi_select()   
+ method=get_multi_select()   
 }   
 }
 }
