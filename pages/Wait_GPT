@@ -73,7 +73,6 @@ return result.join('\n')
 
 
 //
-
 function get_select(){
 
 const el=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span');
@@ -86,6 +85,33 @@ bound=el.length-1;
   
 for (let index = 0; index < bound; index++) {
 result.push(el[index+1].innerText)
+}
+
+return result.join('\n')
+
+}
+
+function get_select_one(){
+
+
+const bel=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1];
+
+const belo=getSelectedParentElement().parentElement.parentElement.parentElement
+
+const bela = typeof bel === 'undefined' ? belo : bel;
+
+
+
+const el=bela.querySelector('div').querySelectorAll('span');
+
+result=[];
+
+result.push(getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+
+bound=el.length-3;
+  
+for (let index = 0; index < bound; index++) {
+result.push(el[index+3].innerText)
 }
 
 return result.join('\n')
@@ -112,9 +138,13 @@ return result.join('\n')
 try {
     get_select()
 } catch (error) {
+    try {
+    get_select_one()
+} catch (error) {
  try {
     get_select_menu()
 } catch (error) {
  get_multi_select()   
 }   
+}
 }
