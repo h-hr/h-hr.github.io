@@ -42,5 +42,29 @@ function getSelectedParentElement() {
 
 
 //document.body.innerHTML = escapeHTMLPolicy.createHTML("<h1>your_html</h1>");
+//getSelectedParentElement().innerHTML=escapeHTMLPolicy.createHTML("your_html");
+
+function get_multi_select(){
+
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
-getSelectedParentElement().innerHTML=escapeHTMLPolicy.createHTML("your_html");
+
+const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').querySelector('div').childNodes;
+
+bound=el.length-2;
+
+result=[];
+indexo=0;
+result.push(getSelectedParentElement().querySelector('span').innerText);
+for (let index = 0; index < bound; index++) {
+
+result.push(el[indexo+2].querySelector('span').innerText);
+indexo=indexo+1;
+
+}
+return result.join('\n')
+}
+//el[2].querySelector('span').innerText
+
+//$0.innerText
+
+get_multi_select()
