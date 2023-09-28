@@ -136,6 +136,30 @@ result.push(el[index].innerText)
 
 return result.join('\n')
 }
+function simulateInput(inputElement, text) {
+
+  if (inputElement) {
+    // Set the value of the input field
+    inputElement.value = text;
+
+    // Trigger an input event to simulate user input
+    const event = new Event('input', {
+      bubbles: true,
+      cancelable: true,
+    });
+
+    inputElement.dispatchEvent(event);
+  } else {
+    console.error(`Input element not found.`);
+  }
+}
+function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
+
+function run_all(){
+
+try {
+get_password()
+} catch (error) {
 
 try {
     method=get_select();
@@ -184,6 +208,14 @@ setTimeout(tcode, 10000);
 }   
 }
 }
+}
+
+
+}
+
+
+
+
 
 
 
