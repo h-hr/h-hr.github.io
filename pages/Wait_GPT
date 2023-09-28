@@ -79,7 +79,7 @@ const el=getSelectedParentElement().parentElement.parentElement.parentElement.ch
 
 result=[];
 
-result.push('write the index of the answer only\n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+result.push('write only the index of the answer \n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
 
 bound=el.length-1;
   
@@ -106,7 +106,7 @@ const el=bela.querySelector('div').querySelectorAll('span');
 
 result=[];
 
-result.push('write the index of the answer only\n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+result.push('write only the index of the answer \n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
 
 bound=el.length-3;
   
