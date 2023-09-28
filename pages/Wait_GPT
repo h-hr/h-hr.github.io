@@ -48,17 +48,17 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').querySelector('div').childNodes;
+const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
 
-bound=el.length-2;
+bound=el.length-1
 
 result=[];
-indexo=0;
-result.push(getSelectedParentElement().querySelector('span').innerText);
+
+result.push(getSelectedParentElement().innerText);
 for (let index = 0; index < bound; index++) {
 
-result.push(el[indexo+2].querySelector('span').innerText);
-indexo=indexo+1;
+result.push(el[index].innerText);
+
 
 }
 return result.join('\n')
@@ -76,7 +76,7 @@ return result.join('\n')
 
 function get_select(){
 
-const el=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').querySelector('span').querySelector('div').childNodes;
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span');
 
 result=[];
 
@@ -110,12 +110,11 @@ return result.join('\n')
 }
 
 try {
-    get_select_menu()
+    get_select()
 } catch (error) {
  try {
-    get_select()
+    get_select_menu()
 } catch (error) {
  get_multi_select()   
 }   
 }
-
