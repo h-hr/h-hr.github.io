@@ -7,3 +7,12 @@ function getSelectedText() {
     }
     return selectedText;
 }
+function getSelectedParentElement() {
+    var parentElement = null;
+    var selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        var range = selection.getRangeAt(0);
+        parentElement = range.commonAncestorContainer.parentElement;
+    }
+    return parentElement;
+}
