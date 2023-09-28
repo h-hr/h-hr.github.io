@@ -50,14 +50,14 @@ escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escap
 
 const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
 
-bound=el.length
+bound=el.length-1
 
 result=[];
 
-result.push(getSelectedParentElement().innerText);
+result.push('write only the index of the answer \n'+getSelectedParentElement().innerText);
 for (let index = 0; index < bound; index++) {
 
-result.push(el[index].innerText);
+result.push(index+':'+el[index+1].innerText);
 
 
 }
