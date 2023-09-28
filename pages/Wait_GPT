@@ -1,5 +1,7 @@
 
 
+
+
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -156,9 +158,25 @@ getSelectedParentElement().parentElement.parentElement.parentElement.querySelect
 
 } catch (error) {
  try {
-    methode=get_select_menu()
+    method=get_select_menu();
+
+cm=chat_GPT(method);
+
+console.log(cm);
+
+getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
+
+function tcode(){getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('div')[parseInt(cm)+3].click()}
+
+setTimeout(tcode, 1000);
+
+
 } catch (error) {
  method=get_multi_select()   
 }   
 }
 }
+
+
+
+
