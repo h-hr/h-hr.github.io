@@ -192,9 +192,10 @@ getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelect
 
 function tcode(){
 
- getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('span')[parseInt(cm)+1].parentElement.click()
+//getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('span')[parseInt(cm)+1].parentElement.click()
 
 
+getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="option"]')[parseInt(cm)+1].click()
 
 
 
