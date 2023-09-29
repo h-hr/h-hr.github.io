@@ -203,6 +203,14 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
+answers=JSON.parse(cm);
+
+for (let index = 0; index < answers.length; index++) {
+    getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
+
+}
+
+
 }
 else if(detect('option')){
 
@@ -235,12 +243,3 @@ setTimeout(tcode, 10000);
 }
 
 
-
-
-
-
-
-
-
-
- 
