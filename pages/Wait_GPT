@@ -180,24 +180,25 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
+//getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
 
-function tcode(){
+getSelectedParentElement().parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span').innerText='choose '+cm
+
+//function tcode(){
 
 //getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').childNodes[1].querySelectorAll('span')[parseInt(cm)+1].parentElement.click()
 
 
-getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="option"]')[parseInt(cm)+1].click()
+//getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="option"]')[parseInt(cm)+1].click()
 
+
+
+//}
+
+//setTimeout(tcode, 10000);
 
 
 }
-
-setTimeout(tcode, 10000);
-
-
-}
 }
 
 }
-
