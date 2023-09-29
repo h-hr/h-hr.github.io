@@ -171,26 +171,13 @@ get_password()
 if(detect('radio')){
 
 
-try {
-    method=get_select();
+method=get_select();
 
 cm=cm=chat_GPT(method);
 
 console.log(cm);
 
 getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
-
-} catch (error) {
-
-    method=get_select_one();
-
-cm=chat_GPT(method);
-
-console.log(cm);
-
-getSelectedParentElement().parentElement.parentElement.parentElement.querySelector('div').querySelectorAll('span')[parseInt(cm)+3].click();
-
-}
 
 
 }
