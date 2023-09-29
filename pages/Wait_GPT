@@ -40,6 +40,16 @@ function getSelectedParentElement() {
     return parentElement;
 }
 
+function getSelectedText() {
+    var selectedText = '';
+    if (window.getSelection) {
+        selectedText = window.getSelection().toString();
+    } else if (document.selection && document.selection.type != 'Control') {
+        selectedText = document.selection.createRange().text;
+    }
+    return selectedText;
+}
+
 //<textarea style="height: 132px; width: 196px;">${chat_GPT(prompt())}</textarea>
 
 
