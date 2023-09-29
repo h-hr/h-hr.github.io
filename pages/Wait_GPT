@@ -260,6 +260,32 @@ for (let index = 0; index < elm.length; index++) {
     elm[index].onclick=run_all_;
 }
 }
+
+function get_elements(){
+
+bound=document.querySelectorAll('span').length-1;
+
+resul=[];
+
+for (let index = 0; index < bound; index++) {
+localStorage.now=index
+const cel=document.body.querySelectorAll('span')[index].parentElement.parentElement.parentElement.parentElement
+
+
+if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(cel.querySelector('[role=radio]')==null||cel.querySelector('[role=checkbox]')==null||cel.querySelector('[role=option]')==null)){
+
+resul.push(cel)
+
+}
+
+}
+
+resul=[...new Set(resul)];
+
+return resul
+}
+
+
 set_button()
 set_script_buttons()
 
