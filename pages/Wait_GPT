@@ -1,5 +1,5 @@
 
-
+temp='';
 
 
 function xhr(url, data) {
@@ -22,7 +22,7 @@ function chat_GPT(message) {
     const data = JSON.stringify({
         "model": "gpt-3.5-turbo",
         "messages": [{"role": "user", "content": message}],
-        "temperature": 0.1
+        "temperature": temp
     });
 
     const responseText = xhr(url, data);
@@ -167,6 +167,7 @@ get_password()
 
 if(detect('radio')){
 
+temp=0.7;
 
 method=get_select();
 
@@ -180,6 +181,7 @@ getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="
 }
 else if(detect('checkbox')){
 
+temp=0.1;
 
 method=get_multi_select()
 
@@ -198,6 +200,7 @@ for (let index = 0; index < answers.length; index++) {
 }
 else if(detect('option')){
 
+temp=0.7;
 
 method=get_select_menu();
 
@@ -339,4 +342,3 @@ for (let index = 0; index < elm.length; index++) {
 set_elements()
 
 set_script_buttons()
-
