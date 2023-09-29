@@ -226,4 +226,14 @@ getSelectedParentElement().parentElement.parentElement.querySelector('[tabindex=
 }
 }
 
-}
+}//function run_all_(){selectText(this);run_all();}
+//getSelectedParentElement().parentElement.querySelector('span').onclick=run_all_;
+
+
+escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+
+getSelectedParentElement().parentElement.querySelector('span').outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${getSelectedParentElement().parentElement.querySelector('span').outerHTML}</button>`);
+
+
+
+
