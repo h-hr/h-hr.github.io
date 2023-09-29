@@ -22,7 +22,7 @@ function chat_GPT(message) {
     const data = JSON.stringify({
         "model": "gpt-3.5-turbo",
         "messages": [{"role": "user", "content": message}],
-        "temperature": 0.7
+        "temperature": 0.1
     });
 
     const responseText = xhr(url, data);
@@ -126,7 +126,7 @@ const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll
 
 result=[];
 
-result.push(getSelectedParentElement().querySelector('span').innerText);
+result.push('it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '+getSelectedParentElement().querySelector('span').innerText);
 
 bound=el.length;
 
@@ -199,6 +199,9 @@ else if(detect('checkbox')){
 
 method=get_multi_select()
 
+cm=chat_GPT(method);
+
+console.log(cm);
 
 }
 else if(detect('option')){
@@ -240,5 +243,4 @@ setTimeout(tcode, 10000);
 
 
 
-
-
+ 
