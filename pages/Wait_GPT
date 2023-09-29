@@ -153,7 +153,7 @@ function simulateInput(inputElement, text) {
 function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 
 function detect(type){
-res=getSelectedParentElement().parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
+res=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
 return res
 }
@@ -207,7 +207,7 @@ console.log(cm);
 
 //getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
 
-getSelectedParentElement().parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span').innerText='choose '+cm
+getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span').innerText='choose '+cm;
 
 //function tcode(){
 
@@ -254,3 +254,4 @@ for (let index = 0; index < elm.length; index++) {
 }
 set_button()
 set_script_buttons()
+
