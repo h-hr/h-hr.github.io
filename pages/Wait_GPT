@@ -77,16 +77,16 @@ return result.join('\n')
 //
 function get_select(){
 
-const el=getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span');
+const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radio"]');
 
 result=[];
 
-result.push('write only the index of the answer \n'+getSelectedParentElement().querySelector('div').querySelector('div').innerText);
+result.push('write only the index of the answer \n'+getSelectedParentElement().querySelector('span').innerText);
 
-bound=el.length-1;
+bound=el.length;
   
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+el[index+1].innerText)
+result.push(index+':'+el[index].parentElement.parentElement.querySelector('span').innerText)
 }
 
 return result.join('\n')
@@ -178,7 +178,7 @@ cm=cm=chat_GPT(method);
 
 console.log(cm);
 
-getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span')[parseInt(cm)+1].click();
+getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
 
 } catch (error) {
 
@@ -241,5 +241,4 @@ setTimeout(tcode, 10000);
 }
 
 }
-
 
