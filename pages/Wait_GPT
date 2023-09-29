@@ -64,22 +64,6 @@ function selectText(element) {
     }
 }
 
-// Example usage:
-var myElement = document.getElementById("myElement");
-selectText(myElement);
-The selectText function accepts an HTML element as a parameter and selects its text content. It uses different methods for different browsers:
-
-For Internet Explorer, it uses document.body.createTextRange() and moveToElementText to create a range and select the text within the element.
-
-For modern browsers (non-IE), it uses document.createRange(), selectNodeContents, and window.getSelection() to create a range, select the element's text content, and add it to the user's selection.
-
-This code will programmatically select the text within the specified HTML element as if a user had done it with a mouse or touch input.
-
-
-
-
-
-
 
 //<textarea style="height: 132px; width: 196px;">${chat_GPT(prompt())}</textarea>
 
