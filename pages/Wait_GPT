@@ -122,16 +122,16 @@ return result.join('\n')
 
 
 function get_multi_select(){
-const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span');
+const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role=checkbox]');
 
 result=[];
 
-result.push(getSelectedParentElement().innerText);
+result.push(getSelectedParentElement().querySelector('span').innerText);
 
 bound=el.length;
-   
+
 for (let index = 0; index < bound; index++) {
-result.push(el[index].innerText)
+result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
 }
 
 return result.join('\n')
@@ -174,7 +174,7 @@ if(detect('radio')){
 try {
     method=get_select();
 
-cm=chat_GPT(method);
+cm=cm=chat_GPT(method);
 
 console.log(cm);
 
@@ -230,6 +230,10 @@ setTimeout(tcode, 10000);
 }
 
 }
+
+
+
+
 
 
 
