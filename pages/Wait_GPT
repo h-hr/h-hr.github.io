@@ -284,8 +284,59 @@ resul=[...new Set(resul)];
 
 return resul
 }
+//set_button()
+//set_script_buttons()
+
+function get_elements(){
+
+bound=document.querySelectorAll('span').length-1;
+
+resul=[];
+
+for (let index = 0; index < bound; index++) {
+localStorage.now=index
+const cel=document.body.querySelectorAll('span')[index].parentElement.parentElement.parentElement.parentElement
 
 
-set_button()
+if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(cel.querySelector('[role=radio]')==null||cel.querySelector('[role=checkbox]')==null||cel.querySelector('[role=option]')==null)){
+
+resul.push(cel)
+
+}
+
+}
+
+resul=[...new Set(resul)];
+
+return resul
+}
+
+function set_elements(){elem=get_elements();
+
+for (let index = 0; index < elem.length; index++) {
+    
+set_button(elem[index].querySelector('span'))
+
+}}
+
+function set_button(ele) {
+    escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+
+ele.outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${ele.outerHTML}</button>`);
+
+}
+
+
+
+function set_script_buttons() {
+const elm=document.querySelectorAll('button');
+
+for (let index = 0; index < elm.length; index++) {
+    elm[index].onclick=run_all_;
+}
+}
+
+set_elements()
+
 set_script_buttons()
 
