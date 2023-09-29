@@ -102,7 +102,7 @@ return result.join('\n')
 //
 function get_select(){
 
-const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radio"]');
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]');
 
 result=[];
 
@@ -119,7 +119,7 @@ return result.join('\n')
 }
 
 function get_multi_select(){
-const el=getSelectedParentElement().parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
 
 result=[];
 
@@ -175,7 +175,7 @@ cm=cm=chat_GPT(method);
 
 console.log(cm);
 
-getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
+getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
 
 
 }
@@ -192,7 +192,7 @@ console.log(cm);
 answers=JSON.parse(cm);
 
 for (let index = 0; index < answers.length; index++) {
-    getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
+    getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
 
 }
 
