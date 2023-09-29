@@ -205,9 +205,17 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
+const eit=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span');
+
+old_eit=eit.innerText;
+
 //getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelector('div').querySelector('div').click();
 
-getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span').innerText='choose '+cm;
+eit.innerText='choose '+cm;
+
+//setTimeout(() => {  eit.innerText=old_eit;}, 1000);
+
+
 
 //function tcode(){
 
