@@ -155,23 +155,33 @@ function simulateInput(inputElement, text) {
 }
 function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 
+function detect(type){
+res=getSelectedParentElement().parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
+if(res!=false){res=true}
+return res
+}
+
 function run_all(){
 
 try {
 get_password()
 } catch (error) {
 
+
+if(detect('radio')){
+
+
 try {
     method=get_select();
 
-cm=cm=chat_GPT(method);
+cm=chat_GPT(method);
 
 console.log(cm);
 
 getSelectedParentElement().parentElement.parentElement.parentElement.childNodes[1].querySelector('div').querySelectorAll('span')[parseInt(cm)+1].click();
 
 } catch (error) {
-    try {
+
     method=get_select_one();
 
 cm=chat_GPT(method);
@@ -180,9 +190,21 @@ console.log(cm);
 
 getSelectedParentElement().parentElement.parentElement.parentElement.querySelector('div').querySelectorAll('span')[parseInt(cm)+3].click();
 
-} catch (error) {
- try {
-    method=get_select_menu();
+}
+
+
+}
+else if(detect('checkbox')){
+
+
+method=get_multi_select()
+
+
+}
+else if(detect('option')){
+
+
+method=get_select_menu();
 
 cm=chat_GPT(method);
 
@@ -204,13 +226,8 @@ getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="
 setTimeout(tcode, 10000);
 
 
-} catch (error) {
- method=get_multi_select()   
-}   
 }
 }
-}
-
 
 }
 
