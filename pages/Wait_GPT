@@ -339,6 +339,20 @@ for (let index = 0; index < elm.length; index++) {
 }
 }
 
+
+
 set_elements()
 
 set_script_buttons()
+
+function tempAlert(msg,duration)
+{escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+ var el = document.createElement("div");
+el.onclick=function remsel(){this.style.display='none'};
+ el.setAttribute("style","position:fixed;top:40%;left:20%;background-color:white;");
+ el.innerHTML = escapeHTMLPolicy.createHTML(msg);
+ setTimeout(function(){
+  el.parentNode.removeChild(el);
+ },duration);
+ document.body.appendChild(el);
+}//tempAlert("close",5000);
