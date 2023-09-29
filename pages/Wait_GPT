@@ -119,7 +119,7 @@ return result.join('\n')
 }
 
 function get_multi_select(){
-const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role=checkbox]');
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
 
 result=[];
 
@@ -153,7 +153,7 @@ function simulateInput(inputElement, text) {
 function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 
 function detect(type){
-res=getSelectedParentElement().parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
+res=getSelectedParentElement().parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
 return res
 }
@@ -230,10 +230,27 @@ getSelectedParentElement().parentElement.parentElement.querySelector('[tabindex=
 //getSelectedParentElement().parentElement.querySelector('span').onclick=run_all_;
 
 
-escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+function set_button() {
+    escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
 getSelectedParentElement().parentElement.querySelector('span').outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${getSelectedParentElement().parentElement.querySelector('span').outerHTML}</button>`);
 
+}
 
 
+//$0.onclick=run_all_
 
+function run_all_(params) {
+    selectText(this.childNodes[0]);run_all();
+
+}
+
+function set_script_buttons() {
+const elm=document.querySelectorAll('button');
+
+for (let index = 0; index < elm.length; index++) {
+    elm[index].onclick=run_all_;
+}
+}
+set_button()
+set_script_buttons()
