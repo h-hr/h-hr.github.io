@@ -72,7 +72,7 @@ bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n'+getSelectedParentElement().innerText);
+result.push('write just only the index of the answer \n '+getSelectedParentElement().innerText);
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+el[index+1].innerText);
@@ -87,7 +87,7 @@ const el=getSelectedParentElement().parentElement.parentElement.parentElement.pa
 
 result=[];
 
-result.push('write only the index of the answer \n'+getSelectedParentElement().querySelector('span').innerText);
+result.push('write only the index of the answer \n '+getSelectedParentElement().querySelector('span').innerText);
 
 bound=el.length;
 
@@ -121,7 +121,7 @@ const el=getSelectedParentElement().parentElement.parentElement.parentElement.pa
 
 result=[];
 
-result.push('Answer the question make the answer as less as possible\n'+el[0].childNodes[0].innerText);
+result.push('Answer the question make the answer as less as possible\n '+el[0].childNodes[0].innerText);
 
 return result.join('\n');
 
