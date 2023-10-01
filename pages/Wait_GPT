@@ -142,6 +142,21 @@ for (let index = 0; index < el.length-1; index++) {
 return result.join('\n')
 }
 
+function get_right_column(){
+
+result=[];
+
+if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
+
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`);
+
+for (let index = 0; index < el.length; index++) {
+   result.push(index+':'+el[index].querySelector('div').innerText)
+}
+
+return result.join('\n')
+}
+
 function simulateInput(inputElement, text) {
 
   if (inputElement) {
