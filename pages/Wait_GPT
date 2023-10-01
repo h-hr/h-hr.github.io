@@ -133,6 +133,19 @@ result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
 
 return result.join('\n')
 }
+
+function get_type_answer(){
+
+const el=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]');
+
+result=[];
+
+result.push('Answer the question make the answer as less as possible\n'+el[0].childNodes[0].innerText);
+
+return result.join('\n');
+
+}
+
 function simulateInput(inputElement, text) {
 
   if (inputElement) {
@@ -159,7 +172,7 @@ return res
 }
 
 function run_all(){
-
+try {role=(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
 try {
 get_password()
 } catch (error) {
@@ -171,7 +184,7 @@ temp=0.7;
 
 method=get_select();
 
-cm=cm=chat_GPT(method);
+cm=chat_GPT(method);
 
 console.log(cm);
 
@@ -234,8 +247,25 @@ eit.innerText='choose '+cm;
 //setTimeout(tcode, 10000);
 
 
+}else if(role){
+
+temp=0.7;
+
+method=get_type_answer();
+
+cm=chat_GPT(method);
+
+console.log(cm);
+
+simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),cm);
+
+
 }
+
+
 }
+
+
 
 }//function run_all_(){selectText(this);run_all();}
 //getSelectedParentElement().parentElement.querySelector('span').onclick=run_all_;
@@ -356,3 +386,4 @@ el.onclick=function remsel(){this.style.display='none'};
  },duration);
  document.body.appendChild(el);
 }//tempAlert("close",5000);
+
