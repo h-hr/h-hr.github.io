@@ -157,6 +157,13 @@ for (let index = 0; index < el.length; index++) {
 return result.join('\n')
 }
 
+function row_start(){
+return 'write only the index of the answer \n '+getSelectedParentElement().innerText+'\n'+get_right_column()
+}
+function column_start(){
+return 'write only the index of the answer \n '+getSelectedParentElement().innerText+'\n'+get_top_row()
+}
+
 function simulateInput(inputElement, text) {
 
   if (inputElement) {
