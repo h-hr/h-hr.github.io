@@ -253,6 +253,23 @@ console.log(cm);
 
 simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),cm);
 
+}else if(detect('radiogroup')){
+
+temp=0.7;
+
+ce=getSelectedParentElement().parentElement.parentElement.querySelector('span');
+
+if(ce==null){method=column_start()}else{method=row_start()};
+
+cm=chat_GPT(method);
+
+console.log(cm);
+
+if(ce==null){}else{
+getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(2)].querySelector('span').childNodes[Array.from(getSelectedParentElement().parentElement.children).indexOf(getSelectedParentElement())].querySelector('div').querySelector('div').click()};
+}
+
+
 }
 
 }
