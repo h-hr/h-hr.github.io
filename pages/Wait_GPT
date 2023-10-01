@@ -127,6 +127,21 @@ return result.join('\n');
 
 }
 
+function get_top_row(){
+
+result=[];
+
+if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
+
+const el=getSelectedParentElement().parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
+
+for (let index = 0; index < el.length-1; index++) {
+   result.push(index+':'+el[index+1].innerText)
+}
+
+return result.join('\n')
+}
+
 function simulateInput(inputElement, text) {
 
   if (inputElement) {
