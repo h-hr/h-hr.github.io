@@ -274,8 +274,6 @@ getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="
 
 }
 
-}
-
 function set_button() {
     escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
