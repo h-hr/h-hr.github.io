@@ -298,9 +298,22 @@ function get_elements(){
 
 bound=document.querySelectorAll('span').length-1;
 
+elem=get_elements_old();
+
 resul=[];
 
 for (let index = 0; index < bound; index++) {
+
+const el=elem[index].querySelector('span').parentElement.parentElement.querySelectorAll('[role=radiogroup]');
+if(el.length!=0){
+el2=el[0].previousElementSibling.childNodes;
+for (let inde = 0; inde < el2.length-1; inde++) {
+    set_button(el2[inde+1])
+}
+for (let ind = 0; ind < el.length; ind++) {
+set_button(el[ind].querySelector('span').querySelector('div'))
+}
+}else{
 
 const cel=document.body.querySelectorAll('span')[index].parentElement.parentElement.parentElement.parentElement;
 
@@ -309,7 +322,7 @@ if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BO
 resul.push(cel)
 
 }
-
+}
 }
 
 resul=[...new Set(resul)];
@@ -317,7 +330,7 @@ resul=[...new Set(resul)];
 return resul
 }
 
-function get_elements(){
+function get_elements_old(){
 
 bound=document.querySelectorAll('span').length-1;
 
@@ -351,9 +364,15 @@ set_button(elem[index].querySelector('span'))
 function set_button(ele) {
     escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-ele.outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${ele.outerHTML}</button>`);
+ele.outerHTML=escapeHTMLPolicy.createHTML(ele.outerHTML.replace('class=',' id="runall" class='));
 
 }
+
+document.querySelectorAll('#runall').forEach(function(element) {
+  element.addEventListener('click', function() {
+    alert(this.innerText);
+  });
+});
 
 function set_script_buttons() {
 const elm=document.querySelectorAll('button');
