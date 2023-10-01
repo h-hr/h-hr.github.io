@@ -296,13 +296,9 @@ for (let index = 0; index < elm.length; index++) {
 
 function get_elements(){
 
-bound=document.querySelectorAll('span').length-1;
-
 elem=get_elements_old();
 
-resul=[];
-
-for (let index = 0; index < bound; index++) {
+for (let index = 0; index < elem.length; index++) {
 
 const el=elem[index].querySelector('span').parentElement.parentElement.querySelectorAll('[role=radiogroup]');
 if(el.length!=0){
@@ -314,21 +310,20 @@ for (let ind = 0; ind < el.length; ind++) {
 set_button(el[ind].querySelector('span').querySelector('div'))
 }
 }else{
-
-const cel=document.body.querySelectorAll('span')[index].parentElement.parentElement.parentElement.parentElement;
-
-if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(cel.querySelector('[role=radio]')==null||cel.querySelector('[role=checkbox]')==null||cel.querySelector('[role=option]')==null)){
-
-resul.push(cel)
+set_button(elem[index].querySelector('span'))
 
 }
 }
+
+document.querySelectorAll('#runall').forEach(function(element) {
+  element.addEventListener('click', function() {
+    alert(this.innerText);
+  });
+});
+
 }
 
-resul=[...new Set(resul)];
 
-return resul
-}
 
 function get_elements_old(){
 
@@ -368,11 +363,6 @@ ele.outerHTML=escapeHTMLPolicy.createHTML(ele.outerHTML.replace('class=',' id="r
 
 }
 
-document.querySelectorAll('#runall').forEach(function(element) {
-  element.addEventListener('click', function() {
-    alert(this.innerText);
-  });
-});
 
 function set_script_buttons() {
 const elm=document.querySelectorAll('button');
