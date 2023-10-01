@@ -317,7 +317,7 @@ set_button(elem[index].querySelector('span'))
 
 document.querySelectorAll('#runall').forEach(function(element) {
   element.addEventListener('click', function() {
-    alert(this.innerText);
+    alert(this.innerText);selectText(this);alert(getSelectedParentElement().innerText)//run_all();
   });
 });
 
