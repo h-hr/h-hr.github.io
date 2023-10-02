@@ -68,16 +68,16 @@ function selectText(element) {
 
 function get_select(){
 
-const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]');
+const el=p(E_E,6).querySelectorAll('[role="radio"]');
 
 result=[];
 
-result.push('write only the index of the answer \n '+E_E.parentElement.parentElement.querySelector('span').innerText);
+result.push('write only the index of the answer \n '+p(E_E,2).querySelector('span').innerText);
 
 bound=el.length;
 
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+el[index].parentElement.parentElement.querySelector('span').innerText)
+result.push(index+':'+p(el[index],2).querySelector('span').innerText)
 }
 
 return result.join('\n')
@@ -85,7 +85,7 @@ return result.join('\n')
 }
 
 function get_multi_select(){
-const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
+const el=p(E_E,5).querySelectorAll('[role=checkbox]');
 
 result=[];
 
@@ -104,13 +104,13 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el= E_E.parentElement.parentElement.childNodes[1].querySelectorAll('span');
+const el= p(E_E,2).childNodes[1].querySelectorAll('span');
 
 bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n '+E_E.parentElement.parentElement.innerText);
+result.push('write just only the index of the answer \n '+p(E_E,2).innerText);
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+el[index+1].innerText);
@@ -121,7 +121,7 @@ return result.join('\n')
 
 function get_type_answer(){
 
-const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]');
+const el=p(E_E,6).querySelectorAll('[role]');
 
 result=[];
 
@@ -137,7 +137,7 @@ result=[];
 
 if(detect('radiogroup')){dr='radiogroup'}else if(detect('group')){dr='group'}
 
-const el=E_E.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
+const el=p(E_E,4).querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
 
 for (let index = 0; index < el.length-1; index++) {
    result.push(index+':'+el[index+1].innerText)
@@ -152,7 +152,7 @@ result=[];
 
 if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
 
-const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`);
+const el=p(E_E,6).querySelectorAll(`[role=${dr}]`);
 
 for (let index = 0; index < el.length; index++) {
    result.push(index+':'+el[index].querySelector('div').innerText)
@@ -184,21 +184,21 @@ function simulateInput(inputElement, text) {
     console.error(`Input element not found.`);
   }
 }
-function get_password(){simulateInput(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
+function get_password(){simulateInput(p(E_E,6).querySelector('input'),JSON.parse(p(E_E,5).getAttribute('data-params').split(',')[10])[0]);}
 function detect(type){
-res=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
+res=p(E_E,6).querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
 return res
 }
 
 function run_all(){
-try {role=(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
+try {role=(p(E_E,6).querySelectorAll('[role]').length==2)} catch (error) {role=false}
 
 try {
 get_password();
 } catch (error) {
 
-if(detect('radio')&&!(E_E.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=radiogroup]').length>1)){
+if(detect('radio')&&!(p(E_E,4).querySelectorAll('[role=radiogroup]').length>1)){
 
 temp=0.7;
 
@@ -208,7 +208,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
+p(p(E_E,6).querySelectorAll('[role="radio"]')[parseInt(cm)],2).querySelector('span').click();
 
 }else if(detect('checkbox')){
 
@@ -223,7 +223,7 @@ console.log(cm);
 answers=JSON.parse(cm);
 
 for (let index = 0; index < answers.length; index++) {
-    E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
+    p(E_E,6).querySelectorAll('[role=checkbox]')[answers[index]].click()
 
 }
 
@@ -237,7 +237,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-const eit=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span');
+const eit=p(E_E,6).querySelector('[tabindex="0"]').querySelector('span');
 
 old_eit=eit.innerText;
 
@@ -253,13 +253,13 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-simulateInput(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),cm);
+simulateInput(p(E_E,6).querySelector('input'),cm);
 
 }else if(detect('radiogroup')){
 
 temp=0.1;
 
-ce=E_E.parentElement.parentElement.querySelector('span');
+ce=p(E_E,2).querySelector('span');
 
 if(ce!=null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
@@ -268,9 +268,9 @@ cm=chat_GPT(method);
 console.log(cm);
 
 if(ce!=null){
-E_E.parentElement.parentElement.querySelectorAll('[role=radio]')[parseInt(cm)].click();
+p(E_E,2).querySelectorAll('[role=radio]')[parseInt(cm)].click();
 }else{
-E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click();
+p(E_E,3).querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(p(E_E,1).children).indexOf(E_E)].querySelector('div').querySelector('div').click();
 }
 
 
@@ -280,6 +280,8 @@ E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogrou
 }
 
 }
+
+
 
 
 function get_elements(){
@@ -288,7 +290,7 @@ elem=get_elements_old();
 
 for (let index = 0; index < elem.length; index++) {
 
-const el=elem[index].querySelector('span').parentElement.parentElement.querySelectorAll('[role=radiogroup]');
+const el=p(elem[index].querySelector('span'),2).querySelectorAll('[role=radiogroup]');
 if(el.length!=0){
 el2=el[0].previousElementSibling.childNodes;
 for (let inde = 0; inde < el2.length-1; inde++) {
@@ -320,7 +322,7 @@ resul=[];
 
 for (let index = 0; index < bound; index++) {
 
-const cel=document.body.querySelectorAll('span')[index].parentElement.parentElement.parentElement.parentElement;
+const cel=p(document.body.querySelectorAll('span')[index],4);
 
 if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(cel.querySelector('[role=radio]')==null||cel.querySelector('[role=checkbox]')==null||cel.querySelector('[role=option]')==null)){
 
