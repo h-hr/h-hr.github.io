@@ -285,9 +285,9 @@ cm=chat_GPT(method);
 console.log(cm);
 
 if(ce==null){
-
+E_E.parentElement.querySelectorAll('[role=radio]')[parseInt(cm)].click();
 }else{
-E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click()
+E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click();
 }
 
 }
