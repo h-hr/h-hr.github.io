@@ -134,9 +134,9 @@ function get_top_row(){
 
 result=[];
 
-if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
+if(detect('radiogroup')){dr='radiogroup'}else if(detect('group')){dr='group'}
 
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
+const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
 
 for (let index = 0; index < el.length-1; index++) {
    result.push(index+':'+el[index+1].innerText)
