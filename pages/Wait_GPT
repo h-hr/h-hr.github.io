@@ -217,7 +217,7 @@ get_password();
 } catch (error) {
 
 
-if(detect('radio')&&(detect('presentation')==false)){
+if(detect('radio')&&!(E_E.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=radiogroup]').length>1)){
 
 
 temp=0.7;
