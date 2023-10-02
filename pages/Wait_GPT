@@ -3,6 +3,7 @@ temp='';
 E_E='';
 
 function p(e,n){for(let t=0;t<n;t++)e=e.parentElement;return e}
+function it(e){return e.innerText}
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -35,12 +36,12 @@ const el=p(E_E,6).querySelectorAll('[role="radio"]');
 
 result=[];
 
-result.push('write only the index of the answer \n '+p(E_E,2).querySelector('span').innerText);
+result.push('write only the index of the answer \n '+it(p(E_E,2).querySelector('span')));
 
 bound=el.length;
 
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+p(el[index],2).querySelector('span').innerText)
+result.push(index+':'+it(p(el[index],2).querySelector('span')))
 }
 
 return result.join('\n')
@@ -52,12 +53,12 @@ const el=p(E_E,5).querySelectorAll('[role=checkbox]');
 
 result=[];
 
-result.push('it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '+E_E.innerText);
+result.push('it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '+it(E_E));
 
 bound=el.length;
 
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
+result.push(index+':'+it(el[index].nextSibling.querySelector('span')))
 }
 
 return result.join('\n')
@@ -73,10 +74,10 @@ bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n '+p(E_E,2).innerText);
+result.push('write just only the index of the answer \n '+it(p(E_E,2)));
 for (let index = 0; index < bound; index++) {
 
-result.push(index+':'+el[index+1].innerText);
+result.push(index+':'+it(el[index+1]));
 
 }
 return result.join('\n')
@@ -88,7 +89,7 @@ const el=p(E_E,6).querySelectorAll('[role]');
 
 result=[];
 
-result.push('Answer the question make the answer as less as possible\n '+el[0].childNodes[0].innerText);
+result.push('Answer the question make the answer as less as possible\n '+it(el[0].childNodes[0]));
 
 return result.join('\n');
 
@@ -103,7 +104,7 @@ if(detect('radiogroup')){dr='radiogroup'}else if(detect('group')){dr='group'}
 const el=p(E_E,4).querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
 
 for (let index = 0; index < el.length-1; index++) {
-   result.push(index+':'+el[index+1].innerText)
+   result.push(index+':'+it(el[index+1]))
 }
 
 return result.join('\n')
@@ -118,17 +119,17 @@ if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
 const el=p(E_E,6).querySelectorAll(`[role=${dr}]`);
 
 for (let index = 0; index < el.length; index++) {
-   result.push(index+':'+el[index].querySelector('div').innerText)
+   result.push(index+':'+it(el[index].querySelector('div')))
 }
 
 return result.join('\n')
 }
 
 function row_start(){
-return 'write only the index of the answer \n '+E_E.innerText+'\n'+get_right_column()
+return 'write only the index of the answer \n '+it(E_E)+'\n'+get_right_column()
 }
 function column_start(){
-return 'write only the index of the answer \n '+E_E.innerText+'\n'+get_top_row()
+return 'write only the index of the answer \n '+it(E_E)+'\n'+get_top_row()
 }
 
 function simulateInput(inputElement, text) {
@@ -202,7 +203,7 @@ console.log(cm);
 
 const eit=p(E_E,6).querySelector('[tabindex="0"]').querySelector('span');
 
-old_eit=eit.innerText;
+old_eit=it(eit);
 
 eit.innerText='choose '+cm;
 
