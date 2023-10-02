@@ -2,6 +2,8 @@ temp='';
 
 E_E='';
 
+function p(e,n){for(let t=0;t<n;t++)e=e.parentElement;return e}
+
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -279,19 +281,6 @@ E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogrou
 
 }
 
-function set_button() {
-    escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
-
-E_E.parentElement.parentElement.parentElement.querySelector('span').outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${E_E.parentElement.parentElement.parentElement.querySelector('span').outerHTML}</button>`);
-
-}
-
-function run_all_(params) {
-    selectText(this.childNodes[0]);run_all();
-
-}
-
-
 
 function get_elements(){
 
@@ -303,13 +292,13 @@ const el=elem[index].querySelector('span').parentElement.parentElement.querySele
 if(el.length!=0){
 el2=el[0].previousElementSibling.childNodes;
 for (let inde = 0; inde < el2.length-1; inde++) {
-    set_button(el2[inde+1])
+    el2[inde+1].id='runall'
 }
 for (let ind = 0; ind < el.length; ind++) {
-set_button(el[ind].querySelector('span').querySelector('div'))
+el[ind].querySelector('span').querySelector('div').id='runall'
 }
 }else{
-set_button(elem[index].querySelector('span'))
+elem[index].querySelector('span').id='runall'
 
 }
 }
@@ -346,13 +335,6 @@ resul=[...new Set(resul)];
 return resul
 }
 
-function set_elements(){elem=get_elements();
-
-for (let index = 0; index < elem.length; index++) {
-
-set_button(elem[index].querySelector('span'))
-
-}}
 
 get_elements();
 
