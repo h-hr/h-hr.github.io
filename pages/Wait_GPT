@@ -1,5 +1,7 @@
 temp='';
 
+E_E='';
+
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -66,13 +68,13 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el= getSelectedElement().parentElement.parentElement.parentElement.childNodes[1].querySelectorAll('span');
+const el= E_E.parentElement.parentElement.parentElement.childNodes[1].querySelectorAll('span');
 
 bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n '+getSelectedElement().parentElement.parentElement.innerText);
+result.push('write just only the index of the answer \n '+E_E.parentElement.parentElement.innerText);
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+el[index+1].innerText);
@@ -83,11 +85,11 @@ return result.join('\n')
 
 function get_select(){
 
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]');
+const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]');
 
 result=[];
 
-result.push('write only the index of the answer \n '+getSelectedElement().parentElement.parentElement.querySelector('span').innerText);
+result.push('write only the index of the answer \n '+E_E.parentElement.parentElement.querySelector('span').innerText);
 
 bound=el.length;
 
@@ -103,13 +105,13 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el= getSelectedElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
+const el= E_E.parentElement.parentElement.childNodes[1].querySelectorAll('span');
 
 bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n '+getSelectedElement().parentElement.parentElement.innerText);
+result.push('write just only the index of the answer \n '+E_E.parentElement.parentElement.innerText);
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+el[index+1].innerText);
@@ -120,7 +122,7 @@ return result.join('\n')
 
 function get_type_answer(){
 
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]');
+const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]');
 
 result=[];
 
@@ -136,7 +138,7 @@ result=[];
 
 if(detect('radiogroup')){dr='radiogroup'}else if(detect('group')){dr='group'}
 
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
+const el=E_E.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`)[0].previousElementSibling.childNodes;
 
 for (let index = 0; index < el.length-1; index++) {
    result.push(index+':'+el[index+1].innerText)
@@ -151,7 +153,7 @@ result=[];
 
 if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
 
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`);
+const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role=${dr}]`);
 
 for (let index = 0; index < el.length; index++) {
    result.push(index+':'+el[index].querySelector('div').innerText)
@@ -161,10 +163,10 @@ return result.join('\n')
 }
 
 function row_start(){
-return 'write only the index of the answer \n '+getSelectedElement().innerText+'\n'+get_right_column()
+return 'write only the index of the answer \n '+E_E.innerText+'\n'+get_right_column()
 }
 function column_start(){
-return 'write only the index of the answer \n '+getSelectedElement().innerText+'\n'+get_top_row()
+return 'write only the index of the answer \n '+E_E.innerText+'\n'+get_top_row()
 }
 
 function simulateInput(inputElement, text) {
@@ -183,17 +185,17 @@ function simulateInput(inputElement, text) {
     console.error(`Input element not found.`);
   }
 }
-function get_password(){simulateInput(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
+function get_password(){simulateInput(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 function detect(type){
-res=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
+res=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
 return res
 }
 
 function run_all(){
-try {role=(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
+try {role=(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
 
-con=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params')!=null;
+con=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params')!=null;
 
 if(con){
 get_password();
@@ -208,7 +210,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
+E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
 
 }else if(detect('checkbox')){
 
@@ -224,7 +226,7 @@ console.log(cm);
 answers=JSON.parse(cm);
 
 for (let index = 0; index < answers.length; index++) {
-    getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
+    E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]')[answers[index]].click()
 
 }
 
@@ -239,7 +241,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-const eit=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span');
+const eit=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('[tabindex="0"]').querySelector('span');
 
 old_eit=eit.innerText;
 
@@ -255,15 +257,15 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-simulateInput(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),cm);
+simulateInput(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),cm);
 
 }else if(detect('radiogroup')){
 
 temp=0.1;
 
-ce=getSelectedElement().parentElement.querySelector('span');
+ce=E_E.parentElement.querySelector('span');
 
-if(ce==null){method=column_start()}else{method=row_start().replaceAll('\t','')};
+if(ce!=null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
 cm=chat_GPT(method);
 
@@ -272,7 +274,7 @@ console.log(cm);
 if(ce==null){
 
 }else{
-getSelectedElement().parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(getSelectedElement().parentElement.children).indexOf(getSelectedElement())].querySelector('div').querySelector('div').click()
+E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click()
 }
 
 
@@ -282,7 +284,7 @@ getSelectedElement().parentElement.parentElement.parentElement.querySelectorAll(
 function set_button() {
     escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-getSelectedElement().parentElement.parentElement.parentElement.querySelector('span').outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${getSelectedElement().parentElement.parentElement.parentElement.querySelector('span').outerHTML}</button>`);
+E_E.parentElement.parentElement.parentElement.querySelector('span').outerHTML=escapeHTMLPolicy.createHTML(`<button style="background-color:transparent;border-color:transparent;">${E_E.parentElement.parentElement.parentElement.querySelector('span').outerHTML}</button>`);
 
 }
 
@@ -322,7 +324,7 @@ set_button(elem[index].querySelector('span'))
 
 document.querySelectorAll('#runall').forEach(function(element) {
   element.addEventListener('click', function() {
-    selectText(this);
+    E_E=this;
     run_all();
   });
 });
