@@ -66,7 +66,7 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el= getSelectedParentElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
+const el= getSelectedParentElement().parentElement.childNodes[1].querySelectorAll('span');
 
 bound=el.length-1;
 
@@ -180,8 +180,7 @@ function simulateInput(inputElement, text) {
     console.error(`Input element not found.`);
   }
 }
-function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
-
+function get_password(){simulateInput(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 function detect(type){
 res=getSelectedParentElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
@@ -194,7 +193,7 @@ try {
 get_password()
 } catch (error) {
 
-if(detect('radio')){
+if(detect('radio')&&(detect('radiogroup')==false)){
 
 temp=0.7;
 
@@ -255,23 +254,25 @@ simulateInput(getSelectedParentElement().parentElement.parentElement.parentEleme
 
 }else if(detect('radiogroup')){
 
-temp=0.7;
+temp=0.1;
 
 ce=getSelectedParentElement().parentElement.parentElement.querySelector('span');
 
-if(ce==null){method=column_start()}else{method=row_start()};
+if(ce==null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
 cm=chat_GPT(method);
 
 console.log(cm);
 
-if(ce==null){}else{
-getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(2)].querySelector('span').childNodes[Array.from(getSelectedParentElement().parentElement.children).indexOf(getSelectedParentElement())].querySelector('div').querySelector('div').click()};
+if(ce==null){
+
+}else{
+getSelectedParentElement().parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(getSelectedParentElement().parentElement.children).indexOf(getSelectedParentElement())].querySelector('div').querySelector('div').click()
 }
 
 
 }
-
+}
 }
 
 function set_button() {
@@ -317,7 +318,8 @@ set_button(elem[index].querySelector('span'))
 
 document.querySelectorAll('#runall').forEach(function(element) {
   element.addEventListener('click', function() {
-    alert(this.innerText);selectText(this);alert(getSelectedParentElement().innerText)//run_all();
+    selectText(this);
+    run_all();
   });
 });
 
@@ -372,9 +374,11 @@ for (let index = 0; index < elm.length; index++) {
 }
 }
 
-set_elements();
+//set_elements();
 
-set_script_buttons();
+//set_script_buttons();
+
+get_elements();
 
 function tempAlert(msg,duration)
 {escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
