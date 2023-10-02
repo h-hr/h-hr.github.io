@@ -360,13 +360,6 @@ set_button(elem[index].querySelector('span'))
 
 }}
 
-function set_button(ele) {
-    escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
-
-ele.outerHTML=escapeHTMLPolicy.createHTML(ele.outerHTML.replace('class=',' id="runall" class='));
-
-}
-
 function set_script_buttons() {
 const elm=document.querySelectorAll('button');
 
