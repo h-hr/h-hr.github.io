@@ -278,13 +278,13 @@ temp=0.1;
 
 ce=E_E.parentElement.querySelector('span');
 
-if(ce!=null){method=column_start()}else{method=row_start().replaceAll('\t','')};
+if(ce==null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
 cm=chat_GPT(method);
 
 console.log(cm);
 
-if(ce!=null){
+if(ce==null){
 
 }else{
 E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click()
