@@ -291,13 +291,7 @@ function run_all_(params) {
 
 }
 
-function set_script_buttons() {
-const elm=document.querySelectorAll('button');
 
-for (let index = 0; index < elm.length; index++) {
-    elm[index].onclick=run_all_;
-}
-}
 
 function get_elements(){
 
@@ -359,14 +353,6 @@ for (let index = 0; index < elem.length; index++) {
 set_button(elem[index].querySelector('span'))
 
 }}
-
-function set_script_buttons() {
-const elm=document.querySelectorAll('button');
-
-for (let index = 0; index < elm.length; index++) {
-    elm[index].onclick=run_all_;
-}
-}
 
 get_elements();
 
