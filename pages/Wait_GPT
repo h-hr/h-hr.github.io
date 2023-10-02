@@ -99,19 +99,22 @@ return result.join('\n')
 
 }
 
-function get_multi_select(){
-const el=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
+function get_select_menu(){
+
+escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+
+const el= getSelectedElement().parentElement.parentElement.childNodes[1].querySelectorAll('span');
+
+bound=el.length-1;
 
 result=[];
 
-result.push('it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '+getSelectedElement().parentElement.parentElement.querySelector('span').innerText);
-
-bound=el.length;
-
+result.push('write just only the index of the answer \n '+getSelectedElement().parentElement.parentElement.innerText);
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
-}
 
+result.push(index+':'+el[index+1].innerText);
+
+}
 return result.join('\n')
 }
 
