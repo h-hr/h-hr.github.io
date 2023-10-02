@@ -183,7 +183,7 @@ function simulateInput(inputElement, text) {
     console.error(`Input element not found.`);
   }
 }
-function get_password(){simulateInput(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
+function get_password(){simulateInput(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector('input'),JSON.parse(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params').split(',')[10])[0]);}
 function detect(type){
 res=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll(`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
@@ -192,11 +192,13 @@ return res
 
 function run_all(){
 try {role=(getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
-try {
-get_password()
-} catch (error) {
 
-if(detect('radio')&&(detect('radiogroup')==false)){
+con=getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params')!=null;
+
+if(con){
+get_password();
+}else if(detect('radio')&&(detect('radiogroup')==false)){
+
 
 temp=0.7;
 
@@ -208,8 +210,8 @@ console.log(cm);
 
 getSelectedElement().parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
 
-}
-else if(detect('checkbox')){
+}else if(detect('checkbox')){
+
 
 temp=0.1;
 
@@ -226,8 +228,8 @@ for (let index = 0; index < answers.length; index++) {
 
 }
 
-}
-else if(detect('option')){
+}else if(detect('option')){
+
 
 temp=0.7;
 
@@ -274,7 +276,6 @@ getSelectedElement().parentElement.parentElement.parentElement.parentElement.que
 }
 
 
-}
 }
 }
 
