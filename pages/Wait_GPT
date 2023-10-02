@@ -3,7 +3,6 @@ temp='';
 E_E='';
 
 function p(e,n){for(let t=0;t<n;t++)e=e.parentElement;return e}
-
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -15,7 +14,6 @@ function xhr(url, data) {
         return request.responseText;
     }
 }
-
 function chat_GPT(message) {
     Key = atob(atob('YzJzdGRVazNaa0pJV0c5ck1tMXZTVEZ2VkZsdWR6RlVNMEpzWW10R1NtZHRTWGQxU1hGaU1scE5kR1ZZYldFM1pGQnQ='));
     message = '' || message;
@@ -31,41 +29,6 @@ function chat_GPT(message) {
 
     return JSON.parse(responseText).choices[0].message.content;
 }
-
-function getSelectedElement(){
-    var parentElement = null;
-    var selection = window.getSelection();
-    if (selection.rangeCount > 0) {
-        var range = selection.getRangeAt(0);
-        parentElement = range.commonAncestorContainer;
-    }
-    return parentElement;
-}
-
-function getSelectedText() {
-    var selectedText = '';
-    if (window.getSelection) {
-        selectedText = window.getSelection().toString();
-    } else if (document.selection && document.selection.type != 'Control') {
-        selectedText = document.selection.createRange().text;
-    }
-    return selectedText;
-}
-
-function selectText(element) {
-    if (document.selection) { 
-        var range = document.body.createTextRange();
-        range.moveToElementText(element);
-        range.select();
-    } else if (window.getSelection) { 
-        var range = document.createRange();
-        range.selectNodeContents(element);
-        var selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-}
-
 function get_select(){
 
 const el=p(E_E,6).querySelectorAll('[role="radio"]');
@@ -340,8 +303,8 @@ return resul
 
 get_elements();
 
-function tempAlert(msg,duration)
-{escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
+function tempAlert(msg,duration){
+escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
  var el = document.createElement("div");
 el.onclick=function remsel(){this.style.display='none'};
  el.setAttribute("style","position:fixed;top:40%;left:20%;background-color:white;");
