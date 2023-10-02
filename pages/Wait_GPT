@@ -64,25 +64,6 @@ function selectText(element) {
     }
 }
 
-function get_select_menu(){
-
-escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
-
-const el= E_E.parentElement.parentElement.parentElement.childNodes[1].querySelectorAll('span');
-
-bound=el.length-1;
-
-result=[];
-
-result.push('write just only the index of the answer \n '+E_E.parentElement.parentElement.innerText);
-for (let index = 0; index < bound; index++) {
-
-result.push(index+':'+el[index+1].innerText);
-
-}
-return result.join('\n')
-}
-
 function get_select(){
 
 const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]');
