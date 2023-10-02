@@ -117,7 +117,6 @@ result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
 return result.join('\n')
 }
 
-
 function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
@@ -216,9 +215,7 @@ try {
 get_password();
 } catch (error) {
 
-
 if(detect('radio')&&!(E_E.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=radiogroup]').length>1)){
-
 
 temp=0.7;
 
@@ -231,7 +228,6 @@ console.log(cm);
 E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radio"]')[parseInt(cm)].parentElement.parentElement.querySelector('span').click();
 
 }else if(detect('checkbox')){
-
 
 temp=0.1;
 
@@ -249,7 +245,6 @@ for (let index = 0; index < answers.length; index++) {
 }
 
 }else if(detect('option')){
-
 
 temp=0.7;
 
@@ -295,12 +290,9 @@ if(ce!=null){
 E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(E_E.parentElement.children).indexOf(E_E)].querySelector('div').querySelector('div').click()
 }
 
-
 }
 
-
 }
-
 
 }
 
@@ -354,8 +346,6 @@ document.querySelectorAll('#runall').forEach(function(element) {
 
 }
 
-
-
 function get_elements_old(){
 
 bound=document.querySelectorAll('span').length-1;
@@ -394,7 +384,6 @@ ele.outerHTML=escapeHTMLPolicy.createHTML(ele.outerHTML.replace('class=',' id="r
 
 }
 
-
 function set_script_buttons() {
 const elm=document.querySelectorAll('button');
 
@@ -402,10 +391,6 @@ for (let index = 0; index < elm.length; index++) {
     elm[index].onclick=run_all_;
 }
 }
-
-//set_elements();
-
-//set_script_buttons();
 
 get_elements();
 
