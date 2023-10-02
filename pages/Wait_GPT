@@ -195,11 +195,12 @@ return res
 function run_all(){
 try {role=(E_E.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role]').length==2)} catch (error) {role=false}
 
-con=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-params')!=null;
-
-if(con){
+try {
 get_password();
-}else if(detect('radio')&&(detect('radiogroup')==false)){
+} catch (error) {
+
+
+if(detect('radio')&&(detect('radiogroup')==false)){
 
 
 temp=0.7;
@@ -279,6 +280,11 @@ E_E.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogrou
 
 
 }
+
+
+}
+
+
 }
 
 function set_button() {
