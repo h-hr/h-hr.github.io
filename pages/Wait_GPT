@@ -101,6 +101,23 @@ return result.join('\n')
 
 }
 
+function get_multi_select(){
+const el=E_E.parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role=checkbox]');
+
+result=[];
+
+result.push('it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '+E_E.innerText);
+
+bound=el.length;
+
+for (let index = 0; index < bound; index++) {
+result.push(index+':'+el[index].nextSibling.querySelector('span').innerText)
+}
+
+return result.join('\n')
+}
+
+
 function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
