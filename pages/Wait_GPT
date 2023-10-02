@@ -272,7 +272,7 @@ console.log(cm);
 if(ce==null){
 
 }else{
-getSelectedElement().parentElement.parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(getSelectedElement().parentElement.parentElement.parentElement.children).indexOf(getSelectedElement().parentElement.parentElement)].querySelector('div').querySelector('div').click()
+getSelectedElement().parentElement.parentElement.parentElement.querySelectorAll('[role="radiogroup"]')[parseInt(cm)].querySelector('span').childNodes[Array.from(getSelectedElement().parentElement.children).indexOf(getSelectedElement())].querySelector('div').querySelector('div').click()
 }
 
 
