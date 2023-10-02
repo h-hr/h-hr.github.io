@@ -161,10 +161,10 @@ return result.join('\n')
 }
 
 function row_start(){
-return 'write only the index of the answer \n '+getSelectedElement().parentElement.innerText+'\n'+get_right_column()
+return 'write only the index of the answer \n '+getSelectedElement().innerText+'\n'+get_right_column()
 }
 function column_start(){
-return 'write only the index of the answer \n '+getSelectedElement().parentElement.innerText+'\n'+get_top_row()
+return 'write only the index of the answer \n '+getSelectedElement().innerText+'\n'+get_top_row()
 }
 
 function simulateInput(inputElement, text) {
@@ -261,7 +261,7 @@ simulateInput(getSelectedElement().parentElement.parentElement.parentElement.par
 
 temp=0.1;
 
-ce=getSelectedElement().parentElement.parentElement.parentElement.parentElement.querySelector('span');
+ce=getSelectedElement().parentElement.querySelector('span');
 
 if(ce==null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
