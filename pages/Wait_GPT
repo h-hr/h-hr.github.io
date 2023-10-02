@@ -217,7 +217,7 @@ get_password();
 } catch (error) {
 
 
-if(detect('radio')&&(detect('radiogroup')==false)){
+if(detect('radio')&&(detect('presentation')==false)){
 
 
 temp=0.7;
