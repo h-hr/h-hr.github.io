@@ -176,7 +176,7 @@ console.log(cm);
 
 s(p(a(p(E_E,6),'[role=radio]')[parseInt(cm)],2),'span').click();
 
-}else if(detect('checkbox')){
+}else if(detect('checkbox')&&!(detect('group'))){
 
 temp=0.1;
 
