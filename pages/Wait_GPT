@@ -5,7 +5,7 @@ E_E='';
 function p(e,n){for(let t=0;t<n;t++)e=e.parentElement;return e}
 function it(e){return e.innerText}
 function a(e,s){return e.querySelectorAll(s)}
-function s(e,s){return e.querySelector(s)}
+function s(e,s){try { return e.querySelector(s) } catch (error) { return null }}
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -225,19 +225,26 @@ simulateInput(s(p(E_E,6),'input'),cm);
 
 temp=0.1;
 
-ce=s(p(E_E,2),'span');
+ce=E_E.parentElement.querySelector('div').innerHTML=='';
 
-if(ce!=null){method=column_start()}else{method=row_start().replaceAll('\t','')};
+if(ce!=true){
+method=column_start();
 
 cm=chat_GPT(method);
-
 console.log(cm);
 
-if(ce!=null){
 a(p(E_E,2),'[role=radio]')[parseInt(cm)].click();
-}else{
+
+}else if(ce==true){
+method=row_start();
+
+cm=chat_GPT(method);
+console.log(cm);
+
 s(s(s(a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)],'span').childNodes[Array.from(p(E_E,1).children).indexOf(E_E)],'div'),'div').click();
-}
+
+};
+
 
 
 
