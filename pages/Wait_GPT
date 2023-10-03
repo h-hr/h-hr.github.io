@@ -5,6 +5,7 @@ E_E='';
 function p(e,n){for(let t=0;t<n;t++)e=e.parentElement;return e}
 function it(e){return e.innerText}
 function a(e,s){return e.querySelectorAll(s)}
+function s(e,s){return e.querySelector(s)}
 function xhr(url, data) {
     const request = new XMLHttpRequest();
     request.open('POST', url, false);
@@ -37,12 +38,12 @@ const el=a(p(E_E,6),'[role=radio]');
 
 result=[];
 
-result.push('write only the index of the answer \n '+it(p(E_E,2).querySelector('span')));
+result.push('write only the index of the answer \n '+it(s(p(E_E,2),'span')));
 
 bound=el.length;
 
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+it(p(el[index],2).querySelector('span')))
+result.push(index+':'+it(s(p(el[index],2),'span')))
 }
 
 return result.join('\n')
@@ -59,7 +60,7 @@ result.push('it is multi select question write only the index of each right answ
 bound=el.length;
 
 for (let index = 0; index < bound; index++) {
-result.push(index+':'+it(el[index].nextSibling.querySelector('span')))
+result.push(index+':'+it(s(el[index].nextSibling,'span')))
 }
 
 return result.join('\n')
@@ -120,7 +121,7 @@ if(detect('group')){dr='group'}else if(detect('radiogroup')){dr='radiogroup'}
 const el=a(p(E_E,6),`[role=${dr}]`);
 
 for (let index = 0; index < el.length; index++) {
-   result.push(index+':'+it(el[index].querySelector('div')))
+   result.push(index+':'+it(s(el[index],'div')))
 }
 
 return result.join('\n')
@@ -149,7 +150,7 @@ function simulateInput(inputElement, text) {
     console.error(`Input element not found.`);
   }
 }
-function get_password(){simulateInput(p(E_E,6).querySelector('input'),JSON.parse(p(E_E,5).getAttribute('data-params').split(',')[10])[0]);}
+function get_password(){simulateInput(s(p(E_E,6),'input'),JSON.parse(p(E_E,5).getAttribute('data-params').split(',')[10])[0]);}
 function detect(type){
 res=a(p(E_E,6),`[role="${type}"]`)[0]||false;
 if(res!=false){res=true}
@@ -173,7 +174,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-p(a(p(E_E,6),'[role=radio]')[parseInt(cm)],2).querySelector('span').click();
+s(p(a(p(E_E,6),'[role=radio]')[parseInt(cm)],2),'span').click();
 
 }else if(detect('checkbox')){
 
@@ -202,7 +203,7 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-const eit=p(E_E,6).querySelector('[tabindex="0"]').querySelector('span');
+const eit=s(s(p(E_E,6),'[tabindex="0"]'),'span');
 
 old_eit=it(eit);
 
@@ -218,13 +219,13 @@ cm=chat_GPT(method);
 
 console.log(cm);
 
-simulateInput(p(E_E,6).querySelector('input'),cm);
+simulateInput(s(p(E_E,6),'input'),cm);
 
 }else if(detect('radiogroup')){
 
 temp=0.1;
 
-ce=p(E_E,2).querySelector('span');
+ce=s(p(E_E,2),'span');
 
 if(ce!=null){method=column_start()}else{method=row_start().replaceAll('\t','')};
 
@@ -235,7 +236,7 @@ console.log(cm);
 if(ce!=null){
 a(p(E_E,2),'[role=radio]')[parseInt(cm)].click();
 }else{
-a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)].querySelector('span').childNodes[Array.from(p(E_E,1).children).indexOf(E_E)].querySelector('div').querySelector('div').click();
+s(s(s(a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)],'span').childNodes[Array.from(p(E_E,1).children).indexOf(E_E)],'div'),'div').click();
 }
 
 
@@ -255,17 +256,17 @@ elem=get_elements_old();
 
 for (let index = 0; index < elem.length; index++) {
 
-const el=a(p(elem[index].querySelector('span'),2),'[role=radiogroup]');
+const el=a(p(s(elem[index],'span'),2),'[role=radiogroup]');
 if(el.length!=0){
 el2=el[0].previousElementSibling.childNodes;
 for (let inde = 0; inde < el2.length-1; inde++) {
     el2[inde+1].id='runall'
 }
 for (let ind = 0; ind < el.length; ind++) {
-el[ind].querySelector('span').querySelector('div').id='runall'
+s(s(el[ind],'span'),'div').id='runall'
 }
 }else{
-elem[index].querySelector('span').id='runall'
+s(elem[index],'span').id='runall'
 
 }
 }
@@ -289,7 +290,7 @@ for (let index = 0; index < bound; index++) {
 
 const cel=p(a(document.body,'span')[index],4);
 
-if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(cel.querySelector('[role=radio]')==null||cel.querySelector('[role=checkbox]')==null||cel.querySelector('[role=option]')==null)){
+if(cel.getAttribute('role')!='listbox'&&cel.nodeName!='LABEL'&&cel.nodeName!='BODY'&&(s(cel,'[role=radio]')==null||s(cel,'[role=checkbox]')==null||s(cel,'[role=option]')==null)){
 
 resul.push(cel)
 
