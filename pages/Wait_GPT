@@ -245,8 +245,9 @@ s(s(s(a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)],'span').childNodes[Array.fro
 
 };
 
+}else if(detect('group')){
 
-
+alert();
 
 }
 
