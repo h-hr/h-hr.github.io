@@ -127,11 +127,11 @@ for (let index = 0; index < el.length; index++) {
 return result.join('\n')
 }
 
-function row_start(){
-return 'write only the index of the answer \n '+it(E_E)+'\n'+get_right_column()
+function row_start(n){n=n||0;
+return ['write only the index of the answer \n ','it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '][n]+it(E_E)+'\n'+get_right_column()
 }
-function column_start(){
-return 'write only the index of the answer \n '+it(E_E)+'\n'+get_top_row()
+function column_start(n){
+return ['write only the index of the answer \n ','it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '][n]+it(E_E)+'\n'+get_top_row()
 }
 
 function simulateInput(inputElement, text) {
@@ -247,7 +247,23 @@ s(s(s(a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)],'span').childNodes[Array.fro
 
 }else if(detect('group')){
 
-alert();
+if(ce!=true){
+method=column_start(1);
+
+cm=chat_GPT(method);
+console.log(cm);
+
+//a(p(E_E,2),'[role=radio]')[parseInt(cm)].click();
+
+}else if(ce==true){
+method=row_start(1);
+
+cm=chat_GPT(method);
+console.log(cm);
+
+//s(s(s(a(p(E_E,3),'[role=radiogroup]')[parseInt(cm)],'span').childNodes[Array.from(p(E_E,1).children).indexOf(E_E)],'div'),'div').click();
+
+};
 
 }
 
