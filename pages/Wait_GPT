@@ -1,4 +1,5 @@
 temp='';
+tokens=256;
 
 E_E='';
 
@@ -42,7 +43,7 @@ function chat_GPT(instr,exq,exa,message) {
     }
   ],
   'temperature': 1,
-  'max_tokens': 256,
+  'max_tokens': tokens,
   'top_p': 1,
   'frequency_penalty': 0,
   'presence_penalty': 0
@@ -58,7 +59,7 @@ const el=a(p(E_E,6),'[role=radio]');
 
 result=[];
 
-result.push('write only the index of the answer \n '+it(s(p(E_E,2),'span')));
+result.push(it(s(p(E_E,2),'span')));
 
 bound=el.length;
 
@@ -66,7 +67,15 @@ for (let index = 0; index < bound; index++) {
 result.push(index+':'+it(s(p(el[index],2),'span')))
 }
 
-return result.join('\n')
+result=result.join('\n').split();
+
+result.unshift('0');
+
+result.unshift('the game that made by notch\n 0:minecraft\n 1:zinecraft\n 2:winecraft');
+
+result.unshift('always write only the index of the answer');
+
+return result
 
 }
 
@@ -188,9 +197,11 @@ if(detect('radio')&&!(a(p(E_E,4),'[role=radiogroup]').length>1)){
 
 temp=0.7;
 
+tokens=1;
+
 method=get_select();
 
-cm=chat_GPT(method);
+cm=chat_GPT(...method);
 
 console.log(cm);
 
