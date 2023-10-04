@@ -316,7 +316,7 @@ elem=get_elements_old();
 for (let index = 0; index < elem.length; index++) {
 
 const el=a(p(s(elem[index],'span'),4),'[role=radiogroup],[role=group]');
-if(el[0]!=undefined){
+if(el[0]!=undefined&&el.length>1){
 	
 
 if(el[0].getAttribute('role')=='radiogroup'&&(a(p(el[0],4),'[role=radiogroup]').length>1)){
