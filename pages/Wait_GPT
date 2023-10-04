@@ -99,19 +99,29 @@ function get_select_menu(){
 
 escapeHTMLPolicy = trustedTypes.createPolicy("forceInner",{createHTML: (to_escape) => to_escape});
 
-const el=a(p(E_E,2).childNodes[1],'span');
+const el=a(p(s(p(E_E,4),'[role=option]'),1),'span');
 
 bound=el.length-1;
 
 result=[];
 
-result.push('write just only the index of the answer \n '+it(p(E_E,2)));
+result.push(it(p(E_E,2)));
 for (let index = 0; index < bound; index++) {
 
 result.push(index+':'+it(el[index+1]));
 
 }
-return result.join('\n')
+
+result=result.join('\n').split();
+
+result.unshift('0');
+
+result.unshift('the game that made by notch\n 0:minecraft\n 1:zinecraft\n 2:winecraft');
+
+result.unshift('always write only the index of the answer');
+
+return result
+
 }
 
 function get_type_answer(){
@@ -231,9 +241,11 @@ for (let index = 0; index < answers.length; index++) {
 
 temp=0.7;
 
+tokens=1;
+
 method=get_select_menu();
 
-cm=chat_GPT(method);
+cm=chat_GPT(...method);
 
 console.log(cm);
 
