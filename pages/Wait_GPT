@@ -120,9 +120,12 @@ const el=a(p(E_E,6),'[role]');
 
 result=[];
 
-result.push('Answer the question make the answer as less as possible\n '+it(el[0].childNodes[0]));
+result.push('Answer the question make the answer as less as possible\n ');
+result.push('What is the sky?');
+result.push('Atmospheric space above the Earth.');
+result.push(it(el[0].childNodes[0]));
 
-return result.join('\n');
+return result;
 
 }
 
@@ -246,7 +249,7 @@ temp=0.7;
 
 method=get_type_answer();
 
-cm=chat_GPT(method);
+cm=chat_GPT(...method);
 
 console.log(cm);
 
