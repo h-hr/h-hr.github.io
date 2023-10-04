@@ -17,16 +17,36 @@ function xhr(url, data) {
         return request.responseText;
     }
 }
-function chat_GPT(message) {
+function chat_GPT(instr,exq,exa,message) {
     Key = atob(atob('YzJzdGRVazNaa0pJV0c5ck1tMXZTVEZ2VkZsdWR6RlVNMEpzWW10R1NtZHRTWGQxU1hGaU1scE5kR1ZZYldFM1pGQnQ='));
     message = '' || message;
     const url = 'https://api.openai.com/v1/chat/completions';
 
-    const data = JSON.stringify({
-        "model": "gpt-3.5-turbo",
-        "messages": [{"role": "user", "content": message}],
-        "temperature": temp
-    });
+    const data = JSON.stringify(JSON.stringify([{'model': 'gpt-3.5-turbo',
+  'messages': [
+    {
+      'role': 'system',
+      'content': instr
+    },
+    {
+      'role': 'user',
+      'content': exq
+    },
+    {
+      'role': 'assistant',
+      'content': exa
+    },
+    {
+      'role': 'user',
+      'content': message
+    }
+  ],
+  'temperature': 1,
+  'max_tokens': 256,
+  'top_p': 1,
+  'frequency_penalty': 0,
+  'presence_penalty': 0
+}][0]));
 
     const responseText = xhr(url, data);
 
