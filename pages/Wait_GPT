@@ -172,8 +172,21 @@ return result.join('\n')
 function row_start(n){n=n||0;
 return ['write only the index of the answer \n ','it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '][n]+it(E_E)+'\n'+get_right_column()
 }
-function column_start(n){n=n||0;
-return ['write only the index of the answer \n ','it is multi select question write only the index of each right answer in array, write only valid javascript array , I want it text ready to eval  \n '][n]+it(E_E)+'\n'+get_top_row()
+function column_start(n) {
+    n = n || 0;
+resl=[];
+
+if(n==0){
+resl.push(it(E_E)+'\n'+get_top_row());
+resl.unshift('0');
+
+resl.unshift('the game that made by notch\n 0:minecraft\n 1:zinecraft\n 2:winecraft');
+
+resl.unshift('always write only the index of the answer');
+
+}
+
+return resl
 }
 
 function simulateInput(inputElement, text) {
@@ -274,9 +287,14 @@ temp=0.1;
 ce=E_E.parentElement.querySelector('div').innerHTML=='';
 
 if(ce!=true){
+
+temp=0.7;
+
+tokens=1;
+
 method=column_start();
 
-cm=chat_GPT(method);
+cm=chat_GPT(...method);
 console.log(cm);
 
 a(p(E_E,2),'[role=radio]')[parseInt(cm)].click();
