@@ -1,8 +1,1 @@
-["the game that made by notch
-0:minecraft
-1:zinecraft
-2:winecraft","always write only the index of the answer","in the face there is
-0:eyes
-1:hand
-2:nose
-3:legs","it is multi select question always write only the index of each right answer in array write only valid javascript array I want it text ready to eval","[role=radiogroup]","[role=checkbox]","[role=radio]","radiogroup","Answer the question make the answer as less as possible","Atmospheric space above the Earth."]
+%5B%22the%20game%20that%20made%20by%20notch%5Cn%200%3Aminecraft%5Cn%201%3Azinecraft%5Cn%202%3Awinecraft%22%2C%22always%20write%20only%20the%20index%20of%20the%20answer%22%2C%22in%20the%20face%20there%20is%5Cn0%3Aeyes%5Cn1%3Ahand%5Cn2%3Anose%5Cn3%3Alegs%22%2C%22it%20is%20multi%20select%20question%20always%20write%20only%20the%20index%20of%20each%20right%20answer%20in%20array%20write%20only%20valid%20javascript%20array%20I%20want%20it%20text%20ready%20to%20eval%22%2C%22%5Brole%3Dradiogroup%5D%22%2C%22%5Brole%3Dcheckbox%5D%22%2C%22%5Brole%3Dradio%5D%22%2C%22radiogroup%22%2C%22Answer%20the%20question%20make%20the%20answer%20as%20less%20as%20possible%22%2C%22Atmospheric%20space%20above%20the%20Earth.%22%5D
