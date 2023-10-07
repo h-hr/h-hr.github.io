@@ -5,6 +5,8 @@
   "[role=radiogroup]",
   "[role=checkbox]",
   "[role=radio]",
-  "radiogroup"],
- "content"
+  "radiogroup",
+"Answer the question make the answer as less as possible",
+]
+ 
 
