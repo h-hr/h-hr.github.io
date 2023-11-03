@@ -21,7 +21,8 @@
             </div>
             <center><ul style="padding:12px 15px"><select name="" id="" style="margin: 0px; padding: 0px; border-width: initial; border-style: none; border-color: initial; outline: 0px; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-size: 18px;"></select></ul></center>
         </div>
-        <button>Translate</button>
+        <button onclick="document.querySelectorAll('textarea')[0].value=translate(document.querySelector('select').value,document.querySelectorAll('textarea')[1].value)
+">Translate</button>
         
     </div>
 
@@ -101,5 +102,6 @@
     
 
  <script type="text/javascript" src="script.js"></script>
+
 
 </body></html>
