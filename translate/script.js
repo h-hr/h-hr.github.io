@@ -22,5 +22,5 @@ result.push(`<option value="${Object.keys(ll)[index]}">${Object.values(ll)[index
 document.querySelectorAll('select')[0].innerHTML=result.join('');
 
 function b_onclick(){
-document.querySelectorAll('textarea')[0].value=translate(document.querySelector('select').value,document.querySelectorAll('textarea')[1].value)
+document.querySelectorAll('textarea')[0].value=translate(document.querySelector('select').value.replaceAll('_','-'),document.querySelectorAll('textarea')[1].value)
 }
