@@ -20,3 +20,7 @@ for (let index = 0; index < Object.keys(ll).length; index++) {
 result.push(`<option value="${Object.keys(ll)[index]}">${Object.values(ll)[index]}</option>`)
 }
 document.querySelectorAll('select')[0].innerHTML=result.join('');
+
+function b_onclick(){
+document.querySelectorAll('textarea')[0].value=translate(document.querySelector('select').value,document.querySelectorAll('textarea')[1].value)
+}
