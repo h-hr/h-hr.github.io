@@ -96,11 +96,7 @@ function getword(num, letters) {num=BigInt(num);
   return result;
 }
 
-cipher={};
-
-
-
-cipher.decode=function decode(text_data,Numkey){Numkey=Numkey||2020;
+function decode(text_data,Numkey){Numkey=Numkey||2020;
 text_data=JSON.parse(text_data);
 try {
     key=new_base(text_data[1],String(Numkey))
@@ -109,7 +105,7 @@ try {
 }
 return getword(text_data[0],key)};
 
-cipher.encode=function encode(text_data,Numkey){Numkey=Numkey||2020;
+function encode(text_data,Numkey){Numkey=Numkey||2020;
 text_data=text_data||"hello world";
 
 text_set=[... new Set(text_data.split(''))].join('');
@@ -128,7 +124,7 @@ return JSON.stringify([String(getnumber(text_data,key)),text_set])
 };
 
 
-//ds=cipher.encode('hello world',1200);
+//ds=encode('hello world',1200);
 
-//cipher.decode(ds,'1000');
+//decode(ds,'1000');
 
