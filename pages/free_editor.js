@@ -640,9 +640,16 @@ i3='" style="height: 1em; width: auto;" loop="" autoplay="" muted=""></div></div
 batch(i1+i2+i3)
 }
 function add_text(i2){
-i1='<div id="mydiv" style="top: 266px; left: 198px; font-size: 28px;" onclick="action(this)">'
+try{document.querySelector('[select=true]').removeAttribute('select')}catch(e){}
+i1=`<div id="mydiv" select="true" style="top: 266px; left: 198px; font-size: 28px;" onclick="action(this);if(localStorage.draggable!='false'){this.contentEditable='true';make_all_undraggable()}" onfocusout="this.contentEditable='false';make_all_draggable()" contenteditable="true">`
 i3='</div>'
-batch(i1+i2+i3)
+batch(i1+i2+i3);
+if(document.getElementsByClassName('background')[0].style.backgroundColor=='black'){document.querySelector('[select=true]').style.color='white'}
+range=document.createRange();
+range.selectNodeContents(document.querySelector('[select=true]'));
+selection = window.getSelection();
+selection.removeAllRanges(); 
+selection.addRange(range);
 }
 function batch(elem){
 document.getElementsByClassName('elements')[0].children[document.getElementsByClassName('elements')[0].children.length-1].outerHTML=elem+document.getElementsByClassName('elements')[0].children[document.getElementsByClassName('elements')[0].children.length-1].outerHTML
