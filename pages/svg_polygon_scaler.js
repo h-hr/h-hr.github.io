@@ -1,0 +1,1 @@
+n=2;ds=prompt();eval('`'+'${Math.round('+ds.replaceAll(',','/n)},${Math.round(').replaceAll(' ','/n)} ${Math.round(')+'/n)}'+'`') 
