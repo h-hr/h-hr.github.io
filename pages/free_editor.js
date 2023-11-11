@@ -1,5 +1,53 @@
 
 
+
+function c_text_style(n){
+el=document.querySelector('[select=true]');
+if(n==0){
+el.style.color='cornflowerblue';
+el.className='tx1';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='';
+}else if(n==1){
+el.style.color='cornsilk';
+el.className='tx2';
+el.style.setProperty('--tsc','red');
+el.style.backgroundImage='';
+}else if(n==2){
+el.style.color='blue';
+el.className='';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='';
+}else if(n==3){
+el.style.color='';
+el.className='tx4';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='';
+}else if(n==4){
+el.style.color='';
+el.className='tx4';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='url("water.webp")';
+}else if(n==5){
+el.style.color='';
+el.className='tx4';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='url("fire.webp")';
+}else if(n==6){
+el.style.color='transparent';
+el.className='tx4';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='url("water.webp")';
+}else if(n==7){
+el.style.color='transparent';
+el.className='tx4';
+el.style.setProperty('--tsc','');
+el.style.backgroundImage='url("fire.webp")';
+}
+
+}
+
+
 function shaped_button() {
 
 const dc=document.querySelector('[select=true]'); 
