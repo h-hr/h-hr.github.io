@@ -976,9 +976,9 @@ document.querySelectorAll('style')[0].remove()
           document.onmousemove = elementDrag;
         }
 
-        var follow_elements_list = [];
+         follow_elements_list=[];
 
-        var follow = true;
+         follow = true;
 	      
         function elementDrag(e) {
 
