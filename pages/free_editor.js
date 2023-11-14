@@ -981,18 +981,7 @@ document.querySelectorAll('style')[0].remove()
         var follow = true;
 	      
         function elementDrag(e) {
-          e = e || window.event;
-          e.preventDefault();
-          // calculate the new cursor position:
-          pos1 = pos3 - e.clientX;
-          pos2 = pos4 - e.clientY;
-          pos3 = e.clientX;
-          pos4 = e.clientY;
-          // set the element's new position:
-          elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-          elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
 
-    // If follow is true, move the other elements accordingly:
     if (follow) {
     
     etem2=document.querySelector('[select=true]');etem=Array.from(document.querySelectorAll(`[link='${etem2.getAttribute('link')}']`));etem.splice(etem.indexOf(etem2), 1);
@@ -1005,6 +994,20 @@ document.querySelectorAll('style')[0].remove()
         follow_elements_list[i].style.left = (follow_elements_list[i].offsetLeft - pos1) + "px";
       }
     }
+		
+          e = e || window.event;
+          e.preventDefault();
+          // calculate the new cursor position:
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+          elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+
+
 
 	
         }
