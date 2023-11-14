@@ -1,6 +1,8 @@
 
 function el_to_svg(el){
 
+ds=document.createElement('div');
+
 ds.innerHTML=decodeURIComponent(el.querySelector('img').src.split(',')[1]);
 
 svg=ds.querySelector('svg');
