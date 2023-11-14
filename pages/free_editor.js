@@ -982,7 +982,7 @@ document.querySelectorAll('style')[0].remove()
 	      
         function elementDrag(e) {
 
- 
+    if (follow) {
     
     etem2=document.querySelector('[select=true]');etem=Array.from(document.querySelectorAll(`[link='${etem2.getAttribute('link')}']`));etem.splice(etem.indexOf(etem2), 1);
     
@@ -993,7 +993,7 @@ document.querySelectorAll('style')[0].remove()
         follow_elements_list[i].style.top = (follow_elements_list[i].offsetTop - pos2) + "px";
         follow_elements_list[i].style.left = (follow_elements_list[i].offsetLeft - pos1) + "px";
       }
-    
+    }
 		
           e = e || window.event;
           e.preventDefault();
