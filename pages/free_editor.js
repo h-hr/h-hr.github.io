@@ -976,6 +976,10 @@ document.querySelectorAll('style')[0].remove()
           document.onmousemove = elementDrag;
         }
 
+        var follow_elements_list = [];
+
+        var follow = true;
+	      
         function elementDrag(e) {
           e = e || window.event;
           e.preventDefault();
@@ -987,6 +991,22 @@ document.querySelectorAll('style')[0].remove()
           // set the element's new position:
           elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
           elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+    // If follow is true, move the other elements accordingly:
+    if (follow) {
+    
+    etem2=document.querySelector('[select=true]');etem=Array.from(document.querySelectorAll(`[link='${etem2.getAttribute('link')}']`));etem.splice(etem.indexOf(etem2), 1);
+    
+    
+    follow_elements_list=etem;
+    
+      for (var i = 0; i < follow_elements_list.length; i++) {
+        follow_elements_list[i].style.top = (follow_elements_list[i].offsetTop - pos2) + "px";
+        follow_elements_list[i].style.left = (follow_elements_list[i].offsetLeft - pos1) + "px";
+      }
+    }
+
+	
         }
 
         function closeDragElement() {
