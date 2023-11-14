@@ -978,7 +978,7 @@ document.querySelectorAll('style')[0].remove()
 
          var follow_elements_list=[];
 
-         follow = true;
+         var follow = true;
 	      
         function elementDrag(e) {
 
