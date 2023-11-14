@@ -1,5 +1,29 @@
 
+function el_to_svg(el){
 
+ds.innerHTML=decodeURIComponent(el.querySelector('img').src.split(',')[1]);
+
+svg=ds.querySelector('svg');
+
+svg.style.width='auto';
+
+fontsize=`${parseInt(el.style.fontSize)*3}px`;
+
+svg.style.height=fontsize;
+
+svg.style.fontSize=fontsize;
+
+svg.style.top=el.style.top;
+
+svg.style.left=el.style.left;
+
+svg.style.transform=el.style.transform;
+
+svg.style.position='absolute';
+
+el.outerHTML=svg.outerHTML;
+
+}
 
 function c_text_style(n){
 el=document.querySelector('[select=true]');
