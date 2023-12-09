@@ -1,0 +1,3 @@
+<script>alert();
+document.currentScript.parentNode.removeChild(document.currentScript);
+</script>
