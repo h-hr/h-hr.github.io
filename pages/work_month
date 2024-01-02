@@ -1,0 +1,41 @@
+
+function get_days(month_num,year){
+
+months = ['January','February','March','April','May','June', 'July', 'August','September','October','November','December'];
+
+year=year||2023;
+month_num=month_num||1;
+month_num=month_num-1;
+
+month_be=[31,daysInFebruary(year),31,30,31,30,31,31,30,31,30,31]
+
+function daysInFebruary(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return 29; // Leap year: February has 29 days
+  } else {
+    return 28; // Regular year: February has 28 days
+  }
+}
+
+function startOfMonthDay(year, month) {
+  return new Date(year, month, 1).getDay();
+  
+}
+
+[0,1,2,3,4,5,6]
+
+month_days=[];
+month_day=startOfMonthDay(year,month_num);
+for (let index = 0; index < month_be[month_num]; index++) {
+month_days.push(month_day%7);
+month_day=month_day+1
+}
+
+all_days=month_days;
+
+work_days=month_days.filter(num => num!==5&&num!==6);
+
+no_work_days=month_days.filter(num=>num===5||num===6);
+
+return [all_days,work_days,no_work_days]
+}get_days(5,2024)
