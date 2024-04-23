@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigInt Compression Example</title>
+</head>
+<body>
+
+<script src="pako.min.js"></script>
+<script>
+    // Function to compress a large integer
+    function compressBigInt(bigInt) {
+        const buffer = new TextEncoder().encode(bigInt.toString()); // Convert the bigint to a string and then to a buffer
+        const compressed = pako.deflate(buffer); // Compress the buffer using pako (zlib implementation in JavaScript)
+        return btoa(String.fromCharCode.apply(null, compressed)); // Convert the compressed buffer to base64 string for storage or transmission
+    }
+
+    // Function to decompress a previously compressed bigint
+    function decompressBigInt(compressedBigInt) {
+        const compressedBuffer = new Uint8Array(atob(compressedBigInt).split("").map(function(c) { return c.charCodeAt(0); })); // Convert the base64 string back to a Uint8Array buffer
+        const decompressed = pako.inflate(compressedBuffer); // Decompress the buffer using pako (zlib implementation in JavaScript)
+        return BigInt(new TextDecoder().decode(decompressed)); // Convert the decompressed buffer back to a BigInt
+    }
+
+    // Example usage
+    const bigInt = BigInt("99771188244300283494093199541106623283513434860484617385316045465034261864400127688486736384430675930798303746488226124813240939729846408617511680541853817406");
+    const compressed = compressBigInt(bigInt);
+    const decompressed = decompressBigInt(compressed);
+
+    console.log("Original BigInt:", bigInt);
+    console.log("Compressed:", compressed);
+    console.log("Decompressed BigInt:", decompressed);
+</script>
+
+</body>
+</html>
