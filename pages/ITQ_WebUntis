@@ -28,4 +28,12 @@ group.push(ids[index].name)
 }
 idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[0]}`)
 
-idt=JSON.parse(idt)
+idt=JSON.parse(idt).data.result.data
+
+
+elements={1:{},2:{},3:{},4:{}};
+for (let index = 0; index < idt.elements.length; index++) {
+elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].name
+}
+
+
