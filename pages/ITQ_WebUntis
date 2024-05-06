@@ -37,3 +37,21 @@ elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].n
 }
 
 
+elementPeriods={}
+
+for (let index = 0; index < idt.elementPeriods[1590].length; index++) {
+
+
+elementPeriods[idt.elementPeriods[1590][index].date] = elementPeriods[idt.elementPeriods[1590][index].date] || [];
+
+elementPeriods[idt.elementPeriods[1590][index].date].push(idt.elementPeriods[1590][index].elements)
+
+
+
+
+
+
+}
+
+
+
