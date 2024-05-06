@@ -53,3 +53,23 @@ elementPeriods[idt.elementPeriods[1590][index].date].push([idt.elementPeriods[15
 
 
 }
+
+
+for (let indexo = 0; indexo < Object.keys(elementPeriods).length; indexo++) {
+    
+elementPeriods[Object.keys(elementPeriods)[4]]
+
+for (let index = 0; index < elementPeriods[Object.keys(elementPeriods)[indexo]].length; index++) {
+    
+for (let indexf = 0; indexf < elementPeriods[Object.keys(elementPeriods)[indexo]][index][0].length; indexf++) {
+  
+  
+tv=elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf];
+elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[tv.type][tv.id];
+  
+}
+
+elementPeriods[Object.keys(elementPeriods)[0||4]][0||5][0||3]
+}
+}
+
