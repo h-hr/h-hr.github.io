@@ -5,3 +5,7 @@ function n(p){return 1==(dd=p).length?0+dd:dd}
 return `https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/pageconfig?type=1&date=${d.getFullYear()}-${n(d.getMonth()+1)}-${n(d.getDate())}&isMyTimetableSelected=false`
 }
 get_ITQ_WebUntis_link()
+
+
+
+//https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=1750&date=2024-05-06&formatId=4
