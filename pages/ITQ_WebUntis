@@ -1,13 +1,28 @@
+function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}
+}
+
 function get_ITQ_WebUntis_link(){
 d=new Date;
 function n(p){return 1==(dd=p).length?0+dd:dd};
 datee=`${d.getFullYear()}-${n(d.getMonth()+1)}-${n(d.getDate())}`;
 
-
-return `https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/pageconfig?type=1&date=${datee}&isMyTimetableSelected=false`
+ids=JSON.parse(xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}`))
+ids=ids.data.elements
+return ids
 }
+
+
+//`https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${eId}&date=${datee}&formatId=4`
+
 get_ITQ_WebUntis_link()
 
-
-
-`https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${eId}&date=${datee}&formatId=4`
+id=[];group=[];for (let index = 0; index < ids.length; index++) {
+    id.push(ids[index].id)    
+group.push(ids[index].name)
+}
