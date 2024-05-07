@@ -115,3 +115,42 @@ elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValu
 for (let indexido = 0; indexido < id.length; indexido++) {
 add_id(indexido)
 }
+
+
+
+
+
+///wait
+
+
+
+
+
+
+
+Teachers={}
+
+for (let indexl = 0; indexl < Object.keys(all_id).length; indexl++) {
+    
+for (let indexm = 0; indexm < Object.keys(all_id[Object.keys(all_id)[indexl]]).length; indexm++) {
+    
+for (let indexc = 0; indexc < all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]].length; indexc++) {
+    
+ 
+ Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0][1]]=Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0][1]]||[];
+
+Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0][1]].push(all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc]);
+
+}
+
+
+}
+
+
+}
+
+    
+
+
+
+
