@@ -52,7 +52,7 @@ for (let index = 0; index < idt.elementPeriods[id[id_index]].length; index++) {
 
 elementPeriods[idt.elementPeriods[id[id_index]][index].date] = elementPeriods[idt.elementPeriods[id[id_index]][index].date] || [];
 
-elementPeriods[idt.elementPeriods[id[id_index]][index].date].push([idt.elementPeriods[id[id_index]][index].elements,idt.elementPeriods[id[id_index]][index].startTime,idt.elementPeriods[id[id_index]][index].endTime])
+elementPeriods[idt.elementPeriods[id[id_index]][index].date].push([idt.elementPeriods[id[id_index]][index].elements,idt.elementPeriods[id[id_index]][index].startTime,idt.elementPeriods[id[id_index]][index].endTime,idt.elementPeriods[id[id_index]][index].date])
 
 
 
@@ -77,7 +77,7 @@ elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[t
   
 }
 
-//elementPeriods[Object.keys(elementPeriods)[0||4]][0||5][0||3]
+
 }
 }
 
@@ -120,7 +120,7 @@ add_id(indexido)
 
 
 
-///wait
+
 
 
 
@@ -150,7 +150,7 @@ function combineArrays(jsonObject) {
   const combinedObject = {};
 
   for (const key of Object.keys(jsonObject)) {
-    const prefix = key.replace(/,.*$/, ''); // Remove everything after the comma
+    const prefix = key.replace(/,.*$/, ''); 
     if (combinedObject[prefix]) {
       combinedObject[prefix] = combinedObject[prefix].concat(jsonObject[key]);
     } else {
@@ -161,6 +161,5 @@ function combineArrays(jsonObject) {
   return combinedObject;
 }
 
-combineArrays(Teachers)
-
+Teachers=combineArrays(Teachers);
 
