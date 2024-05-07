@@ -97,17 +97,19 @@ function convertToTimeValue(value) {
     return formattedTime;
 }
 
-for (let indexa = 0; indexa < Object.keys(elementPeriods).length; indexa++) {
+//for (let indexa = 0; indexa < Object.keys(elementPeriods).length; indexa++) {
     
-for (let indexn = 0; indexn < elementPeriods[Object.keys(elementPeriods)[indexa]].length; indexn++) {
+//for (let indexn = 0; indexn < elementPeriods[Object.keys(elementPeriods)[indexa]].length; indexn++) {
 
-elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]);
+//elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]);
 
-elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]);
+//elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]);
 
-}
+//}
 
-}all_id[id[id_index]]=elementPeriods
+//}
+
+all_id[id[id_index]]=elementPeriods
 }
 
 
@@ -191,13 +193,11 @@ for (let indexx = 0; indexx < Object.keys(Teachers_In_Date).length; indexx++) {
     
 for (let inden = 0; inden < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]]).length; inden++) {
     
-Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]]=Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]].filter((arr,index,array)=>{return array.findIndex(a=>JSON.stringify(a)===JSON.stringify(arr))===index});
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]]=Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]].filter((arr,index,array)=>{return array.findIndex(a=>JSON.stringify(a)===JSON.stringify(arr))===index}).sort(function(a, b){ return a[1] - b[1]; })
 
 }
 
 }
-
-
 
 
 
