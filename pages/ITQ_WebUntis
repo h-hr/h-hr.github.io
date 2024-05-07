@@ -1,4 +1,131 @@
-Teachers={}
+function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}
+}
+
+function get_ITQ_WebUntis_link(){
+d=new Date;
+function n(p){return 1==(dd=p).length?0+dd:dd};
+datee=`${d.getFullYear()}-${n(d.getMonth()+1)}-${n(d.getDate())}`;
+
+ids=JSON.parse(xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}`))
+ids=ids.data.elements
+return ids
+}
+
+
+//`https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${eId}&date=${datee}&formatId=4`
+
+get_ITQ_WebUntis_link()
+
+id=[];group=[];for (let index = 0; index < ids.length; index++) {
+    id.push(ids[index].id)    
+group.push(ids[index].name)
+}
+//idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[0]}`)
+
+//idt=JSON.parse(idt).data.result.data
+
+
+
+all_id={};
+function add_id(id_index){
+
+
+idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[id_index]}`)
+
+idt=JSON.parse(idt).data.result.data;
+
+elements={1:{},2:{},3:{},4:{}};
+for (let index = 0; index < idt.elements.length; index++) {
+elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].name
+}
+
+elementPeriods={};
+
+for (let index = 0; index < idt.elementPeriods[id[id_index]].length; index++) {
+
+
+elementPeriods[idt.elementPeriods[id[id_index]][index].date] = elementPeriods[idt.elementPeriods[id[id_index]][index].date] || [];
+
+elementPeriods[idt.elementPeriods[id[id_index]][index].date].push([idt.elementPeriods[id[id_index]][index].elements,idt.elementPeriods[id[id_index]][index].startTime,idt.elementPeriods[id[id_index]][index].endTime])
+
+
+
+
+
+
+
+}
+
+
+for (let indexo = 0; indexo < Object.keys(elementPeriods).length; indexo++) {
+    
+elementPeriods[Object.keys(elementPeriods)[4]]
+
+for (let index = 0; index < elementPeriods[Object.keys(elementPeriods)[indexo]].length; index++) {
+    
+for (let indexf = 0; indexf < elementPeriods[Object.keys(elementPeriods)[indexo]][index][0].length; indexf++) {
+  
+  
+tv=elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf];
+elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[tv.type][tv.id];
+  
+}
+
+//elementPeriods[Object.keys(elementPeriods)[0||4]][0||5][0||3]
+}
+}
+
+
+for (let indexl = 0; indexl < Object.keys(elementPeriods).length; indexl++) {
+elementPeriods[Object.keys(elementPeriods)[indexl]]=elementPeriods[Object.keys(elementPeriods)[indexl]].sort(function(a, b){
+    return a[1] - b[1];
+});
+}
+
+function convertToTimeValue(value) {
+    let hours = Math.floor(value / 100);
+    const minutes = value % 100;
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; 
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiem}`;
+    return formattedTime;
+}
+
+for (let indexa = 0; indexa < Object.keys(elementPeriods).length; indexa++) {
+    
+for (let indexn = 0; indexn < elementPeriods[Object.keys(elementPeriods)[indexa]].length; indexn++) {
+
+elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]);
+
+elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]);
+
+}
+
+}all_id[id[id_index]]=elementPeriods
+}
+
+
+
+for (let indexido = 0; indexido < id.length; indexido++) {
+add_id(indexido)
+}
+
+
+
+
+
+///wait
+
+
+
+
+Teachers={};
 
 for (let indexl = 0; indexl < Object.keys(all_id).length; indexl++) {
     
