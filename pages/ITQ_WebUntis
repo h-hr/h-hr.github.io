@@ -80,3 +80,25 @@ elementPeriods[Object.keys(elementPeriods)[indexl]]=elementPeriods[Object.keys(e
 });
 }
 
+function convertToTimeValue(value) {
+    let hours = Math.floor(value / 100);
+    const minutes = value % 100;
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; 
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiem}`;
+    return formattedTime;
+}
+
+for (let indexa = 0; indexa < Object.keys(elementPeriods).length; indexa++) {
+    
+for (let indexn = 0; indexn < elementPeriods[Object.keys(elementPeriods)[indexa]].length; indexn++) {
+
+elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][1]);
+
+elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValue(elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]);
+
+}
+
+}
+
+
