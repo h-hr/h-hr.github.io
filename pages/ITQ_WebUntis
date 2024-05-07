@@ -203,3 +203,27 @@ Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_
 
 
 
+
+
+for (let indexy = 0; indexy < Object.keys(Teachers_In_Date).length; indexy++) {
+    
+for (let indexz = 0; indexz < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]]).length; indexz++) {
+    
+for (let indexl = 0; indexl < Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]].length; indexl++) {
+    
+
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]);
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]);
+}
+}
+
+}
+
+
+
+
+    
+
+
+
+
