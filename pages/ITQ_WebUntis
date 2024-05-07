@@ -26,25 +26,33 @@ id=[];group=[];for (let index = 0; index < ids.length; index++) {
     id.push(ids[index].id)    
 group.push(ids[index].name)
 }
-idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[0]}`)
+//idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[0]}`)
 
-idt=JSON.parse(idt).data.result.data
+//idt=JSON.parse(idt).data.result.data
 
+
+
+all_id={};
+function add_id(id_index){
+
+
+idt=xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=2024-5-6&&elementId=${id[id_index]}`)
+
+idt=JSON.parse(idt).data.result.data;
 
 elements={1:{},2:{},3:{},4:{}};
 for (let index = 0; index < idt.elements.length; index++) {
 elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].name
 }
 
+elementPeriods={};
 
-elementPeriods={}
-
-for (let index = 0; index < idt.elementPeriods[1590].length; index++) {
+for (let index = 0; index < idt.elementPeriods[id[id_index]].length; index++) {
 
 
-elementPeriods[idt.elementPeriods[1590][index].date] = elementPeriods[idt.elementPeriods[1590][index].date] || [];
+elementPeriods[idt.elementPeriods[id[id_index]][index].date] = elementPeriods[idt.elementPeriods[id[id_index]][index].date] || [];
 
-elementPeriods[idt.elementPeriods[1590][index].date].push([idt.elementPeriods[1590][index].elements,idt.elementPeriods[1590][index].startTime,idt.elementPeriods[1590][index].endTime])
+elementPeriods[idt.elementPeriods[id[id_index]][index].date].push([idt.elementPeriods[id[id_index]][index].elements,idt.elementPeriods[id[id_index]][index].startTime,idt.elementPeriods[id[id_index]][index].endTime])
 
 
 
@@ -69,7 +77,7 @@ elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[t
   
 }
 
-elementPeriods[Object.keys(elementPeriods)[0||4]][0||5][0||3]
+//elementPeriods[Object.keys(elementPeriods)[0||4]][0||5][0||3]
 }
 }
 
@@ -99,6 +107,11 @@ elementPeriods[Object.keys(elementPeriods)[indexa]][indexn][2]=convertToTimeValu
 
 }
 
+}all_id[id[id_index]]=elementPeriods
 }
 
 
+
+for (let indexido = 0; indexido < id.length; indexido++) {
+add_id(indexido)
+}
