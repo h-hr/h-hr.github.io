@@ -163,3 +163,42 @@ function combineArrays(jsonObject) {
 
 Teachers=combineArrays(Teachers);
 
+
+
+Teachers_In_Date={};
+
+for (let indexj = 0; indexj < Object.keys(Teachers).length; indexj++) {
+    
+for (let indexq = 0; indexq < Teachers[Object.keys(Teachers)[indexj]].length; indexq++) {
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]||{};
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]||[];
+
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]].push(Teachers[Object.keys(Teachers)[indexj]][indexq]);
+
+
+}
+
+}
+
+
+
+for (let indexx = 0; indexx < Object.keys(Teachers_In_Date).length; indexx++) {
+    
+for (let inden = 0; inden < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]]).length; inden++) {
+    
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]]=Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]].filter((arr,index,array)=>{return array.findIndex(a=>JSON.stringify(a)===JSON.stringify(arr))===index});
+
+}
+
+}
+
+
+
+
+
+
