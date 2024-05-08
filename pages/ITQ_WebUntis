@@ -225,5 +225,12 @@ Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_
     
 
 
+//wait
+//
 
+function update_progress(){(100/ids.length)*}
+
+
+
+    
 
