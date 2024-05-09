@@ -1,0 +1,220 @@
+ function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}
+}
+
+function get_ITQ_WebUntis_link(){
+d=new Date;
+function n(p){return 1==(dd=p).length?0+dd:dd};
+datee=`${d.getFullYear()}-${n(d.getMonth()+1)}-${n(d.getDate())}`;
+
+ids=JSON.parse(xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}`))
+ids=ids.data.elements
+return ids
+}
+
+
+//`https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${eId}&date=${datee}&formatId=4`
+
+get_ITQ_WebUntis_link()
+
+id=[];group=[];for (let index = 0; index < ids.length; index++) {
+    id.push(ids[index].id)    
+group.push(ids[index].name)
+}
+
+
+ all_id = {};
+
+function add_id() {
+   fetchPromises = id.map(idValue => {
+     url = `https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}&&elementId=${idValue}`;
+    return fetch(url).then(response => response.json());
+  });
+
+  Promise.all(fetchPromises)
+    .then(responses => {
+      responses.forEach((data, index) => {
+        all_id[id[index]] = data.data.result.data;
+
+idt=all_id[id[index]];
+fid=idt.elementIds[0];
+
+      elements={1:{},2:{},3:{},4:{}};
+for (let index = 0; index < idt.elements.length; index++) {
+elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].name
+}
+
+elementPeriods={};
+
+for (let index = 0; index < idt.elementPeriods[fid].length; index++) {
+
+
+elementPeriods[idt.elementPeriods[fid][index].date] = elementPeriods[idt.elementPeriods[fid][index].date] || [];
+
+elementPeriods[idt.elementPeriods[fid][index].date].push([idt.elementPeriods[fid][index].elements,idt.elementPeriods[fid][index].startTime,idt.elementPeriods[fid][index].endTime,idt.elementPeriods[fid][index].date])
+
+
+
+
+
+
+
+}
+
+
+for (let indexo = 0; indexo < Object.keys(elementPeriods).length; indexo++) {
+    
+elementPeriods[Object.keys(elementPeriods)[4]]
+
+for (let index = 0; index < elementPeriods[Object.keys(elementPeriods)[indexo]].length; index++) {
+    
+for (let indexf = 0; indexf < elementPeriods[Object.keys(elementPeriods)[indexo]][index][0].length; indexf++) {
+  
+  
+tv=elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf];
+elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[tv.type][tv.id];
+  
+}
+
+
+}
+}
+
+
+for (let indexl = 0; indexl < Object.keys(elementPeriods).length; indexl++) {
+elementPeriods[Object.keys(elementPeriods)[indexl]]=elementPeriods[Object.keys(elementPeriods)[indexl]].sort(function(a, b){
+    return a[1] - b[1];
+});
+}
+
+
+
+
+
+all_id[fid]=elementPeriods 
+
+
+
+});
+
+///
+
+Teachers={};
+
+for (let indexl = 0; indexl < Object.keys(all_id).length; indexl++) {
+    
+for (let indexm = 0; indexm < Object.keys(all_id[Object.keys(all_id)[indexl]]).length; indexm++) {
+    
+for (let indexc = 0; indexc < all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]].length; indexc++) {
+    
+ 
+ Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))]=Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))]||[];
+
+Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))].push(all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc]);
+
+}
+
+
+}
+
+
+}
+
+function combineArrays(jsonObject) {
+  const combinedObject = {};
+
+  for (const key of Object.keys(jsonObject)) {
+    const prefix = key.replace(/,.*$/, ''); 
+    if (combinedObject[prefix]) {
+      combinedObject[prefix] = combinedObject[prefix].concat(jsonObject[key]);
+    } else {
+      combinedObject[prefix] = jsonObject[key];
+    }
+  }
+
+  return combinedObject;
+}
+
+function convertToTimeValue(value) {
+    let hours = Math.floor(value / 100);
+    const minutes = value % 100;
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; 
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiem}`;
+    return formattedTime;
+}
+
+Teachers=combineArrays(Teachers);
+
+
+
+Teachers_In_Date={};
+
+for (let indexj = 0; indexj < Object.keys(Teachers).length; indexj++) {
+    
+for (let indexq = 0; indexq < Teachers[Object.keys(Teachers)[indexj]].length; indexq++) {
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]||{};
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]||[];
+
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]].push(Teachers[Object.keys(Teachers)[indexj]][indexq]);
+
+
+}
+
+}
+
+
+
+for (let indexx = 0; indexx < Object.keys(Teachers_In_Date).length; indexx++) {
+    
+for (let inden = 0; inden < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]]).length; inden++) {
+    
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]]=Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]].filter((arr,index,array)=>{return array.findIndex(a=>JSON.stringify(a)===JSON.stringify(arr))===index}).sort(function(a, b){ return a[1] - b[1]; })
+
+}
+
+}
+
+
+
+
+
+for (let indexy = 0; indexy < Object.keys(Teachers_In_Date).length; indexy++) {
+    
+for (let indexz = 0; indexz < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]]).length; indexz++) {
+    
+for (let indexl = 0; indexl < Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]].length; indexl++) {
+    
+
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]);
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]);
+}
+}
+
+}
+
+///
+      alert('All data fetched and processed successfully.');
+
+
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
+
+
+add_id();
+
+
+
