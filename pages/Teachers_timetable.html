@@ -72,6 +72,20 @@ return `<td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: 
 
 
 
+function generate_all_tables(){document.getElementsByTagName('full_el')[0].innerHTML=Object.keys(Teachers_In_Date[document.querySelector('#e_date').value.split('-').join('')]).map(teacher_item => { 
+
+teacher_time_table=Teachers_In_Date[document.querySelector('#e_date').value.split('-').join('')][teacher_item].map(item => { Time=`${item[1]}-${item[2]}`; item[0]=item[0].join().replace(teacher_item,'').replace(',,',',').split(','); Teacher=teacher_item; Room=item[0][item[0].length-1]; Unit=item[0][item[0].length-2]; Group=[item[0][item[0].length-3],item[0][item[0].length-4]].join('  '); return `<td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"><td class="def" style="border-collapse: collapse; padding: 1px 2px 0px !important;"><table class="et A_0_1" style="margin-left: auto; margin-right: auto; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><tbody><tr class="def" style="border-collapse: collapse;"><td class="def Z_0_0" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Group}</td><td class="def Z_0_1" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Teacher}</td></tr><tr class="def" style="border-collapse: collapse;"><td class="Z_1_0 def" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Unit}</td><td class="Z_1_1 def" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Room}</td></tr></tbody></table></td></tr><tr><td class="ti" style="vertical-align: bottom;">${Time}</td></tr></tbody></table></td>` }).join('');
+
+
+return `<full_el><div id="timetable" class="def" style="width: 556px; margin: 5em auto; padding: 2em; background-color: rgb(255, 255, 255); border-radius: 0.5em; box-shadow: rgba(0, 0, 0, 0.02) 2px 3px 7px 2px; border-collapse: collapse; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center; font-size: 11px; color: rgb(51, 51, 51); display: table;"><table class="tt def" style="border-collapse: collapse; border: 3px solid black; font-size: 8pt; height: 60px; width: 600px;"><tbody><tr style="height: 1px;" id="units">${teacher_time_table}</tr></tbody></table></div><div class="un-timetable-print-preview__date" style="width: 600px; margin: 5px auto; padding: 2em; background-color: rgb(253, 253, 255); border-radius: 0.5em; box-shadow: rgba(0, 0, 0, 0.02) 2px 3px 7px 2px; color: rgb(51, 51, 51); font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 11px; display: none;">_____</div></full_el>`
+
+
+}).join('')}
+
+
+
+    
+
 function get_ITQ_WebUntis_link(){
 d=new Date;
 function n(p){return 1==(dd=p).length?0+dd:dd};
