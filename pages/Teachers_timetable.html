@@ -291,7 +291,13 @@ document.querySelector('#teacher').innerHTML=Object.keys(Teachers_In_Date[docume
 
     generate_table();
 
-if(location.hash!=''){generate_all_tables()
+if(location.hash!=''){
+
+
+if(location.search!=''){document.querySelector('#e_date').value=location.search.slice(1)}
+
+
+    generate_all_tables()
 
 Array.from(document.getElementsByTagName('full_el')[0].childNodes).map(item => { 
 
