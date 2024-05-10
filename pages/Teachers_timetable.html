@@ -293,21 +293,13 @@ document.querySelector('#teacher').innerHTML=Object.keys(Teachers_In_Date[docume
 
 if(location.hash!=''){generate_all_tables()
 
-
-setTimeout(() => {
 Array.from(document.getElementsByTagName('full_el')[0].childNodes).map(item => { 
 
-if(item.innerHTML.includes(location.hash)){item.scrollIntoView()}
+if(item.innerHTML.includes(location.hash.slice(1))){item.scrollIntoView()}
 
 })
-    
-}, "0");
-                      
-
-
-
-                      
-};
+                   
+}
     
     })
     .catch(error => {
