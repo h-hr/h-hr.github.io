@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Example Domain</title>
+
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
+
+<body><center><div class="un-print-preview__title" style="font-size: 16px; margin-top: 16px; margin-bottom: 8px;">Timetable&nbsp;D1-G01</div><select id="e_date" onchange="generate_table()"><option value="****-**-**">****-**-**</option></select><select id="teacher" onchange="generate_table()"><option value="********">********</option></select><datalist id="brow">
+  <option value="Internet Explorer">
+  </option><option value="Firefox">
+  </option><option value="Chrome">
+  </option><option value="Opera">
+  </option><option value="Safari">
+</option></datalist></center><full_el><div id="timetable" class="def" style="width: 556px; margin: 5em auto; padding: 2em; background-color: rgb(255, 255, 255); border-radius: 0.5em; box-shadow: rgba(0, 0, 0, 0.02) 2px 3px 7px 2px; border-collapse: collapse; font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; text-align: center; font-size: 11px; color: rgb(51, 51, 51); display: table;"><table class="tt def" style="border-collapse: collapse; border: 3px solid black; font-size: 8pt; height: 60px; width: 600px;"><tbody><tr style="height: 1px;" id="units"><td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"></tr><tr></tr></tbody></table></td><td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"></tr><tr></tr></tbody></table></td><td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"></tr><tr></tr></tbody></table></td><td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"></tr><tr></tr></tbody></table></td></tr></tbody></table></div><div class="un-timetable-print-preview__date" style="width: 600px; margin: 5px auto; padding: 2em; background-color: rgb(253, 253, 255); border-radius: 0.5em; box-shadow: rgba(0, 0, 0, 0.02) 2px 3px 7px 2px; color: rgb(51, 51, 51); font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif; font-size: 11px; display: none;">_____</div></full_el><script> function xhr(url){
+const request = new XMLHttpRequest();
+request.open('GET', url, false);
+request.send(null);
+if (request.status === 200) {
+return request.responseText
+}
+}
+
+
+function generate_table(){document.querySelector('#units').innerHTML=Teachers_In_Date[document.querySelector('#e_date').value.split('-').join('')][document.querySelector('#teacher').value].map(item => { 
+    
+Time=`${item[1]}-${item[2]}`;
+
+item[0]=item[0].join().replace(document.querySelector('#teacher').value,'').replace(',,',',').split(',');
+
+Teacher=document.querySelector('#teacher').value;
+
+Room=item[0][item[0].length-1];
+
+Unit=item[0][item[0].length-2];
+
+Group=[item[0][item[0].length-3],item[0][item[0].length-4]].join('  ');
+
+return `<td rowspan="50" class="bl def br A_0_1 ttcell" style="border-collapse: collapse; border: 1px solid black; font-size: 12px; background: rgb(244, 159, 37); cursor: pointer; padding: 1px 2px 0px !important;"><table class="def" style="border-collapse: collapse; height: 53px; width: 127.812px;"><tbody><tr class="def" style="border-collapse: collapse;"><td class="def" style="border-collapse: collapse; padding: 1px 2px 0px !important;"><table class="et A_0_1" style="margin-left: auto; margin-right: auto; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;"><tbody><tr class="def" style="border-collapse: collapse;"><td class="def Z_0_0" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Group}</td><td class="def Z_0_1" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Teacher}</td></tr><tr class="def" style="border-collapse: collapse;"><td class="Z_1_0 def" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Unit}</td><td class="Z_1_1 def" style="border-collapse: collapse; padding: 1px 2px 0px !important;">${Room}</td></tr></tbody></table></td></tr><tr><td class="ti" style="vertical-align: bottom;">${Time}</td></tr></tbody></table></td>`    
+
+ }).join('');  
+}
+
+
+
+function get_ITQ_WebUntis_link(){
+d=new Date;
+function n(p){return 1==(dd=p).length?0+dd:dd};
+datee=`${d.getFullYear()}-${n(d.getMonth()+1)}-${n(d.getDate())}`;
+
+ids=JSON.parse(xhr(`https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}`))
+ids=ids.data.elements
+return ids
+}
+
+
+//`https://herakles.webuntis.com/WebUntis/api/public/timetable/weekly/data?elementType=1&elementId=${eId}&date=${datee}&formatId=4`
+
+get_ITQ_WebUntis_link()
+
+id=[];group=[];for (let index = 0; index < ids.length; index++) {
+    id.push(ids[index].id)    
+group.push(ids[index].name)
+}
+
+
+ all_id = {};
+
+function add_id() {
+   fetchPromises = id.map(idValue => {
+     url = `https://worker-cold-king-07f0.h-hr.workers.dev/?date=${datee}&&elementId=${idValue}`;
+    return fetch(url).then(response => response.json());
+  });
+
+  Promise.all(fetchPromises)
+    .then(responses => {
+      responses.forEach((data, index) => {
+        all_id[id[index]] = data.data.result.data;
+
+idt=all_id[id[index]];
+fid=idt.elementIds[0];
+
+      elements={1:{},2:{},3:{},4:{}};
+for (let index = 0; index < idt.elements.length; index++) {
+elements[idt.elements[index].type][idt.elements[index].id]=idt.elements[index].name
+}
+
+elementPeriods={};
+
+for (let index = 0; index < idt.elementPeriods[fid].length; index++) {
+
+
+elementPeriods[idt.elementPeriods[fid][index].date] = elementPeriods[idt.elementPeriods[fid][index].date] || [];
+
+elementPeriods[idt.elementPeriods[fid][index].date].push([idt.elementPeriods[fid][index].elements,idt.elementPeriods[fid][index].startTime,idt.elementPeriods[fid][index].endTime,idt.elementPeriods[fid][index].date])
+
+
+
+
+
+
+
+}
+
+
+for (let indexo = 0; indexo < Object.keys(elementPeriods).length; indexo++) {
+    
+elementPeriods[Object.keys(elementPeriods)[4]]
+
+for (let index = 0; index < elementPeriods[Object.keys(elementPeriods)[indexo]].length; index++) {
+    
+for (let indexf = 0; indexf < elementPeriods[Object.keys(elementPeriods)[indexo]][index][0].length; indexf++) {
+  
+  
+tv=elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf];
+elementPeriods[Object.keys(elementPeriods)[indexo]][index][0][indexf]=elements[tv.type][tv.id];
+  
+}
+
+
+}
+}
+
+
+for (let indexl = 0; indexl < Object.keys(elementPeriods).length; indexl++) {
+elementPeriods[Object.keys(elementPeriods)[indexl]]=elementPeriods[Object.keys(elementPeriods)[indexl]].sort(function(a, b){
+    return a[1] - b[1];
+});
+}
+
+
+
+
+
+all_id[fid]=elementPeriods 
+
+
+
+});
+
+///
+
+Teachers={};
+
+for (let indexl = 0; indexl < Object.keys(all_id).length; indexl++) {
+    
+for (let indexm = 0; indexm < Object.keys(all_id[Object.keys(all_id)[indexl]]).length; indexm++) {
+    
+for (let indexc = 0; indexc < all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]].length; indexc++) {
+    
+ 
+ Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))]=Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))]||[];
+
+Teachers[all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc][0].filter(item => !item.includes('-') && isNaN(parseInt(item)))].push(all_id[Object.keys(all_id)[indexl]][Object.keys(all_id[Object.keys(all_id)[indexl]])[indexm]][indexc]);
+
+}
+
+
+}
+
+
+}
+
+function combineArrays(jsonObject) {
+  const combinedObject = {};
+
+  for (const key of Object.keys(jsonObject)) {
+    const prefix = key.replace(/,.*$/, ''); 
+    if (combinedObject[prefix]) {
+      combinedObject[prefix] = combinedObject[prefix].concat(jsonObject[key]);
+    } else {
+      combinedObject[prefix] = jsonObject[key];
+    }
+  }
+
+  return combinedObject;
+}
+
+function convertToTimeValue(value) {
+    let hours = Math.floor(value / 100);
+    const minutes = value % 100;
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; 
+    const formattedTime = `${hours}:${minutes < 10 ? '0' : ''}${minutes} ${meridiem}`;
+    return formattedTime;
+}
+
+Teachers=combineArrays(Teachers);
+
+
+
+Teachers_In_Date={};
+
+for (let indexj = 0; indexj < Object.keys(Teachers).length; indexj++) {
+    
+for (let indexq = 0; indexq < Teachers[Object.keys(Teachers)[indexj]].length; indexq++) {
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]]||{};
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]=Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]]||[];
+
+
+
+Teachers_In_Date[Teachers[Object.keys(Teachers)[indexj]][indexq][3]][Object.keys(Teachers)[indexj]].push(Teachers[Object.keys(Teachers)[indexj]][indexq]);
+
+
+}
+
+}
+
+
+
+for (let indexx = 0; indexx < Object.keys(Teachers_In_Date).length; indexx++) {
+    
+for (let inden = 0; inden < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]]).length; inden++) {
+    
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]]=Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexx]])[inden]].filter((arr,index,array)=>{return array.findIndex(a=>JSON.stringify(a)===JSON.stringify(arr))===index}).sort(function(a, b){ return a[1] - b[1]; })
+
+}
+
+}
+
+
+
+
+
+for (let indexy = 0; indexy < Object.keys(Teachers_In_Date).length; indexy++) {
+    
+for (let indexz = 0; indexz < Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]]).length; indexz++) {
+    
+for (let indexl = 0; indexl < Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]].length; indexl++) {
+    
+
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][1]);
+Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]=convertToTimeValue(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]][Object.keys(Teachers_In_Date[Object.keys(Teachers_In_Date)[indexy]])[indexz]][indexl][2]);
+}
+}
+
+}
+
+document.querySelector('#e_date').innerHTML=Object.keys(Teachers_In_Date).map(item => {item=item.substring(0, 4) + '-' + item.substring(4, 6) + '-' + item.substring(6, 8); return `<select><option value="${item}">${item}</option></select>` }).join('');
+
+document.querySelector('#teacher').innerHTML=Object.keys(Teachers_In_Date[document.querySelector('#e_date').value.split('-').join('')]).map(item => { return `<select><option value="${item}">${item}</option></select>` }).join('');      
+
+    
+
+    
+
+    generate_table();
+
+
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+}
+
+
+add_id();
+
+</script></body></html>
