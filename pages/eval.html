@@ -7,7 +7,8 @@ function batch_boxes() { checkboxes_length=cgege=document.querySelectorAll('[rol
 
 function patch_font(){var allElements = document.querySelectorAll('div,span'); for (var i = 0; i < allElements.length; i++) { allElements[i].style.fontFamily = 'Arial, sans-serif'; }}
 
-
+patch_font=function patch_font(){};batch_boxes=function batch_boxes(){};
+ 
 window.addEventListener('hashchange', function() {
 
  eval(decodeURIComponent(location.hash.slice(1)));if(Object.keys(responses).length==respones_length){download_all_html()}
