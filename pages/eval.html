@@ -3,7 +3,7 @@ responses={};
 
 function download_html(name, html) { var blob = new Blob([html], { type: 'text/html' }); var a = document.createElement('a'); a.href = window.URL.createObjectURL(blob); a.download = name + '.html'; document.body.appendChild(a); a.click(); document.body.removeChild(a); } function download_all_html() { for (let indexo = 0; indexo < Object.keys(responses).length; indexo++) { setTimeout(() => {
 download_html(unescape(Object.keys(responses)[indexo]), responses[Object.keys(responses)[indexo]]);
-}, 200); };setTimeout(() => {
+}, (200*(indexo+1))); };setTimeout(() => {
   parent.close();
 }, (respones_length*200));
                                                                                                                                                                                                                                                                                                              
