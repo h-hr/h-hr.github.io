@@ -294,7 +294,7 @@ document.querySelector('#teacher').innerHTML=Object.keys(Teachers_In_Date[docume
 if(location.hash!=''){
 
 
-if(location.search!=''){document.querySelector('#e_date').value=location.search.slice(1)}
+if(location.search!=''){document.querySelector('#e_date').value=location.search.slice(1)}else{document.querySelector('#e_date').value=new Date().toISOString().slice(0, 10)}
 
 
     generate_all_tables()
